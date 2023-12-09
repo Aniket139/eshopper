@@ -23,6 +23,12 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'acts_as_list'
 
+gem 'bootstrap'
+
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'
+
+
 # Country
 gem 'country_select', '~> 4.0'
 
