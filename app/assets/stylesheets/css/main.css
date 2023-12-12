@@ -1,13 +1,12 @@
 ﻿/*************************
 *******Typography******
 **************************/
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+/* @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
-@import url(http://fonts.googleapis.com/css?family=Abel);
+@import url(http://fonts.googleapis.com/css?family=Abel); */
 
 body {
   font-family: "Roboto", sans-serif;
-  /* background: ; */
   position: relative;
   font-weight: 400px;
 }
@@ -143,7 +142,10 @@ a#scrollUp i {
   padding-top: 20px;
 }
 
-.header-middle .container .row .col-sm-4 {
+/home/sapl/workspace/eshopper/eshopper/css.header-middle
+  .container
+  .row
+  .col-sm-4 {
   padding-left: 0;
 }
 
@@ -185,8 +187,7 @@ a#scrollUp i {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
 }
-
-.shop-menu ul li {
+/home/sapl/workspace/eshopper/eshopper/css.shop-menu ul li {
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
