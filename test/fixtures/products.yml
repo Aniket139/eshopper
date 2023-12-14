@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  mrp: 1
+  discount_type: MyString
+  discount_value: 1
+  price: 1.5
+  image: MyString
+  category: one
+  brand: one
+  business: one
+  active: false
+  availability: MyString
+
+two:
+  name: MyString
+  description: MyText
+  mrp: 1
+  discount_type: MyString
+  discount_value: 1
+  price: 1.5
+  image: MyString
+  category: two
+  brand: two
+  business: two
+  active: false
+  availability: MyString

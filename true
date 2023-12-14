@@ -1,0 +1,6 @@
+      invoke  active_record
+      remove    db/migrate/20231214090012_create_cities.rb
+      remove    app/models/city.rb
+      invoke    test_unit
+      remove      test/models/city_test.rb
+      remove      test/fixtures/cities.yml

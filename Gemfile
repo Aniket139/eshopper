@@ -7,6 +7,9 @@ ruby '3.2.0'
 
 gem 'rails', '~> 7.1.2'
 
+#admin
+gem 'activeadmin'
+
 gem 'bootsnap', require: false
 gem 'cocoon'
 gem 'devise'
