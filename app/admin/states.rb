@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register State do
+    menu priority: 3
     permit_params :name, :country_id
   
     index do

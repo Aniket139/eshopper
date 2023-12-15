@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Product do
-    permit_params :name, :description, :mrp, :discount_type, :discount_value, :price, :image, :category_id, :brand_id, :business_id, :active, :availability
+    menu priority: 8
+
+    permit_params :name, :description, :mrp, :discount_type, :discount_value,
+                  :price, :category_id, :brand_id, :business_id, :active, :availability, images: []
+    
     index do
       selectable_column
       id_column
@@ -11,7 +15,6 @@ ActiveAdmin.register Product do
       column :discount_type
       column :discount_value
       column :price
-      column :image
       column :category
       column :brand
       column :business
@@ -36,7 +39,7 @@ ActiveAdmin.register Product do
         f.input :discount_type
         f.input :discount_value
         f.input :price
-        f.input :image, as: :file, input_html: { multiple: true }
+        f.input :images, as: :file, input_html: { multiple: true }
         f.input :category
         f.input :brand
         f.input :business
@@ -45,31 +48,20 @@ ActiveAdmin.register Product do
       end
       f.actions
     end
-
+    
     show do
-      product do
-        row :name
-        row :description
-        row :mrp
-        row :discount_type
-        row :discount_value
-        row :price
-        row :image
-        row :category_id
-        row :brand_id
-        row :business_id
-        row :active
-        row :availability
-        row :created_at
-    end
-
-    product :image do
-      div do
-        product.image.each do |img|
-          div do
-            image_tag url_for(img), size: '200x200'
-          end
+      attributes_table do
+        %i[name description mrp discount_type discount_value price images category brand business active].each do |attr|
+          row attr
         end
+        row :images do
+          div do
+            product.images.each do |img|
+              div do
+                image_tag url_for(img), size: '200x200'
+              end
+            end
+          end
         end
       end
     end

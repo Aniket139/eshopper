@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register City do
+    menu priority: 4
     permit_params :name, :state_id
   
     index do

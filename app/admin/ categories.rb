@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Category do
+    menu priority: 7
     permit_params :name, :description, :business_id, :active
   
     index do

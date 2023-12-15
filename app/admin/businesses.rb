@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Business do
-    permit_params :name, :city_id, :state_id, :country_id, :email, :mobile
+    menu priority: 5
+    permit_params :name, :city_id, :state_id, :country_id, :email, :mobile, :pincode, :landmark, :street
     index do
       selectable_column
       id_column
       column :name
+      column :email
+      column :mobile
+      column :street
+      column :landmark
+      column :pincode
       column :city
       column :state
       column :country
-      column :email
-      column :mobile
       column :created_at
       actions
     end
@@ -22,11 +26,14 @@ ActiveAdmin.register Business do
     form do |f|
       f.inputs do
         f.input :name
+        f.input :email
+        f.input :mobile
+        f.input :street
+        f.input :landmark
+        f.input :pincode
         f.input :city
         f.input :state
         f.input :country
-        f.input :email
-        f.input :mobile
       end
       f.actions
     end

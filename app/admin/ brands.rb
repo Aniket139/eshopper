@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Brand do
+    menu priority: 6
     permit_params :name, :description, :business_id, :active
   
     index do
