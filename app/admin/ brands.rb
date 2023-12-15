@@ -1,25 +1,29 @@
 # frozen_string_literal: true
 
-ActiveAdmin.register State do
-    permit_params :name, :country_id
+ActiveAdmin.register Brand do
+    permit_params :name, :description, :business_id, :active
   
     index do
       selectable_column
       id_column
       column :name
-      column :country
+      column :description
+      column :business
+      column :active
       column :created_at
       actions
     end
   
     filter :name
-    filter :country_id
+    filter :business
     filter :created_at
   
     form do |f|
       f.inputs do
         f.input :name
-        f.input :country
+        f.input :description
+        f.input :business
+        f.input :active
       end
       f.actions
     end

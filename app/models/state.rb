@@ -1,3 +1,4 @@
 class State < ApplicationRecord
-  has_many :city
+  belongs_to :country
+  has_many :cities
 end
