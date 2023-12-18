@@ -36,7 +36,7 @@ ActiveAdmin.register Product do
         f.input :name
         f.input :description
         f.input :mrp
-        f.input :discount_type
+        f.input :discount_type, as: :select, collection: ['Flat Discount', 'Deal of the day']
         f.input :discount_value
         f.input :price
         f.input :images, as: :file, input_html: { multiple: true }
@@ -44,7 +44,7 @@ ActiveAdmin.register Product do
         f.input :brand
         f.input :business
         f.input :active
-        f.input :availability
+        f.input :availability, as: :select, collection: ['In stock', 'Out of stock', 'Limited stock']
       end
       f.actions
     end

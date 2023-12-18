@@ -1,0 +1,39 @@
+.section
+  .container
+    .row
+      .col-sm-3
+        .left-sidebar
+        = render 'home/sidebar'
+      .col-sm-9.padding-right
+        .product-details
+          .col-sm-5
+            .view-product
+              = image_tag url_for(@product.image)
+              %h3 ZOOM
+            -#   Wrapper for slides
+          /  /product-information  
+          .col-sm-7
+            .product-information
+              = image_tag("product-details/new.jpg", alt: "", class: "newarrival")
+              %h2= @product.name
+              %p Web ID: 1089772
+              = image_tag("product-details/rating.png", alt: "")
+              %strong
+                %p
+                %i MRP -
+                %del= @product.mrp
+              %span
+                %span= "₹#{@product.price}"
+                %label Quantity:
+                = text_field_tag(:quantity, 1)
+                = button_tag(class: "btn btn-fefault cart") do
+                  %i.fa.fa-shopping-cart
+                  Add to cart
+              %p
+              %b Availability:
+              =@product.availability
+              %p
+              %b Brand:
+              =@product.brand.name
+              = link_to(image_tag("product-details/share.png", class: "share img-responsive", alt: ""))
+        /  /product-information

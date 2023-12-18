@@ -47,3 +47,335 @@
           %a.right.control-carousel.hidden-xs{"data-slide" => "next", href: "#slider-carousel"}
             %i.fa.fa-angle-right
 / /slider
+%section
+  .container
+    .row
+      .col-sm-3
+        .left-sidebar
+          = render 'home/sidebar'
+      // FEATURES ITEMS
+      .col-sm-9.padding-right
+        .features_items
+          %h2.title.text-center Features Items
+          - @products.each do |product|
+            .col-sm-4
+              .product-image-wrapper
+                .single-products
+                  .productinfo.text-center
+                    - product.images.each do |image|
+                      = image_tag url_for(image)
+                    %h2 $#{product.price}
+                    %p #{product.name}
+                    = link_to "#", class: "btn btn-default add-to-cart" do
+                      %i.fa.fa-shopping-cart
+                      Add to cart
+                  .product-overlay
+                    .overlay-content
+                      %h2 $#{product.price}
+                      %p #{product.name}
+                      = link_to "#", class: "btn btn-default add-to-cart" do
+                        %i.fa.fa-shopping-cart
+                        Add to cart
+                .choose
+                  %ul.nav.nav-pills.nav-justified
+                    %li
+                      = link_to show_product_path(product), class: "add-to-wishlist" do
+                        = content_tag :i, "", class: "fa fa-eye"
+                        show details
+                    %li
+                      = link_to "#", class: "add-to-compare" do
+                        = content_tag :i, "", class: "fa fa-plus-square"
+                        Add to compare
+      // FEATURES ITEMS
+      -#   .category-tab
+      -#     / category-tab
+      -#     .col-sm-12
+      -#       %ul.nav.nav-tabs
+      -#         %li.active
+      -#           %a(data-toggle="tab" href="#tshirt") T-Shirt
+      -#         %li
+      -#           %a(data-toggle="tab" href="#blazers") Blazers
+      -#         %li
+      -#           %a(data-toggle="tab" href="#sunglass") Sunglass
+      -#         %li
+      -#           %a(data-toggle="tab" href="#kids") Kids
+      -#         %li
+      -#           %a(data-toggle="tab" href="#poloshirt") Polo shirt
+      -#     .tab-content
+      -#       #tshirt.tab-pane.fade.active.in
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery1.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery2.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery3.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery4.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#       #blazers.tab-pane.fade
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery4.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery3.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery2.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery1.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#       #sunglass.tab-pane.fade
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery3.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery4.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery1.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery2.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#       #kids.tab-pane.fade
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery1.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery2.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery3.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery4.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#       #poloshirt.tab-pane.fade
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery2.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery4.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery3.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#         .col-sm-3
+      -#           .product-image-wrapper
+      -#             .single-products
+      -#               .productinfo.text-center
+      -#                 %img(alt="" src="images/home/gallery1.jpg")/
+      -#                 %h2 $56
+      -#                 %p Easy Polo Black Edition
+      -#                 %a.btn.btn-default.add-to-cart(href="#")
+      -#                   %i.fa.fa-shopping-cart>
+      -#                   Add to cart
+      -#   / /category-tab
+      -#   .recommended_items
+      -#     / recommended_items
+      -#     %h2.title.text-center recommended items
+      -#     #recommended-item-carousel.carousel.slide(data-ride="carousel")
+      -#       .carousel-inner
+      -#         .item.active
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend1.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend2.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend3.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#         .item
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend1.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend2.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#           .col-sm-4
+      -#             .product-image-wrapper
+      -#               .single-products
+      -#                 .productinfo.text-center
+      -#                   %img(alt="" src="images/home/recommend3.jpg")/
+      -#                   %h2 $56
+      -#                   %p Easy Polo Black Edition
+      -#                   %a.btn.btn-default.add-to-cart(href="#")
+      -#                     %i.fa.fa-shopping-cart>
+      -#                     Add to cart
+      -#       %a.left.recommended-item-control(data-slide="prev" href="#recommended-item-carousel")
+      -#         %i.fa.fa-angle-left
+      -#       %a.right.recommended-item-control(data-slide="next" href="#recommended-item-carousel")
+      -#         %i.fa.fa-angle-right

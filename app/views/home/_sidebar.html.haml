@@ -1,0 +1,36 @@
+.left-sidebar
+  %h2 Category
+  #accordian.panel-group.category-products
+    .panel.panel-default
+      - @categories.each do |category|
+        .panel-heading
+          .panel-title
+            = link_to "#", data: { parent: "#accordian", toggle: "collapse" }, href: "#{category.downcase}" do
+              -# = content_tag :span, class: "badge pull-right" do
+                -#   = content_tag :i, class: "fa fa-plus"
+              = category
+        / /category-products
+        // brands_products
+  %h2 Brands
+  .brands-name
+    %ul.nav.nav-pills.nav-stacked
+      - @brands.each do |brand|
+        - if brand.active
+          %li
+            = link_to "#{brand.name.downcase}" do
+              -# %span.pull-right&gt; #{"(#{brand.  })"}
+              = brand.name
+        / /brands_products
+  .price-range
+    / price-range
+    %h2 Price Range
+    .well.text-center
+      %input#sl2.span2(data-slider-max="600" data-slider-min="0" data-slider-step="5" data-slider-value="[250,450]" type="text" value="")/
+      %br/
+      %b.pull-left $ 0
+      %b.pull-right $ 600
+    / /price-range
+  / /shipping
+  .shipping.text-center
+    = image_tag("home/shipping.jpg", alt: "")
+/ /shipping
