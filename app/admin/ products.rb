@@ -64,6 +64,9 @@ ActiveAdmin.register Product do
           end
         end
       end
-    end
+    end 
+    # def cover_image
+    #   image_tag(Product.find(choice[1]).photos[0].path, :crop=>"scale")
+    # end
 end
   

@@ -1,13 +1,14 @@
 class HomeController < ApplicationController
+  before_action :set_defualt_data
+
   def index
-      @categories = Category.pluck(:name)
-      @brands = Brand.all
-      @products = Product.all
+    @products = Product.all
   end
-  
-  def show
+
+  private
+
+  def set_defualt_data
     @categories = Category.pluck(:name)
     @brands = Brand.all
-    @product = Product.find(params[:id])
   end
 end

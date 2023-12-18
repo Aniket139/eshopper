@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_15_092344) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_18_090515) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_15_092344) do
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
+    t.boolean "cover", default: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
