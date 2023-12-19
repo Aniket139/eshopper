@@ -10,6 +10,12 @@
             .view-product
               = image_tag url_for(@product.image)
               %h3 ZOOM
+            -# .carousel-inner
+            -#   - @product.images.each_with_index do |image, index|
+            -#     %div{class: "item #{'active' if index.zero?}"}
+            -#       - 3.times do
+            -#         %a{href: ""}
+            -#           = image_tag(image, alt: '')
             -#   Wrapper for slides
           /  /product-information  
           .col-sm-7

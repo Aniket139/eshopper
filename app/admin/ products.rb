@@ -60,13 +60,16 @@ ActiveAdmin.register Product do
               div do
                 image_tag url_for(img), size: '200x200'
               end
+              div do
+                check_box_tag 'cover_image', false, disabled: false
+              end
             end
           end
         end
       end
     end 
-    # def cover_image
-    #   image_tag(Product.find(choice[1]).photos[0].path, :crop=>"scale")
-    # end
+    def cover_image
+      product = Product.find_by(params[:id])
+      product.cover_image
+    end
 end
-  
