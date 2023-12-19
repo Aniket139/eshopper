@@ -60,16 +60,29 @@ ActiveAdmin.register Product do
               div do
                 image_tag url_for(img), size: '200x200'
               end
-              div do
-                check_box_tag 'cover_image', false, disabled: false
+              div class: 'cover-checkbox', "data-url":  admin_product_update_cover_path(product, image_id: img.id) do
+                check_box_tag 'cover_image', true, disabled: false
               end
             end
           end
         end
       end
     end 
-    def cover_image
-      product = Product.find_by(params[:id])
-      product.cover_image
-    end
+
+    controller do
+      before_action :set_product, only: :update_cover
+
+      def update_cover
+
+        @product.images.update_all(cover: false)
+        image = @product.images.find_by(id: params[:image_id])
+        image.update(cover: true) if image.present?
+      end
+
+      private
+
+      def set_product
+        @product = Product.find_by(id: params[:id])
+      end
+    end 
 end
