@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_18_090515) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_20_093017) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -150,9 +150,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_090515) do
     t.string "conform_password", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["business_id"], name: "index_customers_on_business_id"
     t.index ["city_id"], name: "index_customers_on_city_id"
     t.index ["country_id"], name: "index_customers_on_country_id"
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
     t.index ["state_id"], name: "index_customers_on_state_id"
   end
 
