@@ -15,16 +15,15 @@
               .product-image-wrapper
                 .single-products
                   .productinfo.text-center
-                    - product.images.each do |image|
-                      = image_tag url_for(image)
-                    %h2 $#{product.price}
+                    = image_tag url_for(product.cover_image), size: "250x300"
+                    %h2 ₹#{product.price}
                     %p #{product.name}
                     = link_to "#", class: "btn btn-default add-to-cart" do
                       %i.fa.fa-shopping-cart
                       Add to cart
                   .product-overlay
                     .overlay-content
-                      %h2 $#{product.price}
+                      %h2 ₹#{product.price}
                       %p #{product.name}
                       = link_to "#", class: "btn btn-default add-to-cart" do
                         %i.fa.fa-shopping-cart

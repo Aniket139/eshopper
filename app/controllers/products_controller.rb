@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
    end
 
    def show
+      @main_image = @product.cover_image
+      @sub_images = @product.images.reject { |image| image == @main_image }
    end
 
    private

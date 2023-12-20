@@ -8,16 +8,22 @@
         .product-details
           .col-sm-5
             .view-product
-              = image_tag url_for(@product.image)
+              = image_tag url_for(@main_image)
               %h3 ZOOM
-            -# .carousel-inner
-            -#   - @product.images.each_with_index do |image, index|
-            -#     %div{class: "item #{'active' if index.zero?}"}
-            -#       - 3.times do
-            -#         %a{href: ""}
-            -#           = image_tag(image, alt: '')
+            %div#similar-product.carousel.slide{:data => {:ride => "carousel"}}
+              %div.carousel-inner
+                - @sub_images.each_with_index do |images, index|
+                  .item{class: index.zero? ? 'active' : ''}
+                    - @sub_images.each do |image|
+                      = link_to image_tag(url_for(image), alt: "", style: 'width: 84px; height: 85px;'), image
+
+              %a.left.item-control{"data-slide" => "prev", :href => "#similar-product"}
+                %i.fa.fa-angle-left
+              %a.right.item-control{"data-slide" => "next", :href => "#similar-product"}
+                %i.fa.fa-angle-right
+
             -#   Wrapper for slides
-          /  /product-information  
+          /  /product-information
           .col-sm-7
             .product-information
               = image_tag("product-details/new.jpg", alt: "", class: "newarrival")
@@ -28,6 +34,7 @@
                 %p
                 %i MRP -
                 %del= @product.mrp
+                -# %p{style: 'color: red'}= @product.discount_type
               %span
                 %span= "₹#{@product.price}"
                 %label Quantity:

@@ -27,7 +27,7 @@ ActiveAdmin.register Product do
   
     filter :name
     filter :brand
-    filter :category
+    filter :category_id
     filter :business
     filter :created_at
   
@@ -40,7 +40,7 @@ ActiveAdmin.register Product do
         f.input :discount_value
         f.input :price
         f.input :images, as: :file, input_html: { multiple: true }
-        f.input :category
+        f.input :category.name
         f.input :brand
         f.input :business
         f.input :active
