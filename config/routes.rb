@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :customers, controllers: { sessions: 'customers/sessions' }
+  devise_for :customers, path: 'customer', path_names: {
+    sign_in: 'login', sign_out: 'logout', sign_up: 'signup'
+  }, controllers: {
+    sessions: 'authentication/sessions',
+    passwords: 'authentication/passwords'
+  }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self) 
   namespace :admin do
