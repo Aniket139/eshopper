@@ -1461,7 +1461,8 @@ h2.title {
   margin-bottom: 10px;
   outline: medium none;
   padding-left: 10px;
-  width: 100%;
+  width: 40%;
+  border: #0083C9 1px solid;
 }
 
 .login-form form span{
@@ -1470,8 +1471,8 @@ h2.title {
 
 .login-form form span input {
   width: 15px;
-  float: left;
   height: 15px;
+  float: left;
   margin-right: 5px;
 }
 
