@@ -81,9 +81,14 @@
                   %i.fa.fa-shopping-cart
                   Cart
               %li
-                %a{href: "login.html"}
-                  %i.fa.fa-lock
-                  Login
+                - if current_customer.present?
+                  %a{href: destroy_customer_session_path, 'data-method': 'delete'}
+                    %i.fa.fa-power-off
+                    Logout
+                - else
+                  = link_to new_customer_session_path do
+                    %i.fa.fa-lock
+                    Login
   / /header-middle
   .header-bottom
     / header-bottom
@@ -114,7 +119,7 @@
                   %li
                     %a{href: "cart.html"} Cart
                   %li
-                    %a{href: "login.html"} Login
+                    = link_to 'Login', new_customer_session_path
               %li.dropdown
                 %a{href: "#"}
                   Blog
@@ -130,6 +135,6 @@
                 %a{href: "contact-us.html"} Contact
         .col-sm-3
           .search_box.pull-right
-            %input{placeholder: "Search", type: "text"}/
+            %input{placeholder: "Search", type: "text"}
   / /header-bottom
 / /header

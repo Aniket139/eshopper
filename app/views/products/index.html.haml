@@ -18,14 +18,14 @@
                     = image_tag url_for(product.cover_image), size: "250x300"
                     %h2 ₹#{product.price}
                     %p #{product.name}
-                    = link_to "#", class: "btn btn-default add-to-cart" do
+                    = link_to cart_path(product), class: "btn btn-default add-to-cart" do
                       %i.fa.fa-shopping-cart
                       Add to cart
                   .product-overlay
                     .overlay-content
                       %h2 ₹#{product.price}
                       %p #{product.name}
-                      = link_to "#", class: "btn btn-default add-to-cart" do
+                      = link_to cart_path(product), class: "btn btn-default add-to-cart" do
                         %i.fa.fa-shopping-cart
                         Add to cart
                 .choose

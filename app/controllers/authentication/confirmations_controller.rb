@@ -2,7 +2,7 @@
 
 
 module Authentication
-  class Customers::ConfirmationsController < Devise::ConfirmationsController
+  class ConfirmationsController < Devise::ConfirmationsController
     # GET /resource/confirmation/new
     # def new
     #   super

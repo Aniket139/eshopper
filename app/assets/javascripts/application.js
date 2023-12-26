@@ -4,3 +4,4 @@
 //=require js/price-range
 //=require js/jquery.prettyPhoto
 //=require js/main
+//=require cart

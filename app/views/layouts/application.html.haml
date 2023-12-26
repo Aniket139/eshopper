@@ -5,6 +5,7 @@
     %title Eshopper
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     = csrf_meta_tags
+    = csrf_meta_tag
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
   %body
@@ -12,3 +13,4 @@
     = yield
     = render 'layouts/footer'
     = javascript_include_tag "application", "data-turbo-track": "reload"
+    = yield :js_code  

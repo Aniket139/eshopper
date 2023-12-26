@@ -11,31 +11,46 @@
             = f.password_field :password, autocomplete: "new-password", placeholder: "new-password"
             -# = error_messages_for(f.object, :password)
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirm-password"
-            = f.label :country_id
-            = f.collection_select :country_id, Country.all, :id, :name
-            = f.label :state_id
-            = f.grouped_collection_select :state_id, Country.all, :states, :name, :id, :name
-            = f.label :city_id
-            = f.grouped_collection_select :city_id, State.all, :cities, :name, :id, :name
-            -# = f.label :business_id
-            -# = f.grouped_collection_select :business_id, Business.all
 
-            -# = f.label :country_id, class: 'col-form-label required' do
-            -#   Country
-            -#   %span  
-            -#   %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'Country'}
-            -# = f.select :country_id, options_for_select(country_name, @Country&.name), { required: true }, class: 'form-control', style: 'width:40%'
+            = f.label :country_id, class: 'col-form-label required' do
+              Country
+              %span
+              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'Country'}
+            = f.select :country_id, options_for_select(country_name, @Country&.name), { required: true }, class: 'form-control', style: 'width:40%'
 
-            -# = f.label :state_id, class: 'col-form-label required' do
-            -#   State
-            -#   %span
-            -#   %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'State'}
-            -# = f.select :state_id, options_for_select(state, @state&.name), { required: true }, class: 'form-control', style: 'width:40%'
+            = f.label :state_id, class: 'col-form-label required' do
+              State
+              %span
+              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'State'}
+            = f.select :state_id, options_for_select(state, @state&.name), { required: true }, class: 'form-control', style: 'width:40%'
 
-            -# = f.label :country_id, class: 'col-form-label required' do
-            -#   City
-            -#   %span
-            -#   %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'City'}
-            -# = f.select :country_id, options_for_select(city, @city&.name), { required: true }, class: 'form-control', style: 'width:40%'
+            = f.label :city_id, class: 'col-form-label required' do
+              City
+              %span
+              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'City'}
+            = f.select :city_id, options_for_select(city, @city&.name), { required: true }, class: 'form-control', style: 'width:40%'
+            = f.hidden_field :business_id, value: "#{@business.id}"
             = f.button "Signup", type: "submit"
           = render "devise/shared/links"
+- content_for :js_code do
+  :javascript
+    $(document).ready(function () {
+      $('#customer_country_id').on('change', function() {
+        var countryId = $(this).val();
+
+        $.ajax({
+          type: 'GET',
+          url: '/states',
+          data: { country_id: countryId },
+          dataType: 'json',
+
+          success: function(data) {
+            var options = '<option value="">Select State</option>';
+            $.each(data, function(index, state) {
+              options += '<option value="' + state.id + '">' + state.name + '</option>';
+            });
+            $('#customer_state_id').html(options);
+          },
+        });
+      });
+    });
