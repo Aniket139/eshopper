@@ -1,13 +1,13 @@
 class AutocompleteController < ApplicationController
 
-  def country
-    @country = Country.find(params[:id])
-    states = State.where(country_id: @country)
+  def states
+    @country = Country.find_by(id: params[:country_id])
+    states = @country.states if @country.present?
     render json: states
   end
 
   def cities
-    @state = State.find(params[:id])
+    @state = State.find_by(id: params[:state_id])
     @cities = @state.cities
     render json: @cities
   end

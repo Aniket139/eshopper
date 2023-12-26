@@ -16,7 +16,7 @@
               Country
               %span
               %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'Country'}
-            = f.select :country_id, options_for_select(country_name, @Country&.name), { required: true }, class: 'form-control', style: 'width:40%'
+            = f.select :country_id, options_for_select(country_name, @country&.name), { required: true }, class: 'form-control', style: 'width:40%'
 
             = f.label :state_id, class: 'col-form-label required' do
               State
@@ -40,7 +40,7 @@
 
         $.ajax({
           type: 'GET',
-          url: '/states',
+          url: '/autocomplete/states',
           data: { country_id: countryId },
           dataType: 'json',
 
@@ -51,6 +51,23 @@
             });
             $('#customer_state_id').html(options);
           },
-        });
+        });        
       });
+      $('#customer_state_id').on('change', function() {
+        var stateId = $(this).val();
+          $.ajax({
+            type: 'GET',
+            url: '/autocomplete/cities',
+            data: { state_id: stateId },
+            dataType: 'json',
+
+            success: function(data) {
+              var options = '<option value="">Select State</option>';
+              $.each(data, function(index, city) {
+                options += '<option value="' + city.id + '">' +city.name + '</option>';
+              });
+              $('#customer_city_id').html(options);
+            },  
+          });
+        });    
     });

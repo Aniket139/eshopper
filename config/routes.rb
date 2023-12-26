@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   end
 
   namespace :autocomplete do
-    get 'country'
-    get 'state'
-    get 'city'
+    get 'countries'
+    get 'states'
+    get 'cities'
   end
 
   root "home#index"
