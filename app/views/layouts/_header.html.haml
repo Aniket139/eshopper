@@ -65,9 +65,14 @@
           .shop-menu.pull-right
             %ul.nav.navbar-nav
               %li
-                %a{href: "#"}
-                  %i.fa.fa-user
-                  Account
+                - if current_customer
+                  = link_to customer_path(id: current_customer.id) do
+                    %i.fa.fa-user
+                    Account
+                - else
+                  = link_to new_customer_session_path do
+                    %i.fa.fa-user
+                    Account
               %li
                 %a{href: "#"}
                   %i.fa.fa-star

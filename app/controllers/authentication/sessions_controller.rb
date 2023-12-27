@@ -3,5 +3,6 @@
 module Authentication
 
   class SessionsController < Devise::SessionsController
+
   end
 end

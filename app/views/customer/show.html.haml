@@ -1,0 +1,42 @@
+= stylesheet_link_tag "index"
+
+.container.mt-4.mb-4.p-3.d-flex.justify-content-center
+%center
+  .card.p-4
+    .image.d-flex.flex-column.justify-content-center.align-items-center
+      %button.btn.btn-secondary
+        %img.rounded-circle.mt-5{src: "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg", width: "150px"}
+    %br
+    %br
+    %span.name.mt-3
+      = @customer.first_name
+    %br
+    %span.idd
+      = @customer.email
+    %br
+    %br
+    .d-flex.flex-row.justify-content-center.align-items-center.gap-2
+    %span.idd1 Oxc4c16a645_b21a
+    %span
+    %i.fa.fa-copy
+    %br
+    %br
+    .d-flex.mt-2
+      %button.btn1.btn-dark
+        = link_to edit_customer_path(id: current_customer.id) do
+          Edit Profile
+    %br
+    %br
+    .gap-3.mt-3.icons.d-flex.flex-row.justify-content-center.align-items-center
+      %span
+        %i.fa.fa-twitter
+      %span{:style => "margin-left: 20px;"}
+        %i.fa.fa-facebook-f
+      %span{:style => "margin-left: 20px;"}
+        %i.fa.fa-instagram
+      %span{:style => "margin-left: 20px;"}
+        %i.fa.fa-linkedin
+    .px-2.rounded.mt-4.date
+      %span.join 
+%br
+%br

@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   root "home#index"
   get '/cart', to: 'cart#show'
   resources :cart, only: :show
+  resources :customer
   resources :products, only: %i[index show]
 end
