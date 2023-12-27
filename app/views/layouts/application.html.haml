@@ -9,8 +9,9 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
   %body
+    = yield :css_file
     = render 'layouts/header'
     = yield
     = render 'layouts/footer'
     = javascript_include_tag "application", "data-turbo-track": "reload"
-    = yield :js_code  
+    = yield :js_file  

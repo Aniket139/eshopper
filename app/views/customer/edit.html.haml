@@ -1,4 +1,3 @@
-= stylesheet_link_tag "edit_profile"
 .container.rounded.bg-white.mt-5.mb-5
   .row
     .col-md-3.border-dark
@@ -80,3 +79,8 @@
                 .text-danger= message
           .mt-5.text-center
             = form.submit 'Save Profile', class: 'btn btn-primary profile-button'
+
+- content_for :css_file do
+  = stylesheet_link_tag 'profile/edit_profile', 'data-turbolinks-track': 'reload'
+- content_for :js_file do
+  = javascript_include_tag 'sign_up/dropdown', 'data-turbolinks-track': 'reload'
