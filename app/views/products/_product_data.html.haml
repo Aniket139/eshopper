@@ -1,0 +1,28 @@
+- products.each do |product|
+  .col-sm-4
+    .product-image-wrapper
+      .single-products
+        .productinfo.text-center
+          = image_tag url_for(product.cover_image), size: "250x300"
+          %h2 ₹#{product.price}
+          %p #{product.name}
+          = link_to cart_path(product), class: "btn btn-default add-to-cart" do
+            %i.fa.fa-shopping-cart
+            Add to cart
+        .product-overlay
+          .overlay-content
+            %h2 ₹#{product.price}
+            %p #{product.name}
+            = link_to cart_path(product), class: "btn btn-default add-to-cart" do
+              %i.fa.fa-shopping-cart
+              Add to cart
+      .choose
+        %ul.nav.nav-pills.nav-justified
+          %li
+            = link_to product_path(product), class: "add-to-wishlist" do
+              = content_tag :i, "", class: "fa fa-eye"
+              show details
+          %li
+            = link_to "#", class: "add-to-compare" do
+              = content_tag :i, "", class: "fa fa-plus-square"
+              Add to compare
