@@ -11,16 +11,17 @@
         .features_items
           %h2.title.text-center Features Items
           #product-data
-            = render partial: 'product_data', locals: { products : @products }
+            = render partial: 'product_data', locals: { products: @products }
 - content_for :js_code do
   :javascript
     $('.brand-filter').click(function(){
       var brandId = $(this).attr("data-brand-id");
       $.ajax({
         type: 'GET',
-        url: '/products',
-        data: { brand_id: brandId },
-        dataType: 'js',
+        url: '/products.js',
+        data: { 
+        brand_id: brandId
+        },
         success: function (data) {}  
       });
     });    
