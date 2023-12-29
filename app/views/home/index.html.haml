@@ -58,7 +58,7 @@
         .features_items
           %h2.title.text-center Features Items
           #product-data
-            = render 'products/product_data'
+            = render partial: 'products/product_data', locals: { products: @products }
             
       -#   / /category-tab
       -#   .recommended_items

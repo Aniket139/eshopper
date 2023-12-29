@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
 
    def index
      @products = Product.all
-     @products = @products.where(brand: params[:brand]) if params[:brand].present?
-     @products = @products.where(category_id: params[:category]) if params[:category].present?
+     @products = @products.where(brand_id: params[:brand_id]) if params[:brand_id].present?
+     @products = @products.where(category_id: params[:category_id]) if params[:category_id].present?
      respond_to do |format|
       format.html
       format.js
