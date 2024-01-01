@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   private
 
   def set_defualt_data
-    @categories = Category.pluck(:name)
+    @categories = Category.all
     @brands = Brand.all
   end
 end

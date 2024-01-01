@@ -50,3 +50,5 @@
               =@product.brand.name
               = link_to(image_tag("product-details/share.png", class: "share img-responsive", alt: ""))
         /  /product-information
+- content_for :js_file do
+  = javascript_include_tag 'product_filter/filter', 'data-turbolinks-track': 'reload'
