@@ -12,7 +12,7 @@ class CartController < ApplicationController
   private
 
   def set_addcart
-    @product_cart = Product.find_by(id: params[:id])
+    @product_cart = Product.find_by(id: 2)
     return unless @product_cart.blank?
  
     redirect_to products_path
