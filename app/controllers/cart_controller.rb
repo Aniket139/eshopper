@@ -6,14 +6,14 @@ class CartController < ApplicationController
   end
 
   def show
-    @main_image = @product_cart.cover_image
+    @main_image = @cart.cover_image
   end
   
   private
 
   def set_addcart
-    @product_cart = Product.find_by(id: 2)
-    return unless @product_cart.blank?
+    @cart = Product.find_by(id: 2)
+    return unless @cart.blank?
  
     redirect_to products_path
    end

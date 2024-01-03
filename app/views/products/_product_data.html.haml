@@ -6,14 +6,14 @@
           = image_tag url_for(product.cover_image), size: "250x300"
           %h2 ₹#{product.price}
           %p #{product.name}
-          = link_to cart_path(product), class: "btn btn-default add-to-cart" do
+          %button.btn.btn-default.add-to-cart{"data-product-id" => "#{product.id}", "data-remote" => "true", type: "button"}
             %i.fa.fa-shopping-cart
             Add to cart
         .product-overlay
           .overlay-content
             %h2 ₹#{product.price}
             %p #{product.name}
-            = link_to cart_path(product), class: "btn btn-default add-to-cart" do
+            %button.btn.btn-default.add-to-cart{"data-product-id" => "#{product.id}", "data-remote" => "true", type: "button"}
               %i.fa.fa-shopping-cart
               Add to cart
       .choose
@@ -26,3 +26,22 @@
             = link_to "#", class: "add-to-compare" do
               = content_tag :i, "", class: "fa fa-plus-square"
               Add to compare
+
+- content_for :js_code do
+  :javascript
+    $(document).ready(function() {
+      $('.add-to-cart').click(function() {
+        var productId = $(this).attr("data-product-id");
+        console.log(productId);
+        $.ajax({
+          url: '/cart.js',
+          type: 'POST',
+          data: { product_id: productId },
+          success: function(response) {
+            $('#cart-total').text(response.cart_total);
+            alert('Product added to cart successfully!');
+          },
+        });
+      }); 
+    });
+
