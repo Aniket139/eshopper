@@ -5,8 +5,14 @@ class CartController < ApplicationController
   def index
   end
 
-  def show
+  def create
     @main_image = @cart.cover_image
+  end
+
+  def update
+  end
+
+  def destory
   end
   
   private

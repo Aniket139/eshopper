@@ -5,3 +5,4 @@
 //=require js/jquery.prettyPhoto
 //=require js/main
 //=require cart
+//=require notify/notify

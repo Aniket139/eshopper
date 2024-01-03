@@ -8,7 +8,7 @@ module Authentication
     def create
       @customer = Customer.create(sign_up_params)
       if @customer.persisted?
-        flash[:notice] = 'Signup successful!'
+        flash[:success] = 'Signup successful!'
         redirect_to root_path
       else
         render :new
