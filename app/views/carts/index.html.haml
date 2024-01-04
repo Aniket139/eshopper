@@ -1,0 +1,39 @@
+%section#cart_items
+  .container
+    .breadcrumbs
+      %ol.breadcrumb
+        %li
+          = link_to 'Home', root_path
+        %li.active Shopping Cart
+    .table-responsive.cart_info
+      %table.table.table-condensed
+        %thead
+          %tr.cart_menu
+            %td.image Item
+            %td.description Description
+            %td.price Price
+            %td.quantity Quantity
+            %td.total Total
+            %td
+        %tbody
+          -@carts.each do |item|
+            %tr
+              %td.cart_product
+                = link_to "" do
+                  = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
+                %td.cart_description
+                  %h4
+                    %a(href="")=item.product.name
+                %td.cart_pricex
+                  %p= "₹#{item.product.price}"
+                %td.cart_quantity
+                  .cart_quantity_button
+                    %a.cart_quantity_up(href="")+
+                    %input.cart_quantity_input(autocomplete="off" name="quantity" size="2" type="text" value="1")
+                    %a.cart_quantity_down(href="")-
+                %td.cart_total
+                  %p.cart_total_price
+                %td.cart_delete
+                  = link_to cart_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
+                    %i.fa.fa-times
+

@@ -34,7 +34,7 @@
         var productId = $(this).attr("data-product-id");
         console.log(productId);
         $.ajax({
-          url: 'cart/create.js',
+          url: 'carts.js',
           type: 'POST',
           data: { product_id: productId },
           success: function(response) {
