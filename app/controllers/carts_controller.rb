@@ -1,17 +1,18 @@
-class CartController < ApplicationController
+class CartsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
   before_action :authenticate_customer!
-  before_action :set_cart
+  before_action :set_cart, only: %i[update destory]
 
   def index
     @carts = current_customer.carts
   end
 
   def create
-    @cart = current_customer.carts.new(product_id: product.id)
+    @cart = current_customer.carts.new(product_id: params[:product_id])
     if @cart.save
       flash[:success] = "Product added to cart successfully!"
     else
-      flash[:alert] = ""
+      flash[:alert] = "Product not add to cart"
     end
     respond_to do |format|
       format.js { render inline: "window.location.reload();" }
@@ -41,5 +42,5 @@ class CartController < ApplicationController
     return if @cart.present?
 
     redirect_to carts_path
-  end
+  end  
 end

@@ -1,5 +1,4 @@
 class AutocompleteController < ApplicationController
-
   def states
     @country = Country.find_by(id: params[:country_id])
     states = @country.states if @country.present?
