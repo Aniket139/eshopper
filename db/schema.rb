@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_03_094950) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_03_115851) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -96,7 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_094950) do
   create_table "carts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "product_id", null: false
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_carts_on_customer_id"

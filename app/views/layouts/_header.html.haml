@@ -82,9 +82,10 @@
                   %i.fa.fa-crosshairs
                   Checkout
               %li
-                %a{href: "cart.html"}
-                  %i.fa.fa-shopping-cart
-                  Cart
+                - if current_customer
+                  = link_to carts_path(id: current_customer.id) do
+                    %i.fa.fa-shopping-cart
+                    Cart
               %li
                 - if current_customer.present?
                   %a{href: destroy_customer_session_path, 'data-method': 'delete'}

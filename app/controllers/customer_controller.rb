@@ -1,7 +1,6 @@
 class CustomerController < ApplicationController
 
   def index
-   
   end
   
   def show
