@@ -19,12 +19,12 @@
           %tr
             %td.cart_product
               = link_to "" do
-                = image_tag url_for(@main_image), alt: "", size: "120x100"
+                -# = image_tag url_for(@products.image), alt: "", size: "120x100"
               %td.cart_description
                 %h4
-                  %a(href="")=@cart.name
+                  %a(href="")=@products.name
               %td.cart_price
-                %p= "₹#{@cart.price}"
+                %p= "₹#{@products.price}"
               %td.cart_quantity
                 .cart_quantity_button
                   %a.cart_quantity_up(href="")+
@@ -33,5 +33,5 @@
               %td.cart_total
                 %p.cart_total_price
               %td.cart_delete
-                -# = link_to 'Remove', cart_path(@cart.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
-                -#   %i.fa.fa-times
+                = link_to 'Remove', carts_path(@cart.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
+                  %i.fa.fa-times
