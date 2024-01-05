@@ -4,5 +4,6 @@
 //=require js/price-range
 //=require js/jquery.prettyPhoto
 //=require js/main
-//=require cart
 //=require notify/notify
+//= require turbolinks
+//= require_tree .
