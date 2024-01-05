@@ -20,10 +20,10 @@ class CartsController < ApplicationController
   end
 
   def update
-    if @cart.update(quantity: params[:quantity])
-      flash[:success] = "upadate"
+    if @cart.update(quantity: @cart.quantity.to_i + 1)
+      flash[:success] = "update"
     else
-      flash[:alert] = "not upadate"
+      flash[:alert] = "not update"
     end
     respond_to do |format|
       format.js { render inline: "window.location.reload();" }
