@@ -1,5 +1,4 @@
 //= require active_admin/base
-
 $(document).ready(function () {
   $(".cover-checkbox").on("click", function (event) {
     console.log("hello");

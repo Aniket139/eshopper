@@ -1,9 +1,9 @@
-//=require js/jquery
-//=require js/bootstrap.min
-//=require js/jquery.scrollUp.min
-//=require js/price-range
-//=require js/jquery.prettyPhoto
-//=require js/main
-//=require notify/notify
+//= require js/jquery
+//= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require notify/notify
+//= require js/bootstrap.min
+//= require js/jquery.scrollUp.min
+//= require js/price-range
+//= require js/jquery.prettyPhoto
+//= require js/main

@@ -22,17 +22,17 @@
                 = link_to "" do
                   = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
               %td.cart_description
-                %h4
+                %h6
                   %a(href="")=item.product.name
               %td.cart_price
                 %p= "₹#{item.product.price}"
               %td.cart_quantity
                 .cart_quantity_button
                   %a.cart_quantity_up{"data-cart-id" => "#{item.id}"}+
-                  %input.cart_quantity_input(autocomplete="off" name="quantity" size="2" type="text" value="#{item.quantity.to_i}")
-                  %a.cart_quantity_down-
+                  %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
+                  %a.cart_quantity_down{"data-cart-id" => "#{item.id}"} -
               %td.cart_total
-                %p.cart_total_price= item.product.price * item.quantity.to_i
+                %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
               %td.cart_delete
                 = link_to cart_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
                   %i.fa.fa-times
@@ -44,28 +44,36 @@
               %ul
                 %li
                   Cart Sub Total
-                  %span 
+                  %span= "₹#{@total_cart_price}"
                 %li
                   Eco Tax
-                  %span $2
+                  %span= "₹#{@eco_tax}"
                 %li
                   Shipping Cost
-                  %span Free
+                  %span= @shipping_cost
                 %li
                   Total
-                  %span $61
-              %a.btn.btn-default.update{href: ""} Update
-              %a.btn.btn-default.check_out{href: ""} Check Ou         
+                  %span="₹#{@total_price}"
+              %a.btn.btn-default.check_out{href: ""} Check Out         
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
       $('.cart_quantity_up').click(function() {
         var cartId = $(this).attr("data-cart-id");
         $.ajax({
-          url: '/carts/'+ cartId + '.js',
+          url: '/carts/'+ cartId + '.js?type=increase',
           type: 'PUT',
           success: function(response) {
           },
         });
       }); 
-    });t    
+      $('.cart_quantity_down').click(function() {
+        var cartId = $(this).attr("data-cart-id");
+        $.ajax({
+          url: '/carts/'+ cartId + '.js?type=decrease',
+          type: 'PUT',
+          success: function(response) {
+          },
+        });
+      });  
+    });
