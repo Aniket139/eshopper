@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_03_115851) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_08_085907) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -175,7 +175,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_115851) do
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
-    t.date "date"
     t.bigint "customer_id", null: false
     t.text "street", size: :tiny
     t.integer "pincode"
@@ -188,6 +187,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_115851) do
     t.string "payment_method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cancel_by"
+    t.string "cancel_reason"
+    t.string "delivery_notes"
+    t.string "payment_details"
+    t.decimal "sub_total", precision: 10
+    t.string "discount_type"
+    t.decimal "discount_value", precision: 10
+    t.decimal "total", precision: 10
     t.index ["city_id"], name: "index_orders_on_city_id"
     t.index ["country_id"], name: "index_orders_on_country_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"

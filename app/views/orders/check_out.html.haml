@@ -41,16 +41,15 @@
         .col-sm-5.clearfix
           .bill-to
             %p Bill To
+          = form_with model: @order do |form|
             .form-one
               %form
-                %input{placeholder: "Company Name", type: "text"}
-                %input{placeholder: "Email*", type: "text"}
-                %input{placeholder: "Title", type: "text"}
-                %input{placeholder: "First Name *", type: "text"}
+                = form.text_field :first_name, placeholder: 'First name'
                 %input{placeholder: "Middle Name", type: "text"}
                 %input{placeholder: "Last Name *", type: "text"}
-                %input{placeholder: "Address 1 *", type: "text"}
-                %input{placeholder: "Address 2", type: "text"}
+                %input{placeholder: "Email*", type: "text"}
+                %input{placeholder: "street *", type: "text"}
+                %input{placeholder: "", type: "text"}
             .form-two
               %form
                 %input{placeholder: "Zip / Postal Code *", type: "text"}
