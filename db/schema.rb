@@ -21,8 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_085907) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"payment_method
   end
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
