@@ -1734,9 +1734,8 @@ select,
 textarea {
   background: #f0f0e9;
   border: 0;
-  color: #696763;
   padding: 5px;
-  width: 100%;
+  width: 40%;
   border-radius: 0;
   resize: none;
 }

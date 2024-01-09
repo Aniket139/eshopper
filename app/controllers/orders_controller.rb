@@ -18,8 +18,7 @@ class OrdersController < ApplicationController
   private
 
   def create_order_params
-    params.require(:order).permit(:first_name, :middle_name, :last_name, :email,
-                                  :mobile, :street, :landmark, :pincode,
-                                  :city_id, :state_id, :country_id)
+    params.require(:order).permit(:street, :landmark, :pincode,
+                                  :city_id, :state_id, :country_id, :mobile)
   end
 end

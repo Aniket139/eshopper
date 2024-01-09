@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   resources :carts
   resources :customer
   resources :products, only: %i[index show]
-  resources :orders
+  # resources :orders
   get '/orders/check_out', to: 'orders#check_out'
 end
