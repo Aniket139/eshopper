@@ -14,15 +14,11 @@
       = form_with url: "orders_path", method: :post do |form|
         %ul.nav
           %li
-            = form.radio_button :customer, 'Register Account', checked: true 
+            = form.radio_button :customer, 'Register Account', class: 'address-order', checked: true 
             = form.label :customer_register, 'Register Account'
           %li
-            = form.radio_button :customer, 'Guest Checkout'
+            = form.radio_button :customer, 'Guest Checkout', class: 'address-order'
             = form.label :customer_guest, 'Guest Checkout'
-          %li
-            %a{href: ""}
-            %i.fa.fa-times
-            Cancel
         .register-req
           %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
         .shopper-informations
@@ -32,20 +28,20 @@
                 %p Bill To
                 .form-two
                   %form
-                    = form.text_field :street, placeholder: 'Street', value: current_customer.street
+                    = form.text_field :street, placeholder: 'Street', "data-street": current_customer.street 
                   %br
                   %br
-                    = form.text_field :landmark, placeholder: 'Landmark', value: current_customer.landmark
+                    = form.text_field :landmark, placeholder: 'Landmark', "data-landmark": current_customer.landmark
                   %br
-                    = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', value: current_customer.pincode
+                    = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', "data-pincode": current_customer.pincode
                   %br
-                    = form.select :city_id, options_for_select(city, @city&.name), value: current_customer.city_id
+                    = form.select :city_id, options_for_select(city, @city&.name), "data-city-id": current_customer.city_id
                   %br
-                    = form.select :state_id, options_for_select(state, @state&.name), value: current_customer.state_id
+                    = form.select :state_id, options_for_select(state, @state&.name), "data-state_id": current_customer.state_id
                   %br
-                    = form.select :country_id, options_for_select(country_name, @country&.name), value: current_customer.country_id
+                    = form.select :country_id, options_for_select(country_name, @country&.name), "data-country_id": current_customer.country_id
                   %br
-                    = form.text_field :mobile,  placeholder: 'Mobile', value: current_customer.mobile
+                    = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile
         .review-payment
           %h2 Review  Payment
         .table-responsive.cart_info
@@ -71,14 +67,9 @@
                     %p= "₹#{item.product.price}"
                   %td.cart_quantity
                     .cart_quantity_button
-                      %a.cart_quantity_up{"data-cart-id" => "#{item.id}"}+
                       %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
-                      %a.cart_quantity_down{"data-cart-id" => "#{item.id}"} -
                   %td.cart_total
                     %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
-                  %td.cart_delete
-                    = link_to cart_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
-                      %i.fa.fa-times
         %section#do_action
           .container
             .row
@@ -86,17 +77,17 @@
                 .total_area
                   %ul
                     %li
-                      Sub Total 
-                      %span= "₹#{@total_cart_price}"
+                      Sub Total
+                      %span= "₹#{@total_cart_price = current_customer.carts.sum { |item| item.product.price * item.quantity.to_i }}" 
                     %li
                       Eco Tax
-                      %span= "₹#{@eco_tax}"
+                      %span= "₹#{@eco_tax = @total_cart_price * 2 / 100}"
                     %li
                       Shipping Cost
-                      %span= @shipping_cost
+                      %span= @shipping_cost = @total_cart_price > 1000 ? "free" : 50
                     %li
                       Total
-                      %span="₹#{@total_price}"
+                      %span= @total_price = @total_cart_price + @eco_tax + @shipping_cost.to_i
         .payment-options
           %span
             = form.radio_button :payment_method, 'Bank Account'
@@ -112,13 +103,30 @@
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
-      $('input[type=radio][name=customer]').change(function() {
-        if (this.value == 'Guest Checkout') {
-          console.log("Guest Checkout");
-          $(':input').val('');
-        }else if (this.value == 'Register Account') {
-          console.log("Register Account");
-          $('#street').val();
+      $('input[type=radio][name=customer]').on('change', function() {
+        if (this.value === 'Register Account') {
+          street_val = $('#street').attr('data-street');
+          landmark_val = $('#landmark').attr('data-landmark');
+          pincode_val = $('#pincode').attr('data-pincode');
+          city_val = $('#city_id').attr('data-city-id');
+          state_val = $('#state_id').attr('data-state_id');
+          country_val = $('#country_id').attr('data-country_id');
+          mobile_val = $('#mobile').attr('data-Mobile');
+          $('#street').val(street_val);
+          $('#landmark').val(landmark_val);
+          $('#pincode').val(pincode_val);
+          $('#city_id').val(city_val);
+          $('#state_id').val(state_val);
+          $('#country_id').val(country_val);
+          $('#mobile').val(mobile_val);    
+        }else if (this.value === 'Guest Checkout') {
+          $('#street').val("");
+          $('#landmark').val("");
+          $('#pincode').val("");
+          $('#city_id').val("");
+          $('#state_id').val("");
+          $('#country_id').val("");
+          $('#mobile').val("");
         } 
       });
     });
