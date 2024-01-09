@@ -11,175 +11,114 @@
     .checkout-options
       %h3 New User
       %p Checkout options
-      %ul.nav
-        %li
-          %label
-            %input{type: "checkbox"} Register Account
-        %li
-          %label
-            %input{type: "checkbox"} Guest Checkout
-        %li
-          %a{href: ""}
-          %i.fa.fa-times
-          Cancel
-    / /checkout-options
-    .register-req
-      %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
-    / /register-req
-    .shopper-informations
-      .row
-        .col-sm-3
-          .shopper-info
-            %p Shopper Information
-            %form
-              %input{placeholder: "Display Name", type: "text"}
-              %input{placeholder: "User Name", type: "text"}
-              %input{placeholder: "Password", type: "password"}
-              %input{placeholder: "Confirm password", type: "password"}
-            %a.btn.btn-primary{href: ""} Get Quotes
-            %a.btn.btn-primary{href: ""} Continue
-        .col-sm-5.clearfix
-          .bill-to
-            %p Bill To
-          = form_with model: @order do |form|
-            .form-one
-              %form
-                = form.text_field :first_name, placeholder: 'First name'
-                %input{placeholder: "Middle Name", type: "text"}
-                %input{placeholder: "Last Name *", type: "text"}
-                %input{placeholder: "Email*", type: "text"}
-                %input{placeholder: "street *", type: "text"}
-                %input{placeholder: "", type: "text"}
-            .form-two
-              %form
-                %input{placeholder: "Zip / Postal Code *", type: "text"}
-                %select
-                  %option -- Country --
-                  %option United States
-                  %option Bangladesh
-                  %option UK
-                  %option India
-                  %option Pakistan
-                  %option Ucrane
-                  %option Canada
-                  %option Dubai
-                %select
-                  %option -- State / Province / Region --
-                  %option United States
-                  %option Bangladesh
-                  %option UK
-                  %option India
-                  %option Pakistan
-                  %option Ucrane
-                  %option Canada
-                  %option Dubai
-                %input{placeholder: "Confirm password", type: "password"}
-                %input{placeholder: "Phone *", type: "text"}
-                %input{placeholder: "Mobile Phone", type: "text"}
-                %input{placeholder: "Fax", type: "text"}
-        .col-sm-4
-          .order-message
-            %p Shipping Order
-            %textarea{name: "message", placeholder: "Notes about your order, Special Notes for Delivery", rows: "16"}
-            %label
-              %input{type: "checkbox"} Shipping to bill address
-    .review-payment
-      %h2 Review  Payment
-    .table-responsive.cart_info
-      %table.table.table-condensed
-        %thead
-          %tr.cart_menu
-            %td.image Item
-            %td.description
-            %td.price Price
-            %td.quantity Quantity
-            %td.total Total
-            %td
-        %tbody
-          %tr
-            %td.cart_product
-              %a{href: ""}
-                %img{alt: "", src: "images/cart/one.png"}
-              %td.cart_description
-                %h4
-                  %a{href: ""} Colorblock Scuba
-                %p Web ID: 1089772
-              %td.cart_price
-                %p $59
-              %td.cart_quantity
-                .cart_quantity_button
-                  %a.cart_quantity_up{href: ""} +
-                  %input.cart_quantity_input{autocomplete: "off", name: "quantity", size: "2", type: "text", value: "1"}
-                    %a.cart_quantity_down{href: ""} -
-                %td.cart_total
-                  %p.cart_total_price $59
-                %td.cart_delete
-                  %a.cart_quantity_delete{href: ""}
-                    %i.fa.fa-times
-              %tr
-                %td.cart_product
-                  %a{href: ""}
-                    %img{alt: "", src: "images/cart/two.png"}
+      = form_with url: "orders_path", method: :post do |form|
+        %ul.nav
+          %li
+            = form.radio_button :customer, 'Register Account', checked: true 
+            = form.label :customer_register, 'Register Account'
+          %li
+            = form.radio_button :customer, 'Guest Checkout'
+            = form.label :customer_guest, 'Guest Checkout'
+          %li
+            %a{href: ""}
+            %i.fa.fa-times
+            Cancel
+        .register-req
+          %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
+        .shopper-informations
+          .row
+            .col-sm-5.clearfix
+              .bill-to
+                %p Bill To
+                .form-two
+                  %form
+                    = form.text_field :street, placeholder: 'Street', value: current_customer.street
+                  %br
+                  %br
+                    = form.text_field :landmark, placeholder: 'Landmark', value: current_customer.landmark
+                  %br
+                    = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', value: current_customer.pincode
+                  %br
+                    = form.select :city_id, options_for_select(city, @city&.name), value: current_customer.city_id
+                  %br
+                    = form.select :state_id, options_for_select(state, @state&.name), value: current_customer.state_id
+                  %br
+                    = form.select :country_id, options_for_select(country_name, @country&.name), value: current_customer.country_id
+                  %br
+                    = form.text_field :mobile,  placeholder: 'Mobile', value: current_customer.mobile
+        .review-payment
+          %h2 Review  Payment
+        .table-responsive.cart_info
+          %table.table.table-condensed
+            %thead
+              %tr.cart_menu
+                %td.image Item
+                %td.description Description
+                %td.price Price
+                %td.quantity Quantity
+                %td.total Total
+                %td.delete
+            %tbody
+              -current_customer.carts.each do |item|
+                %tr
+                  %td.cart_product
+                    = link_to "" do
+                      = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
                   %td.cart_description
-                    %h4
-                      %a{href: ""} Colorblock Scuba
-                    %p Web ID: 1089772
+                    %h6
+                      %a(href="")=item.product.name
                   %td.cart_price
-                    %p $59
+                    %p= "₹#{item.product.price}"
                   %td.cart_quantity
                     .cart_quantity_button
-                      %a.cart_quantity_up{href: ""} +
-                      %input.cart_quantity_input{autocomplete: "off", name: "quantity", size: "2", type: "text", value: "1"}
-                        %a.cart_quantity_down{href: ""} -
-                    %td.cart_total
-                      %p.cart_total_price $59
-                    %td.cart_delete
-                      %a.cart_quantity_delete{href: ""}
-                        %i.fa.fa-times
-                  %tr
-                    %td.cart_product
-                      %a{href: ""}
-                        %img{alt: "", src: "images/cart/three.png"}/
-                      %td.cart_description
-                        %h4
-                          %a{href: ""} Colorblock Scuba
-                        %p Web ID: 1089772
-                      %td.cart_price
-                        %p $59
-                      %td.cart_quantity
-                        .cart_quantity_button
-                          %a.cart_quantity_up{href: ""} +
-                          %input.cart_quantity_input{autocomplete: "off", name: "quantity", size: "2", type: "text", value: "1"}
-                            %a.cart_quantity_down{href: ""} -
-                        %td.cart_total
-                          %p.cart_total_price $59
-                        %td.cart_delete
-                          %a.cart_quantity_delete{href: ""}
-                            %i.fa.fa-times
-                      %tr
-                        %td{colspan: "4"}
-                        %td{colspan: "2"}
-                          %table.table.table-condensed.total-result
-                            %tr
-                              %td Cart Sub Total
-                              %td $59
-                            %tr
-                              %td Exo Tax
-                              %td $2
-                            %tr.shipping-cost
-                              %td Shipping Cost
-                              %td Free
-                            %tr
-                              %td Total
-                              %td
-                                %span $61
-    .payment-options
-      %span
-        %label
-          %input{type: "checkbox"} Direct Bank Transfer
-        %span
-          %label
-            %input{type: "checkbox"} Check Payment
+                      %a.cart_quantity_up{"data-cart-id" => "#{item.id}"}+
+                      %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
+                      %a.cart_quantity_down{"data-cart-id" => "#{item.id}"} -
+                  %td.cart_total
+                    %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
+                  %td.cart_delete
+                    = link_to cart_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
+                      %i.fa.fa-times
+        %section#do_action
+          .container
+            .row
+              .col-sm-6
+                .total_area
+                  %ul
+                    %li
+                      Sub Total 
+                      %span= "₹#{@total_cart_price}"
+                    %li
+                      Eco Tax
+                      %span= "₹#{@eco_tax}"
+                    %li
+                      Shipping Cost
+                      %span= @shipping_cost
+                    %li
+                      Total
+                      %span="₹#{@total_price}"
+        .payment-options
           %span
-            %label
-              %input{type: "checkbox"} Paypal
+            = form.radio_button :payment_method, 'Bank Account'
+            = form.label :bank_account, 'Bank Account'
+            %span
+              = form.radio_button :payment_method, 'Cash on Delivery'
+              = form.label :cash_on_delivery, 'Cash on Delivery'
+              %span
+                = form.radio_button :payment_method, 'Credit or debit card'
+                = form.label :credit_or_debit_card, 'Credit or debit card'
+          %br
+            = form.button "Continue", class: "btn btn-primary"
+- content_for :js_code do
+  :javascript
+    $(document).ready(function() {
+      $('input[type=radio][name=customer]').change(function() {
+        if (this.value == 'Guest Checkout') {
+          console.log("Guest Checkout");
+          $(':input').val('');
+        }else if (this.value == 'Register Account') {
+          console.log("Register Account");
+          $('#street').val();
+        } 
+      });
+    });

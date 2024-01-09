@@ -14,6 +14,7 @@ class CustomerController < ApplicationController
     @customer = current_customer
       
     if @customer.update(edit_customer_params)
+      flash[:success] = "Profile successfully updated"
       redirect_to @customer
     else
       render :edit, status: :unprocessable_entity
