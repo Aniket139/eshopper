@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
   end
   
@@ -19,9 +21,8 @@ class OrdersController < ApplicationController
     end
   end
 
-  def checkout
-    @product_id = params[:product_id]
-    @product = Product.find(@product_id)
+  def check_out
+    @order = current_customer.orders.new
   end
 
   private

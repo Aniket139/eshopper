@@ -11,6 +11,7 @@
     .checkout-options
       %h3 New User
       %p Checkout options
+      - puts "============================= @order #{@order.inspect}"
       = form_with model: @order, url: orders_path, method: :post do |form|
         %ul.nav
           %li
@@ -23,25 +24,24 @@
           %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
         .shopper-informations
           .row
-            .col-sm-5.clearfix
+            .col-sm-5.clearfix  
               .bill-to
                 %p Bill To
-                .form-two
-                  %form
-                    = form.text_field :street, placeholder: 'Street', "data-street": current_customer.street 
-                  %br
-                  %br
-                    = form.text_field :landmark, placeholder: 'Landmark', "data-landmark": current_customer.landmark
-                  %br
-                    = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', "data-pincode": current_customer.pincode
-                  %br
-                    = form.select :city_id, options_for_select(city, @city&.name), "data-city-id": current_customer.city_id
-                  %br
-                    = form.select :state_id, options_for_select(state, @state&.name), "data-state-id": current_customer.state_id
-                  %br
-                    = form.select :country_id, options_for_select(country_name, @country&.name), "data-country-id": current_customer.country_id
-                  %br
-                    = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile
+                .form-one 
+                  = form.text_field :street, placeholder: 'Street', "data-street": current_customer.street, value: current_customer.street  
+                %br
+                %br
+                  = form.text_field :landmark, placeholder: 'Landmark', "data-landmark": current_customer.landmark, value: current_customer.landmark 
+                %br
+                  = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', "data-pincode": current_customer.pincode, value: current_customer.pincode 
+                %br
+                  = form.select :city_id, options_for_select(city, @city&.name), {}, {"data-city-id": current_customer.city_id, value: current_customer.city_id }
+                %br
+                  = form.select :state_id, options_for_select(state, @state&.name), {}, {"data-state-id": current_customer.state_id, value: current_customer.state_id }
+                %br
+                  = form.select :country_id, options_for_select(country_name, @country&.name), {}, {"data-country-id": current_customer.country_id, value: current_customer.country_id} 
+                %br
+                  = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile, value: current_customer.mobile
         .review-payment
           %h2 Review  Payment
         .table-responsive.cart_info
@@ -55,21 +55,24 @@
                 %td.total Total
                 %td.delete
             %tbody
-              -current_customer.carts.each do |item|
-                %tr
-                  %td.cart_product
-                    = link_to "" do
-                      = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
-                  %td.cart_description
-                    %h6
-                      %a(href="")=item.product.name
-                  %td.cart_price
-                    %p= "₹#{item.product.price}"
-                  %td.cart_quantity
-                    .cart_quantity_button
-                      %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
-                  %td.cart_total
-                    %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
+              - if @product.present?
+              - else
+                - current_customer.carts.each do |item|
+                  %tr
+                    %td.cart_product
+                      = link_to "" do
+                        = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
+                    %td.cart_description
+                      %h6
+                        %a(href="")=item.product.name
+                    %td.cart_price
+                      %p= "₹#{item.product.price}"
+                    %td.cart_quantity
+                      .cart_quantity_button
+                        %p= "#{item.quantity.to_i}"
+                    -#     %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
+                    %td.cart_total
+                      %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
         %section#do_action
           .container
             .row
@@ -99,7 +102,8 @@
                 = form.radio_button :payment_method, 'Credit or debit card'
                 = form.label :credit_or_debit_card, 'Credit or debit card'
           %br
-            = form.button "submit", class: "btn btn-primary"
+        = form.submit "Submit"
+
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
