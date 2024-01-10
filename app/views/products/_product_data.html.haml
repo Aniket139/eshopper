@@ -23,9 +23,9 @@
               = content_tag :i, "", class: "fa fa-eye"
               show details
           %li
-            = link_to "#", class: "add-to-compare" do
+            = link_to checkout_path(product_id: product.id), class: "add-to-cart" do
               = content_tag :i, "", class: "fa fa-plus-square"
-              Add to compare
+              Buy
 
 - content_for :js_code do
   :javascript
