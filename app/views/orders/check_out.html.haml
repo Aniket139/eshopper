@@ -11,10 +11,10 @@
     .checkout-options
       %h3 New User
       %p Checkout options
-      = form_with url: "orders_path", method: :post do |form|
+      = form_with model: @order, url: orders_path, method: :post do |form|
         %ul.nav
           %li
-            = form.radio_button :customer, 'Register Account', class: 'address-order', checked: true 
+            = form.radio_button :customer, 'Register Account', class: 'address-order' 
             = form.label :customer_register, 'Register Account'
           %li
             = form.radio_button :customer, 'Guest Checkout', class: 'address-order'
@@ -37,9 +37,9 @@
                   %br
                     = form.select :city_id, options_for_select(city, @city&.name), "data-city-id": current_customer.city_id
                   %br
-                    = form.select :state_id, options_for_select(state, @state&.name), "data-state_id": current_customer.state_id
+                    = form.select :state_id, options_for_select(state, @state&.name), "data-state-id": current_customer.state_id
                   %br
-                    = form.select :country_id, options_for_select(country_name, @country&.name), "data-country_id": current_customer.country_id
+                    = form.select :country_id, options_for_select(country_name, @country&.name), "data-country-id": current_customer.country_id
                   %br
                     = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile
         .review-payment
@@ -99,19 +99,21 @@
                 = form.radio_button :payment_method, 'Credit or debit card'
                 = form.label :credit_or_debit_card, 'Credit or debit card'
           %br
-            = form.button "Continue", class: "btn btn-primary"
+            = form.button "submit", class: "btn btn-primary"
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
+      $('input[type=radio][name=customer][value="Register Account"]').prop('checked', true);
       $('input[type=radio][name=customer]').on('change', function() {
         if (this.value === 'Register Account') {
           street_val = $('#street').attr('data-street');
           landmark_val = $('#landmark').attr('data-landmark');
           pincode_val = $('#pincode').attr('data-pincode');
           city_val = $('#city_id').attr('data-city-id');
-          state_val = $('#state_id').attr('data-state_id');
-          country_val = $('#country_id').attr('data-country_id');
+          state_val = $('#state_id').attr('data-state-id');
+          country_val = $('#country_id').attr('data-country-id');
           mobile_val = $('#mobile').attr('data-Mobile');
+          console.log(city_val);
           $('#street').val(street_val);
           $('#landmark').val(landmark_val);
           $('#pincode').val(pincode_val);
