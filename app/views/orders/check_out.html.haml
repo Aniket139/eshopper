@@ -11,15 +11,14 @@
     .checkout-options
       %h3 New User
       %p Checkout options
-      - puts "============================= @order #{@order.inspect}"
+      %ul.nav
+        %li
+          %label
+            %input{type: "radio", name: "address", value: "Register Account"} Register Account
+        %li
+          %label
+            %input{type: "radio", name: "address", value: "Guest Checkout"}Guest Checkout
       = form_with model: @order, url: orders_path, method: :post do |form|
-        %ul.nav
-          %li
-            = form.radio_button :customer, 'Register Account', class: 'address-order' 
-            = form.label :customer_register, 'Register Account'
-          %li
-            = form.radio_button :customer, 'Guest Checkout', class: 'address-order'
-            = form.label :customer_guest, 'Guest Checkout'
         .register-req
           %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
         .shopper-informations
@@ -44,95 +43,135 @@
                   = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile, value: current_customer.mobile
         .review-payment
           %h2 Review  Payment
-        .table-responsive.cart_info
-          %table.table.table-condensed
-            %thead
-              %tr.cart_menu
-                %td.image Item
-                %td.description Description
-                %td.price Price
-                %td.quantity Quantity
-                %td.total Total
-                %td.delete
-            %tbody
-              - if @product.present?
-              - else
-                - current_customer.carts.each do |item|
+          .table-responsive.cart_info
+            - if @product.present?
+              %table.table.table-condensed
+                %thead
+                  %tr.cart_menu
+                    %td.image Item
+                    %td.description Description
+                    %td.price Price
+                    %td.quantity Quantity
+                    %td.total Total
+                    %td.delete
+                %tbody
                   %tr
                     %td.cart_product
                       = link_to "" do
-                        = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
+                        = image_tag url_for(@product.cover_image), alt: "", size: "120x100"
                     %td.cart_description
                       %h6
-                        %a(href="")=item.product.name
+                        %a(href="")=@product.name
                     %td.cart_price
-                      %p= "₹#{item.product.price}"
+                      %p= "₹#{@product.price}"
                     %td.cart_quantity
                       .cart_quantity_button
-                        %p= "#{item.quantity.to_i}"
-                    -#     %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
+                        %input.cart_quantity_input{autocomplete: "off", name: "quantity", size: "2", type: "text", value: "1"}
                     %td.cart_total
-                      %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
-        %section#do_action
-          .container
-            .row
-              .col-sm-6
-                .total_area
-                  %ul
-                    %li
-                      Sub Total
-                      %span= "₹#{@total_cart_price = current_customer.carts.sum { |item| item.product.price * item.quantity.to_i }}" 
-                    %li
-                      Eco Tax
-                      %span= "₹#{@eco_tax = @total_cart_price * 2 / 100}"
-                    %li
-                      Shipping Cost
-                      %span= @shipping_cost = @total_cart_price > 1000 ? "free" : 50
-                    %li
-                      Total
-                      %span= @total_price = @total_cart_price + @eco_tax + @shipping_cost.to_i
-        .payment-options
-          %span
-            = form.radio_button :payment_method, 'Bank Account'
-            = form.label :bank_account, 'Bank Account'
+                      %p.cart_total_price= "₹#{@product.price * 1}"
+              %section#do_action
+                .container
+                  .row
+                    .col-sm-6
+                      .total_area
+                        %ul
+                          %li
+                            Sub Total
+                            %span= "₹#{@product.price}"
+                          %li	
+                            Eco Tax
+                            %span= "₹#{@eco_tax = @product.price * 2 / 100}"
+                          %li
+                            Shipping Cost
+                            %span= @shipping_cost = @product.price > 1000 ? "free" : 50
+                          %li
+                            Total
+                            %span= @total_price = @product.price + @eco_tax + @shipping_cost.to_i
+            - else
+              %table.table.table-condensed
+                %thead
+                  %tr.cart_menu
+                    %td.image Item
+                    %td.description Description
+                    %td.price Price
+                    %td.quantity Quantity
+                    %td.total Total
+                    %td.delete
+                %tbody
+                  - current_customer.carts.each do |item|
+                    %tr
+                      %td.cart_product
+                        = link_to "" do
+                          = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
+                      %td.cart_description
+                        %h6
+                          %a(href="")=item.product.name
+                      %td.cart_price
+                        %p= "₹#{item.product.price}"
+                      %td.cart_quantity
+                        .cart_quantity_button
+                          %p.cart_quantity_input= "#{item.quantity.to_i}"
+                      %td.cart_total
+                        %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
+              %section#do_action
+              .container
+                .row
+                  .col-sm-6
+                    .total_area
+                      %ul
+                        %li
+                          Sub Total
+                          %span= "₹#{@total_cart_price = current_customer.carts.sum { |item| item.product.price * item.quantity.to_i }}" 
+                        %li
+                          Eco Tax
+                          %span= "₹#{@eco_tax = @total_cart_price * 2 / 100}"
+                        %li
+                          Shipping Cost
+                          %span= @shipping_cost = @total_cart_price > 1000 ? "free" : 50
+                        %li
+                          Total
+                          %span= @total_price = @total_cart_price + @eco_tax + @shipping_cost.to_i
+          .payment-options
             %span
-              = form.radio_button :payment_method, 'Cash on Delivery'
-              = form.label :cash_on_delivery, 'Cash on Delivery'
+              = form.radio_button :payment_method, 'Bank Account'
+              = form.label :bank_account, 'Bank Account'
               %span
-                = form.radio_button :payment_method, 'Credit or debit card'
-                = form.label :credit_or_debit_card, 'Credit or debit card'
-          %br
-        = form.submit "Submit"
-
+                = form.radio_button :payment_method, 'Cash on Delivery'
+                = form.label :cash_on_delivery, 'Cash on Delivery'
+                %span
+                  = form.radio_button :payment_method, 'Credit or debit card'
+                  = form.label :credit_or_debit_card, 'Credit or debit card'
+            %br
+              = form.submit "Submit", class: "btn btn-primary"
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
-      $('input[type=radio][name=customer][value="Register Account"]').prop('checked', true);
-      $('input[type=radio][name=customer]').on('change', function() {
+      $('input[type=radio][name=address][value="Register Account"]').prop('checked', true);
+      $('input[type=radio][name=address]').on('change', function() {
         if (this.value === 'Register Account') {
-          street_val = $('#street').attr('data-street');
-          landmark_val = $('#landmark').attr('data-landmark');
-          pincode_val = $('#pincode').attr('data-pincode');
-          city_val = $('#city_id').attr('data-city-id');
-          state_val = $('#state_id').attr('data-state-id');
-          country_val = $('#country_id').attr('data-country-id');
-          mobile_val = $('#mobile').attr('data-Mobile');
+          street_val = $('#order_street').attr('data-street');
+          landmark_val = $('#order_landmark').attr('data-landmark');
+          pincode_val = $('#order_pincode').attr('data-pincode');
+          city_val = $('#order_city_id').attr('data-city-id');
+          state_val = $('#order_state_id').attr('data-state-id');
+          country_val = $('#order_country_id').attr('data-country-id');
+          mobile_val = $('#order_mobile').attr('data-Mobile');
           console.log(city_val);
-          $('#street').val(street_val);
-          $('#landmark').val(landmark_val);
-          $('#pincode').val(pincode_val);
-          $('#city_id').val(city_val);
-          $('#state_id').val(state_val);
-          $('#country_id').val(country_val);
-          $('#mobile').val(mobile_val);    
+          $('#order_street').val(street_val);
+          $('#order_landmark').val(landmark_val);
+          $('#order_pincode').val(pincode_val);
+          $('#order_city_id').val(city_val);
+          $('#order_state_id').val(state_val);
+          $('#order_country_id').val(country_val);
+          $('#order_mobile').val(mobile_val);    
         }else if (this.value === 'Guest Checkout') {
-          $('#street').val("");
-          $('#landmark').val("");
-          $('#pincode').val("");
-          $('#city_id').val("");
-          $('#state_id').val("");
-          $('#country_id').val("");
-          $('#mobile').val("");
+          $('#order_street').val("");
+          $('#order_landmark').val("");
+          $('#order_pincode').val("");
+          $('#order_city_id').val("");
+          $('#order_state_id').val("");
+          $('#order_country_id').val("");
+          $('#order_mobile').val("");
         } 
       });
     });

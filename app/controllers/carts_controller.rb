@@ -18,8 +18,6 @@ class CartsController < ApplicationController
     else
       if current_customer.carts.exists?(product_id: params[:product_id])
         flash[:alert] = "Product already exists in the cart."
-      else
-        flash[:alert] = "Product not added to cart."
       end
     end
     respond_to do |format|
