@@ -1,15 +1,15 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :set_order, only: :show
 
   def index
     @orders = current_customer.orders
   end
   
   def show
-    @order = Order.find_by(id: params[:id])
     @order_details = @order.order_products.includes(:product)
-    @current_date = @order.created_at
-    @delivery_date = (@current_date + 6.days).strftime("%A, %d %B, %Y")
+    @order_created_at = @order.created_at
+    @delivery_date = (@order_created_at + 6.days).strftime("%A, %d %B, %Y")
   end
 
   def create
@@ -90,5 +90,9 @@ class OrdersController < ApplicationController
 
   def cancel_order
     params.require(:order).permit(:status, :cancel_reason)
+  end
+
+  def set_order
+    @order = Order.find_by(id: params[:id])
   end
 end

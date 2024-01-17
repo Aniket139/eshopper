@@ -20,7 +20,7 @@ ActiveAdmin.register Order do
 
   form do |f|
     f.inputs do
-      f.input :status, as: :select, collection: ['Order Confirmed', 'Picked by courier', 'On the way', 'Out for delivery', 'Delivered']
+      f.input :status, as: :select, collection: Order.statuses.values
     end
     f.actions
   end

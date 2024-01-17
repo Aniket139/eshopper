@@ -3,7 +3,7 @@
     .card.mt-3
       .haeder
         .order-text
-          %span.status= Order.statuses.key(order.status)
+          %span.status= Order.statuses[order.status]
           %span.order-id= "Order ID: #{order.id}"
         .card-right 
           = link_to order_path(order), class: "btn btn-success" do

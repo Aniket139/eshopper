@@ -45,23 +45,12 @@
           %span.order-info= "Shipping Cost : #{@shipping_cost = @order.sub_total > 1000 ? "free" : 50}"
           %span.order-info= "Order Total : ₹#{@order.total}" 
         .track
-          .step.active
-            %span.icon
-              %i.fa.fa-check
-            %span.text Order confirmed
-          .step
-            %span.icon
-              %i.fa.fa-user
-            %span.text Picked by courier
-          .step
-            %span.icon
-              %i.fa.fa-truck
-            %span.text On the way
-          .step
-            %span.icon
-              %i.fa.fa-box
-            %span.text Out of delivery
-            %br
+          - Order.statuses.each do |key, value|
+            .step{class:  Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
+              %span.icon
+                - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
+                  %i.fa.fa-check
+              %span.text= value
         = link_to orders_path, class: "btn btn-warning" do
           %i.fa.fa-chevron-left
           Back to orders
@@ -69,7 +58,29 @@
   = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload'
 - content_for :js_code do
   :javascript
-    $(document).on("change", ".step", function() {
-      $(this).addClass('active');  
+    $(document).on("change", ".track", function() {
+      var newStatus = $('.track').val();
+      console.log(newStatus); 
+      switch (newStatus) {
+        case 'order_confirmed':
+          $('.step:eq(0)').addClass('active');
+          $('.step:eq(1)').addClass('active');
+          break;
+        case 'picked_by_courier':
+          $('.step:eq(0)').addClass('active');
+          $('.step:eq(1)').addClass('active');
+          break;
+        case 'on_the_way':
+          $('.step:eq(0)').addClass('active');
+          $('.step:eq(1)').addClass('active');
+          $('.step:eq(2)').addClass('active');
+          break;
+        case 'out_for_delivery':
+          $('.step:eq(0)').addClass('active');
+          $('.step:eq(1)').addClass('active');
+          $('.step:eq(2)').addClass('active');
+          $('.step:eq(3)').addClass('active');
+          break;
+      }
     });
   
