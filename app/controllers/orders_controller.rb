@@ -2,10 +2,14 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
   end
   
   def show
+    @order = Order.find_by(id: params[:id])
+    @order_details = @order.order_products.includes(:product)
+    @current_date = @order.created_at
+    @delivery_date = (@current_date + 6.days).strftime("%A, %d %B, %Y")
   end
 
   def create
@@ -58,6 +62,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def edit
+    @order = Order.find_by(id: params[:id])
+  end
+
+  def update
+    @cancel_order = Order.find_by(id: params[:id])
+    if @cancel_order
+      @cancel_order.update(cancel_order)
+      flash[:notice] = "Order cancelled successfully"
+    else
+      flash[:alert] = "Order not found"
+    end
+  end
+
   def check_out
     @order = current_customer.orders.new
     @product = Product.find_by(id: params[:product_id])
@@ -68,5 +86,9 @@ class OrdersController < ApplicationController
   def create_order_params
     params.require(:order).permit(:street, :landmark, :pincode,
                                   :city_id, :state_id, :country_id, :mobile, :payment_method, :product_id)
+  end
+
+  def cancel_order
+    params.require(:order).permit(:status, :cancel_reason)
   end
 end

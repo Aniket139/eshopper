@@ -69,24 +69,18 @@
                   = link_to customer_path(id: current_customer.id) do
                     %i.fa.fa-user
                     Account
-                - else
-                  = link_to new_customer_session_path do
-                    %i.fa.fa-user
-                    Account
-              %li
-                %a{href: "#"}
-                  %i.fa.fa-star
-                  Wishlist
-              %li
-                %a{href: "checkout.html"}
-                  %i.fa.fa-crosshairs
-                  Checkout
               %li
                 - if current_customer
                   = link_to carts_path(id: current_customer.id), class: 'position-absolute' do
                     %i.fa.fa-shopping-cart
                     Cart
-                    -# %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger 1
+                    - if current_customer.carts.present? 
+                      %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger= current_customer.carts.count
+              %li
+                - if current_customer
+                  = link_to orders_path(id: current_customer.id), class: 'position-absolute' do
+                    %i.fa.fa-crosshairs
+                    Order
               %li
                 - if current_customer.present?
                   %a{href: destroy_customer_session_path, 'data-method': 'delete'}
@@ -125,7 +119,7 @@
 -#   :javascript
 -#     $(document).ready(function() {
 -#       $('.active').click(function() {
--#         $(this).removeClass('active');
+-#         $(this).addClass('active');
 -#         $(this).addClass('highlight');
 -#       });
 -#     });
