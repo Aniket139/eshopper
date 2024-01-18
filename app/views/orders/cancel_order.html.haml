@@ -1,0 +1,25 @@
+.container.order-detail
+  %article.card
+    - @order_details.each do |order_product| 
+      %ul.row
+        %li.col-md-8
+          %figure.itemside.mb-3
+            .aside
+              = image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
+            %figcaption.info.align-self-center
+              %h4.product-title= order_product.product.name
+              Mrp :
+              %del= order_product.product.mrp
+              %br
+              = "Qty : #{order_product.quantity}"
+              %br
+              = "Price : ₹#{order_product.product.price}"
+  = form_with model: @order do |form|
+    %article.card
+    %br
+      = form.hidden_field :status, value: "cancelled"
+      = form.label :cancel_reason
+      = form.select :cancel_reason, options_for_select([['Order Created by Mistake', 'reason_1'], ['item(s) Would Not Arrive on Time', 'reason_2'], ['Need to change Shipping Address', 'reason_3'],['Need to change Billing Address', 'reason_4'], ['Need to change Payment method', 'reason_5'], ['Other', 'reason_6']]), { prompt: 'Please select a reason' }, {class: 'btn btn-secondary dropdown-toggle'}
+    = form.submit "Cancel Order", class: "btn btn-danger"
+- content_for :css_file do
+  = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload' 

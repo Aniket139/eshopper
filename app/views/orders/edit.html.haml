@@ -1,9 +1,0 @@
-%h1 Why are you cancel product ? 
-= form_with model: @order do |form|
-  %div
-    = form.hidden_field :status, value: "cancelled"
-    = form.label :cancel_reason 
-    %br
-    = form.text_field :cancel_reason
-  %div
-    = form.submit

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :set_order, only: :show
+  before_action :set_order, only: %i[show]
 
   def index
     @orders = current_customer.orders
@@ -62,34 +62,35 @@ class OrdersController < ApplicationController
     end
   end
 
-  def edit
-    @order = Order.find_by(id: params[:id])
-  end
+  # def edit
+  #   @order_details = @order.order_products.includes(:product)
+  # end
 
-  def update
-    @cancel_order = Order.find_by(id: params[:id])
-    if @cancel_order
-      @cancel_order.update(cancel_order)
-      flash[:notice] = "Order cancelled successfully"
-    else
-      flash[:alert] = "Order not found"
-    end
-  end
+  # def update  
+  #   @cancel_order = Order.find_by(id: params[:id])
+  #   if @cancel_order
+  #     @cancel_order.update(cancel_order)
+  #     flash[:notice] = "Order cancelled successfully"
+  #   else
+  #     flash[:alert] = "Order not found"
+  #   end
+  # end
 
   def check_out
     @order = current_customer.orders.new
     @product = Product.find_by(id: params[:product_id])
   end
 
+  # def cancel_order
+  #   @order = Order.find_by(id: params[:order_id])
+  #   @order_details = @order.order_products.includes(:product)
+  # end
+
   private
 
   def create_order_params
     params.require(:order).permit(:street, :landmark, :pincode,
                                   :city_id, :state_id, :country_id, :mobile, :payment_method, :product_id)
-  end
-
-  def cancel_order
-    params.require(:order).permit(:status, :cancel_reason)
   end
 
   def set_order

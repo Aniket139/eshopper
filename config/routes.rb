@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :products, only: %i[index show]
   resources :orders
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
+  get '/orders/cancel_order', to: 'orders#cancel_order', as: 'cancelorder'
 end
