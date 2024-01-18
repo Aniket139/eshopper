@@ -6,10 +6,11 @@
           %span.status= Order.statuses[order.status]
           %span.order-id= "Order ID: #{order.id}"
         .card-right 
-          = link_to order_path(order), class: "btn btn-success" do
-            Details  
-          = link_to cancelorder_path(order_id: order.id), class: "btn btn-danger" do
-            Cancel Order
+          - unless order.cancelled?
+            = link_to order_path(order), class: "btn btn-success" do
+              Details  
+            = link_to cancel_information_path(order.id), class: "btn btn-danger" do
+              Cancel Order
     .card-body
       .card-price
         %b= "Ship to: #{order.customer.first_name} #{order.customer.last_name}"

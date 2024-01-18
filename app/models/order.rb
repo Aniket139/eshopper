@@ -10,7 +10,8 @@ class Order < ApplicationRecord
     picked_by_courier: 'Picked by courier',
     on_the_way: 'On the way',
     out_for_delivery: 'Out for delivery',
-    delivered: 'Delivered'
+    delivered: 'Delivered',
+    cancelled: "Cancelled"
   }
 
   attr_accessor :product_id
