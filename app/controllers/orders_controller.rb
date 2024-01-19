@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
 
   def cancel
     @order.status = 'cancelled'
-    if @order.update(cancel_params)
+    if  @order.update(cancel_params)
       flash[:success] = "Order Cancelled"
       redirect_to root_path
     else

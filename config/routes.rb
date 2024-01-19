@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   resources :carts
   resources :customer
   resources :products, only: %i[index show]
-  resources :orders
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
+  resources :orders
   get '/orders/:id/cancel_information', to: 'orders#cancel_information', as: 'cancel_information'
   patch '/orders/:id/cancel', to: 'orders#cancel',  as: 'cancel'
 end
