@@ -9,6 +9,7 @@ module Authentication
       @customer = Customer.create(sign_up_params)
       if @customer.persisted?
         flash[:success] = 'Signup successful!'
+        CustomersMailer.confirmation_instructions(@customer, @customer.confirmation_token).deliver_now
         redirect_to root_path
       else
         render :new
@@ -20,5 +21,11 @@ module Authentication
     def sign_up_params
       params.require(:customer).permit(:email, :password, :password_confirmation, :country_id, :state_id, :city_id, :business_id)
     end  
+
+    protected
+
+    def after_inactive_sign_up_path_for(resource)
+      new_user_session_path
+    end
   end
  end

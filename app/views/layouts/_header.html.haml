@@ -66,19 +66,19 @@
             %ul.nav.navbar-nav
               %li
                 - if current_customer
-                  = link_to customer_path(id: current_customer.id) do
+                  = link_to customer_path(id: current_customer.id), class: ('active' if current_page?(current_customer)) do
                     %i.fa.fa-user
                     Account
               %li
                 - if current_customer
-                  = link_to carts_path(id: current_customer.id), class: 'position-absolute' do
+                  = link_to carts_path(id: current_customer.id), class: ('active' if current_page?(carts_path)) do
                     %i.fa.fa-shopping-cart
                     Cart
                     - if current_customer.carts.present? 
                       %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger= current_customer.carts.count
               %li
                 - if current_customer
-                  = link_to orders_path(id: current_customer.id), class: 'position-absolute' do
+                  = link_to orders_path(id: current_customer.id), class: ('active' if current_page?(orders_path)) do
                     %i.fa.fa-crosshairs
                     Order
               %li
@@ -107,22 +107,12 @@
               %li
                 = link_to 'Home', root_path, class: ('active' if current_page?(root_path))
               %li
-                = link_to 'Products', products_path, class: ('active' if current_page?(root_path))
+                = link_to 'Products', products_path, class: ('active' if current_page?(products_path))
               %li
                 %a{href: "contact-us.html"} Contact
         .col-sm-3
           #search-product.search_box.pull-right
             = text_field_tag :name, params[:name], placeholder: "Search", type: "text", id: "search-input"
-  / /header-bottom
-/ /header
--# - content_for :js_code do
--#   :javascript
--#     $(document).ready(function() {
--#       $('.active').click(function() {
--#         $(this).addClass('active');
--#         $(this).addClass('highlight');
--#       });
--#     });
 - content_for :js_code do
   :javascript
     $(document).on("change", "#search-input", function() {
