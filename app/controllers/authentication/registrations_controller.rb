@@ -9,7 +9,7 @@ module Authentication
       @customer = Customer.create(sign_up_params)
       if @customer.persisted?
         flash[:success] = 'Signup successful!'
-        CustomersMailer.confirmation_instructions(@customer, @customer.confirmation_token).deliver_now
+        Devise::Mailer.confirmation_instructions(@customer, @customer.confirmation_token).deliver_now
         redirect_to root_path
       else
         render :new

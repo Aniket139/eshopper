@@ -56,6 +56,8 @@ class OrdersController < ApplicationController
         carts.destroy_all
       end
       flash[:success] = "Order was successfully created."
+      OrderMailer.confirmation(@order).deliver_later
+      OrderMailer.receipt(@order).deliver_later
       redirect_to root_path
     else
       flash[:success] = "Order was not created."
