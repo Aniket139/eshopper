@@ -6,7 +6,7 @@
       %li.active Order details
     %header.card-header View order details   
     .card-body
-      %h6=" Order ID: #{@order.id}"
+      %h6="Order ID: #{@order.id}"
       %h6="Order date: #{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")}"
       %h6="Order total: ₹#{@order.total}"
       %article.card

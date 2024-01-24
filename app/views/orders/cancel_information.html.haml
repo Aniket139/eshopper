@@ -21,4 +21,4 @@
       = form.select :cancel_reason, options_for_select([['Order Created by Mistake', 'reason_1'], ['item(s) Would Not Arrive on Time', 'reason_2'], ['Need to change Shipping Address', 'reason_3'],['Need to change Billing Address', 'reason_4'], ['Need to change Payment method', 'reason_5'], ['Other', 'reason_6']]), { prompt: 'Please select a reason' }, {class: 'btn btn-secondary dropdown-toggle'}
     = form.submit "Cancel Order", class: "btn btn-danger"
 - content_for :css_file do
-  = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload' 
+  = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload'  

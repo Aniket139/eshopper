@@ -7,4 +7,5 @@
 //= link order/order-details.css
 //= link sign_up/dropdown.js
 //= link product_filter/filter.js
+//= link order/order_confirmation.css
 

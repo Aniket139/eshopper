@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
   resources :orders
   get '/orders/:id/cancel_information', to: 'orders#cancel_information', as: 'cancel_information'
+  get '/orders/check_out/confirmation', to: 'orders#confirmation', as: 'confirmation'
   patch '/orders/:id/cancel', to: 'orders#cancel',  as: 'cancel'
 end

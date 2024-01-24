@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :set_order, only: %i[show cancel_information cancel]
+  before_action :set_order, only: %i[show cancel_information cancel confirmation]
 
   def index
     @orders = current_customer.orders
@@ -56,9 +56,8 @@ class OrdersController < ApplicationController
         carts.destroy_all
       end
       flash[:success] = "Order was successfully created."
-      OrderMailer.confirmation(@order).deliver_later
-      OrderMailer.receipt(@order).deliver_later
-      redirect_to root_path
+      # OrdersMailer.confirmation(@order).deliver_later
+      redirect_to confirmation_path
     else
       flash[:success] = "Order was not created."
     end
@@ -73,10 +72,15 @@ class OrdersController < ApplicationController
     @order_details = @order.order_products.includes(:product)
   end
 
+  def confirmation
+    @order_details = @order.order_products.includes(:product)
+  end
+
   def cancel
     @order.status = 'cancelled'
     if  @order.update(cancel_params)
       flash[:success] = "Order Cancelled"
+      # OrdersMailer.cancel_order(@order).deliver_later
       redirect_to root_path
     else
       flash[:error] = "Failed to cancel order"
