@@ -1,14 +1,16 @@
-class OrderMailer < ActionMailer::Base
+# frozen_string_literal: true
+
+class OrdersMailer < ApplicationMailer
   default from: 'eshopper@gmail.com'
-      
-  def confirmation(id)
+
+  def confirmation(order)
     @order = order
-    mail(to: order.user.email, subject: 'Order Confirmation')
+    @order_details = @order.order_products.includes(:product)
+    mail(to: order.customer.email, subject: 'Order Confirmation')
   end
-  
-  def cancel_order(id)
+
+  def cancel(order)
     @order = order
-    mail(to: order.user.email, subject: 'Order cancelled')
+    mail(to: order.customer.email, subject: 'Order cancelled')
   end
 end
-  

@@ -1,0 +1,52 @@
+%body
+  %header
+  %i
+  %h1 Thank You For Your Order
+  %i.fa-circle-check{style: "color: #19d29a;"}
+  %main
+    %p Your order has been received and is now being processed. Your order details are shown below for your reference:
+    %section.order-details
+      %h2="Order ID: #{@order.id} (#{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")})"
+      - @order_details.each do |order_product|
+        %table
+          %thead
+            %tr
+              %th Product
+              %th image
+              %th Quantity
+              %th Price
+          %tbody
+            %tr
+              %td= order_product.product.name
+              %td= image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
+              %td= order_product.quantity
+              %td= order_product.product.price
+          %br
+          %table
+            %h3 Order Summary 
+            %br
+            %tr
+              %td{colspan: "2"} Subtotal:
+              %td= "₹#{@order.sub_total}"
+            %tr
+              %td{colspan: "2"} Shipping Cost:
+              %td= @shipping_cost = @order.sub_total > 1000 ? "free" : 50
+            %tr
+              %td{colspan: "2"} Payment method:
+              %td= @order.payment_method
+            %tr
+              %td{colspan: "2"} Total:
+              %td= "₹#{@order.total}"
+      %section.billing-address
+        %h2 Billing Address
+        %address
+          = "#{@order.customer.first_name} #{@order.customer.last_name}"
+          %br
+          ="#{@order.customer.street}, #{@order.customer.landmark},"
+          %br
+          = "#{@order.customer.city.name}, #{@order.customer.state.name}, #{@order.customer.pincode}"
+          %br
+          = @order.customer.country.name
+        %button= "Back to order"
+- content_for :css_file do
+  = stylesheet_link_tag 'order/order_confirmation', 'data-turbolinks-track': 'reload'

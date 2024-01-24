@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :customers, path: 'customer', path_names: {
     sign_in: 'login', sign_out: 'logout', sign_up: 'signup'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-   
+
   namespace :admin do
     put '/product/:id/update_cover/:image_id', to: 'products#update_cover', as: :product_update_cover
   end
@@ -20,13 +22,16 @@ Rails.application.routes.draw do
     get 'cities'
   end
 
-  root "home#index"
+  root 'home#index'
   resources :carts
   resources :customer
   resources :products, only: %i[index show]
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
-  resources :orders
-  get '/orders/:id/cancel_information', to: 'orders#cancel_information', as: 'cancel_information'
-  get '/orders/check_out/confirmation', to: 'orders#confirmation', as: 'confirmation'
-  patch '/orders/:id/cancel', to: 'orders#cancel',  as: 'cancel'
+  resources :orders do
+    member do
+      get 'cancel_information'
+      get 'confirmation'
+      patch 'cancel'
+    end
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :city
@@ -11,7 +13,7 @@ class Order < ApplicationRecord
     on_the_way: 'On the way',
     out_for_delivery: 'Out for delivery',
     delivered: 'Delivered',
-    cancelled: "Cancelled"
+    cancelled: 'Cancelled'
   }
 
   attr_accessor :product_id

@@ -1,0 +1,10 @@
+%h1= "Your Eshopper.in order #{@order.id}"
+%h2= @order.product.name
+- @order_details.each do |order_product|
+  %table
+    %tbody
+      %tr
+        %td= order_product.product.name
+        %td= image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
+        %td= order_product.quantity
+      

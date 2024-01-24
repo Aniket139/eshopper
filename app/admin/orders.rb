@@ -25,4 +25,3 @@ ActiveAdmin.register Order do
     f.actions
   end
 end
-  

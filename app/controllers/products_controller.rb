@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
   before_action :set_defualt_data
   before_action :set_product, only: :show
@@ -6,9 +8,9 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = @products.where(brand_id: params[:brand_id]) if params[:brand_id].present?
     @products = @products.where(category_id: params[:category_id]) if params[:category_id].present?
-    @products = @products.where("price >= ?", params[:min_price])  if params[:min_price].present?
-    @products = @products.where("price <= ?", params[:max_price])  if params[:max_price].present?
-    @products = @products.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
+    @products = @products.where('price >= ?', params[:min_price])  if params[:min_price].present?
+    @products = @products.where('price <= ?', params[:max_price])  if params[:max_price].present?
+    @products = @products.where('name LIKE ?', "%#{params[:name]}%") if params[:name].present?
     respond_to do |format|
       format.html
       format.js

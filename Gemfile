@@ -7,7 +7,7 @@ ruby '3.2.0'
 
 gem 'rails', '~> 7.1.2'
 
-#admin
+# admin
 gem 'activeadmin'
 
 gem 'bootsnap', require: false
@@ -30,7 +30,6 @@ gem 'bootstrap'
 
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
-
 
 # Country
 gem 'country_select', '~> 4.0'
@@ -86,7 +85,6 @@ group :development do
   gem 'capistrano-resque', '~> 0.2.3', require: false
   gem 'capistrano-rvm'
   gem 'sshkit-sudo'
-
 end
 
 group :test do

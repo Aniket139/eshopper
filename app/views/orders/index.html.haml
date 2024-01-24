@@ -9,7 +9,7 @@
           - unless order.cancelled?
             = link_to order_path(order), class: "btn btn-success" do
               Details  
-            = link_to cancel_information_path(order.id), class: "btn btn-danger" do
+            = link_to cancel_information_order_path(order.id), class: "btn btn-danger" do
               Cancel Order
     .card-body
       .card-price
