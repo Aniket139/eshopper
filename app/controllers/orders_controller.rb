@@ -79,7 +79,7 @@ class OrdersController < ApplicationController
     @order.status = 'cancelled'
     if @order.update(cancel_params)
       flash[:success] = 'Order Cancelled'
-      # OrdersMailer.cancel_order(@order).deliver_later
+      OrdersMailer.cancel(@order).deliver_later
     else
       flash[:error] = 'Failed to cancel order'
     end

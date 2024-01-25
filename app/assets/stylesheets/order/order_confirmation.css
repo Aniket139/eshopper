@@ -12,8 +12,11 @@ header {
 }
 
 h1 {
+  width: 600px;
+  margin-left: 600px;
   font-size: 24px;
   font-weight: bold;
+  color: green;
 }
 
 p {
@@ -76,4 +79,10 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+center{
+  width: 600px;
+  margin-bottom: 50px;
+  margin-left: 450px;
 }

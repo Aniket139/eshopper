@@ -11,6 +11,7 @@ class OrdersMailer < ApplicationMailer
 
   def cancel(order)
     @order = order
+    @order_details = @order.order_products.includes(:product)
     mail(to: order.customer.email, subject: 'Order cancelled')
   end
 end
