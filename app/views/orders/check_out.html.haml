@@ -20,6 +20,7 @@
             %input{type: "radio", name: "address", value: "Guest Checkout"}Guest Checkout
       = form_with model: @order, url: orders_path, method: :post do |form|
         = form.hidden_field :product_id, value: @product.id if @product.present? 
+        = form.hidden_field :status, value: 'Order Confirmed'
         .register-req
           %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
         .shopper-informations

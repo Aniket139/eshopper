@@ -20,7 +20,7 @@ ActiveAdmin.register Order do
 
   form do |f|
     f.inputs do
-      f.input :status, as: :select, collection: Order.statuses.values
+      f.input :status, as: :select, collection: Order.statuses.values, selected: Order.statuses.values.first
     end
     f.actions
   end

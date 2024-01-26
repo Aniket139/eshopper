@@ -90,7 +90,7 @@ class OrdersController < ApplicationController
 
   def create_order_params
     params.require(:order).permit(:street, :landmark, :pincode,
-                                  :city_id, :state_id, :country_id, :mobile, :payment_method, :product_id)
+                                  :city_id, :state_id, :country_id, :mobile, :payment_method, :product_id, :status)
   end
 
   def cancel_params

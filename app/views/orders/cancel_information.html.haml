@@ -14,7 +14,7 @@
               = "Qty : #{order_product.quantity}"
               %br
               = "Price : ₹#{order_product.product.price}"
-  = form_with model: @order, url: cancel_path do |form|
+  = form_with model: @order, url: cancel_order_path do |form|
     %article.card
     %br
       = form.label :cancel_reason
