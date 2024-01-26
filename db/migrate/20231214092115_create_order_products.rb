@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# :nodoc
 class CreateOrderProducts < ActiveRecord::Migration[7.1]
+  # rubocop:disable Metrics/MethodLength
   def change
     create_table :order_products do |t|
       t.references :customer, null: false, foreign_key: true
@@ -15,4 +17,5 @@ class CreateOrderProducts < ActiveRecord::Migration[7.1]
       t.timestamps
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

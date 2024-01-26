@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 module Authentication
   class SessionsController < Devise::SessionsController
     # def create

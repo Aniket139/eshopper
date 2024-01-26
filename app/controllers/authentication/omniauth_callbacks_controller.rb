@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 module Authentication
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # You should configure your model like this:

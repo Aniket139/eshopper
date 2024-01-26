@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
   before_action :set_order, only: %i[show cancel_information cancel confirmation]

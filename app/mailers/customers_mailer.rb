@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class CustomersMailer < Devise::Mailer
   default from: 'eshopper@gmail.com'
 

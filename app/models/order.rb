@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :city

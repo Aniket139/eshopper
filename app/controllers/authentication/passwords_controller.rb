@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 module Authentication
   class PasswordsController < Devise::PasswordsController
     # GET /resource/password/new

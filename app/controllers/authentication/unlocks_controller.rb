@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 module Authentication
   class UnlocksController < Devise::UnlocksController
     # GET /resource/unlock/new

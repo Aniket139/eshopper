@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class DeviseCreateAdminUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :admin_users do |t|

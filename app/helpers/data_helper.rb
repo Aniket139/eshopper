@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 module DataHelper
   def country_name
     Country.pluck(:name, :id)

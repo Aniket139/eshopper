@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class CartsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create update]
   before_action :authenticate_customer!

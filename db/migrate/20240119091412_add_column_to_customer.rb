@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class AddColumnToCustomer < ActiveRecord::Migration[7.1]
   def change
     add_column :customers, :confirmation_token, :string

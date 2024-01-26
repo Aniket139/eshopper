@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class AutocompleteController < ApplicationController
   def states
     @country = Country.find_by(id: params[:country_id])

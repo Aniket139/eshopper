@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class CreateStates < ActiveRecord::Migration[7.1]
   def change
     create_table :states do |t|

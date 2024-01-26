@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc
 class ProductsController < ApplicationController
   before_action :set_defualt_data
   before_action :set_product, only: :show
