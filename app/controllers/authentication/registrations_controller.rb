@@ -10,6 +10,7 @@ module Authentication
       if @customer.persisted?
         flash[:success] = 'Signup successful!'
         Devise::Mailer.confirmation_instructions(@customer, @customer.confirmation_token).deliver_now
+        FillCustomersAllDataJob.set(wait_until: 3.hours.from_now).perform_later
         redirect_to root_path
       else
         render :new
