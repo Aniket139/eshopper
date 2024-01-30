@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :customers, path: 'customer', path_names: {
     sign_in: 'login', sign_out: 'logout', sign_up: 'signup'
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
     passwords: 'authentication/passwords',
     registrations: 'authentication/registrations'
   }
+
+  mount Sidekiq::Web => '/sidekiq'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
