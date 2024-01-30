@@ -1,0 +1,2 @@
+class Holidaysoffer < ApplicationRecord
+end

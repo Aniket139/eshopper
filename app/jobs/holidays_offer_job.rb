@@ -2,6 +2,6 @@ class HolidaysOfferJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    puts "Holiday Offers"
+    @current_date = Holidaysoffer.where(: date == Date.today)
   end
 end

@@ -3,10 +3,10 @@ class FillCustomersAllDataJob < ApplicationJob
 
   def perform(*args)
     @customer = Customer.find(args[:id])
-    @customer.attributes.each do |key, value|
-      if value.blank?
-      end
-    end
-    FillCustomersAllDataMailer.field_blank.deliver_later
+    @avoid_fields = %w[password conform_password created_at updated_at encrypted_password
+                    reset_password_token reset_password_sent_at confirmation_token confirmed_at 
+                    confirmation_sent_at unconfirmed_email remember_created_at]
+    @fields = @customer.attributes.keys - @avoid_fields
   end
 end
+
