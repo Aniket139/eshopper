@@ -3,7 +3,7 @@
 ActiveAdmin.register Holidaysoffer do
   menu priority: 9
   permit_params :date, :name, :active
-  
+
   index do
     selectable_column
     id_column
@@ -12,9 +12,9 @@ ActiveAdmin.register Holidaysoffer do
     column :active
     actions
   end
-  
+
   filter :date
-  
+
   form do |f|
     f.inputs do
       f.input :date
@@ -22,6 +22,5 @@ ActiveAdmin.register Holidaysoffer do
       f.input :active
     end
     f.actions
-   end
+  end
 end
-  
