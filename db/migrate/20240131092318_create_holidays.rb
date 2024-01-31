@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateHolidaysoffers < ActiveRecord::Migration[7.1]
+class CreateHolidays < ActiveRecord::Migration[7.1]
   def change
-    create_table :holidaysoffers do |t|
+    create_table :holidays do |t|
       t.date :date
       t.string :name
       t.boolean :active, default: true

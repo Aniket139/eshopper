@@ -1,0 +1,3 @@
+holidays_job:
+  cron: "* * * * *"
+  class: "HolidaysJob"

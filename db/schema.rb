@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_130_051_227) do
+ActiveRecord::Schema[7.1].define(version: 20_240_131_092_318) do
   create_table 'active_admin_comments', charset: 'utf8mb4', collation: 'utf8mb4_bin', force: :cascade do |t|
     t.string 'namespace'
     t.text 'body'
@@ -165,7 +165,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_130_051_227) do
     t.index ['state_id'], name: 'index_customers_on_state_id'
   end
 
-  create_table 'holidaysoffers', charset: 'utf8mb4', collation: 'utf8mb4_bin', force: :cascade do |t|
+  create_table 'holidays', charset: 'utf8mb4', collation: 'utf8mb4_bin', force: :cascade do |t|
     t.date 'date'
     t.string 'name'
     t.boolean 'active', default: true

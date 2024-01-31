@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-ActiveAdmin.register Holidaysoffer do
-  menu priority: 9
+ActiveAdmin.register Holiday do
+  menu priority: 10
   permit_params :date, :name, :active
 
   index do
