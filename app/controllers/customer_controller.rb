@@ -27,6 +27,6 @@ class CustomerController < ApplicationController
 
   def edit_customer_params
     params.require(:customer).permit(:first_name, :middle_name, :last_name, :email,
-                                     :mobile, :street, :landmark, :pincode, :city_id, :state_id, :country_id)
+                                     :mobile, :street, :landmark, :pincode, :city_id, :state_id, :country_id, :dob)
   end
 end

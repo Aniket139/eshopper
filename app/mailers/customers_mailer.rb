@@ -17,4 +17,10 @@ class CustomersMailer < Devise::Mailer
                        confirmation_sent_at unconfirmed_email remember_created_at]
     mail(to: @customer.email, subject: 'Please input blank field')
   end
+
+  def dob_offer(customer)
+    @customer = customer
+
+    mail(to: @customer.email, subject: 'Happy Birthday offer')
+  end
 end
