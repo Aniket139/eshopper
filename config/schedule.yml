@@ -3,5 +3,5 @@ holidays_job:
   class: "HolidaysJob"
 
 celebrate_dob_job:
-  cron: "0 1 * * *"
+  cron: "* * * * *"
   class: "CelebrateDobJob"
