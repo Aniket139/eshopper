@@ -54,6 +54,8 @@ gem 'humanize'
 
 gem 'turbolinks', '~> 5.2.0'
 
+gem 'redis'
+
 # for sidekiq
 gem 'sidekiq', '~> 6.5.9'
 gem 'sidekiq-cron'

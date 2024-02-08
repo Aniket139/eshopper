@@ -32,12 +32,7 @@
                   %i.fa.fa-dribbble
               %li
                 %a{href: "#"}
-                  %i.fa.fa-google-plus
-  / /header_top
-  .header-middle
-    / header-middle
-    .container
-      .row
+                  %i.fa.fa-google-pluscustomer
         .col-sm-4
           .logo.pull-left
             %a{href: "index.html"}
@@ -75,7 +70,7 @@
                     %i.fa.fa-shopping-cart
                     Cart
                     - if current_customer.carts.present? 
-                      %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger= current_customer.carts.count
+                      %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger= current_customer.redis_cache.dig('cart_counts')
               %li
                 - if current_customer
                   = link_to orders_path(id: current_customer.id), class: ('active' if current_page?(orders_path)) do

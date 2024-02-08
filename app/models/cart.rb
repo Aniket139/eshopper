@@ -2,6 +2,8 @@
 
 # :nodoc
 class Cart < ApplicationRecord
+  include RegenerateCacheConcern
+
   belongs_to :customer
   belongs_to :product
 

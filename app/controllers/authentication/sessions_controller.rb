@@ -3,16 +3,16 @@
 # :nodoc
 module Authentication
   class SessionsController < Devise::SessionsController
-    # def create
-    #   resource = Customer.find_by(email: params[:customer][:email])
-    #   put ""
-    #   if resource&.valid_password?(params[:password])
-    #     sign_in :customer, resource
-    #     flash[:success] = 'Login successfully.'
-    #   else
-    #     flash[:alert] = 'Invalid Credentials.'
-    #   end
-    #   redirect_to root_path
-    # end
+    def create
+      customer = Customer.find_by(email: params[:customer][:email])
+      if customer&.valid_password?(params[:customer][:password])
+        sign_in :customer, customer
+        customer.redis_cache
+        flash[:success] = 'Login successfully.'
+      else
+        flash[:alert] = 'Invalid Credentials.'
+      end
+      redirect_to root_path
+    end
   end
 end
