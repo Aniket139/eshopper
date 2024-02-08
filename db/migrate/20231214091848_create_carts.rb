@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc
 class CreateCarts < ActiveRecord::Migration[7.1]
   def change
     create_table :carts do |t|

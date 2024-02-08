@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc
 class AddCloumnToOrders < ActiveRecord::Migration[7.1]
   def change
     remove_column :orders, :date, :date

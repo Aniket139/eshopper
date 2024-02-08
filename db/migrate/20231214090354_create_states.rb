@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
+# :nodoc
 class CreateStates < ActiveRecord::Migration[7.1]
   def change
     create_table :states do |t|
       t.references :country, null: false, foreign_key: true
       t.string :name, limit: 20
-      t.boolean :active, :default => true
+      t.boolean :active, default: true
 
       t.timestamps
     end

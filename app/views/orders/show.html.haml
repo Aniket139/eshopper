@@ -1,0 +1,58 @@
+.container.order-detail
+  %article.card
+    %ol.breadcrumb
+      %li
+        = link_to 'Home', root_path
+      %li.active Order details
+    %header.card-header View order details   
+    .card-body
+      %h6="Order ID: #{@order.id}"
+      %h6="Order date: #{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")}"
+      %h6="Order total: ₹#{@order.total}"
+      %article.card
+        %header.card-header Shipment details 
+        %span.order-info Delivery Estimate:
+        %span.delivery-estimate= @delivery_date
+        %br
+      - @order_details.each do |order_product| 
+        %ul.row
+          %li.col-md-8
+            %figure.itemside.mb-3
+              .aside
+                = image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
+              %figcaption.info.align-self-center
+                %h4.product-title= order_product.product.name
+                Mrp :
+                %del= order_product.product.mrp
+                %br
+                = "Qty : #{order_product.quantity}"
+                %br
+                = "Price : ₹#{order_product.product.price}"
+        %article.card
+          %header.card-header Payment information
+          %span.order-info Payment Methods:
+          %span.order-info= @order.payment_method
+        %article.card
+          %header.card-header Shipping Address 
+          %span.order-info= "#{@order.customer.first_name} #{@order.customer.last_name}"
+          %span.order-info="#{@order.customer.street}, #{@order.customer.landmark},"
+          %span.order-info= "#{@order.customer.city.name}, #{@order.customer.state.name}, #{@order.customer.country.name}, #{@order.customer.pincode}"
+        %article.card
+          %header.card-header Order Summary
+          %span.order-info= "Product price : ₹#{@order.sub_total}"
+          %span.order-info= "Qty : #{order_product.quantity}"
+          %span.order-info= "Tax : ₹#{@eco_tax = @order.sub_total * 2 / 100 }"
+          %span.order-info= "Shipping Cost : #{@shipping_cost = @order.sub_total > 1000 ? "free" : 50}"
+          %span.order-info= "Order Total : ₹#{@order.total}" 
+        .track
+          - Order.statuses.each do |key, value|
+            .step{class: Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
+              %span.icon
+                - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
+                  %i.fa.fa-check
+              %span.text= value
+        = link_to orders_path, class: "btn btn-warning" do
+          %i.fa.fa-chevron-left
+          Back to orders
+- content_for :css_file do
+  = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload'

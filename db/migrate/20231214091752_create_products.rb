@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
+# :nodoc
 class CreateProducts < ActiveRecord::Migration[7.1]
+  # rubocop:disable Metrics/MethodLength
   def change
     create_table :products do |t|
       t.string :name
@@ -17,4 +21,5 @@ class CreateProducts < ActiveRecord::Migration[7.1]
       t.timestamps
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

@@ -23,7 +23,7 @@
               = content_tag :i, "", class: "fa fa-eye"
               show details
           %li
-            = link_to checkout_path(product_id: product.id), class: "add-to-cart" do
+            = link_to checkout_path(product_id: product.id) do
               = content_tag :i, "", class: "fa fa-plus-square"
               Buy
 

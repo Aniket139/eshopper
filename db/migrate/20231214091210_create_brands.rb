@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc
 class CreateBrands < ActiveRecord::Migration[7.1]
   def change
     create_table :brands do |t|

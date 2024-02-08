@@ -1,0 +1,84 @@
+.card{
+  border: 1px solid navy;
+}
+
+.haeder{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card{
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.order-text{
+  display: flex;
+  flex-direction:column;
+}
+
+.status:first-child{
+  background-color: #FE980F;
+  color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-right .btn-success{
+  color: #fff;
+  background-color: #FE980F;
+  border-color: #FE980F;
+  margin-right: 16px;
+}
+
+.card-right .btn-success:hover{
+  color: #FE980F;
+  background-color: #fff;
+  border-color: #FE980F;
+  margin-right: 16px;
+}
+
+.card-right .btn-danger:hover{
+  color: #ea0909;
+  background-color: #fff;
+  border-color: #df0909;
+  margin-right: 16px;
+}
+
+.card-body{
+  padding: 15px;
+}
+
+.card-address {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-card {
+  border: 2px solid #dfdede;
+  padding: 0px;
+}
+
+.card-price{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-price span{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.order-id{
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+}

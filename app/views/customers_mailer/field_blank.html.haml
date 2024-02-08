@@ -1,0 +1,5 @@
+%h1 Fill Customer all blank fields
+- @customer.attributes.each do |key, value|
+  - next if @avoid_fields == key || value.present?
+  %p "#{key} is blank"
+ 

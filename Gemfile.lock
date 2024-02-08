@@ -534,6 +534,7 @@ DEPENDENCIES
   pagy
   puma (~> 5.0)
   rails (~> 7.1.2)
+  redis
   resque
   resque-scheduler
   roo (~> 2.8.0)

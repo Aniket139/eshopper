@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc
 class Business < ApplicationRecord
   belongs_to :city
   belongs_to :state

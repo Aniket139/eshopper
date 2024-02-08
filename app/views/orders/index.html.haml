@@ -1,39 +1,29 @@
--# %h1= @orders.created_at.strftime("%d-%m-%Y")
--# %section#cart_items
--#   .container
--#     .breadcrumbs
--#       %ol.breadcrumb
--#         %li
--#           = link_to 'Home', root_path
--#         %li.active Orders
--#     .table-responsive.cart_info
--#       %table.table.table-condensed
--#         %thead
--#           %tr.cart_menu
--#             %td.order Order No.
--#             %td.description Description
--#             %td.price Price
--#             %td.quantity Quantity
--#             %td.total Total
--#             %td.cancel
--#         %tbody
--#           -@carts.each do |item|
--#             %tr
--#               %td.cart_product
--#                 = link_to "" do
--#                   = image_tag url_for(item.product.cover_image), alt: "", size: "120x100"
--#               %td.cart_description
--#                 %h6
--#                   %a(href="")=item.product.name
--#               %td.cart_price
--#                 %p= "₹#{item.product.price}"
--#               %td.cart_quantity
--#                 .cart_quantity_button
--#                   %a.cart_quantity_up{"data-cart-id" => "#{item.id}"}+
--#                   %input.cart_quantity_input{autocomplete: "off", "data-cart-id" => "#{item.id}", name: "quantity", size: "2", type: "text", value: "#{item.quantity.to_i}"}
--#                   %a.cart_quantity_down{"data-cart-id" => "#{item.id}"} -
--#               %td.cart_total
--#                 %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
--#               %td.cart_delete
--#                 = link_to cart_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cart_quantity_delete' do
--#                   %i.fa.fa-times
+-@orders.each do |order|
+  .container.order-card
+    .card.mt-3
+      .haeder
+        .order-text
+          %span.status= Order.statuses[order.status]
+          %span.order-id= "Order ID: #{order.id}"
+        .card-right 
+          - unless order.cancelled?
+            = link_to order_path(order), class: "btn btn-success" do
+              Details  
+            = link_to cancel_information_order_path(order.id), class: "btn btn-danger" do
+              Cancel Order
+    .card-body
+      .card-price
+        %b= "Ship to: #{order.customer.first_name} #{order.customer.last_name}"
+        %b
+        %span= "₹#{order.total}"
+      %p            
+      %b Address: 
+      .card-address
+        %span="#{order.customer.street}, #{order.customer.landmark},"
+        %span= "#{order.customer.city.name}, #{order.customer.state.name}, #{order.customer.country.name}, #{order.customer.pincode}"
+      %p 
+      %b Date  Time: 
+      = order.created_at.strftime("%d-%m-%Y (%I:%M %p)")
+
+- content_for :css_file do
+  = stylesheet_link_tag 'order/order', 'data-turbolinks-track': 'reload'
