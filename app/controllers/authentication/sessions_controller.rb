@@ -8,6 +8,8 @@ module Authentication
       if customer&.valid_password?(params[:customer][:password])
         sign_in :customer, customer
         customer.redis_cache
+        session[:cart] = current_customer.carts
+        session[:cart_count] = current_customer.carts.count 
         flash[:success] = 'Login successfully.'
       else
         flash[:alert] = 'Invalid Credentials.'

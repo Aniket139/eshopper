@@ -51,7 +51,7 @@
         .col-sm-3
           .address
             = image_tag "home/map.png"
-            %p= @business.address
+            %p= session[:business_address]
   .footer-widget
     .container
       .row
