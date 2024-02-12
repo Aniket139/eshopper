@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require 'rails_helper'
 
 class CountryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  RSpec.describe Country, type: :model do
+    subject { FactoryBot.create(:countries) }
+    it "is not valid without a name" do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "check name" do
+      expect(subject.name).to eq(Country.last.name)
+    end
+  end
 end
