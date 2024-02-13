@@ -2,13 +2,21 @@
 
 require 'rails_helper'
 
+# :nodoc
 class CustomerTest < ActiveSupport::TestCase
   RSpec.describe Customer, type: :model do
-    subject { Customer.new(first_name: "Jack", middle_name: "Smith", last_name: "Jone", mobile: "8889995678", email: "jsmith@sample.com", password: "dhvfduj", city_id: 1, state_id: 2, country_id: 2, business_id: 1)}
+    let(:country) { FactoryBot.create(:countries) } 
+    let(:state) { FactoryBot.create(:states) } 
+    let(:city) { FactoryBot.create(:cities) }
+    let(:business) { FactoryBot.create(:businesses) }
+    subject { FactoryBot.create(:customers, country: country, state: state, city: city ) }
     it "is valid with valid attributes" do
       expect(subject).to be_valid
     end
-    it "is not valid without a first_name" do
+    it "is not valid without a full name" do
+      subject.first_name = nil
+      subject.middle_name = nil
+      subject.last_name = nil
       expect(subject).to_not be_valid
     end
     it "is not valid without a last_name" do

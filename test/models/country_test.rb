@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# :nodoc
 class CountryTest < ActiveSupport::TestCase
   RSpec.describe Country, type: :model do
     subject { FactoryBot.create(:countries) }

@@ -1,9 +1,18 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require 'rails_helper'
 
+# :nodoc
 class BusinessTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  RSpec.describe Business, type: :model do
+    subject { FactoryBot.create(:businesses) }
+    it "is not valid without a name" do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "check name" do
+      expect(subject.name).to eq(Business.last.name)
+    end
+  end
 end
