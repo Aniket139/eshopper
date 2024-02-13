@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   belongs_to :business
   has_many :carts, dependent: :destroy
   has_many :orders, dependent: :destroy
+  
   validates :email, presence: true
 
   def create_refresh_cache_job

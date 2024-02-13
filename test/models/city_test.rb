@@ -5,8 +5,8 @@ require 'rails_helper'
 # :nodoc
 class CityTest < ActiveSupport::TestCase
   RSpec.describe City, type: :model do
-    let(:state) { FactoryBot.create(:states) } 
-    subject { FactoryBot.create(:cities, state: state) }
+    let(:state) { FactoryBot.create(:state) } 
+    subject { FactoryBot.create(:city, state: state) }
     it "is not valid without a city name" do
       subject.name = nil
       expect(subject).to_not be_valid

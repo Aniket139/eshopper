@@ -5,7 +5,7 @@ require 'rails_helper'
 # :nodoc
 class CountryTest < ActiveSupport::TestCase
   RSpec.describe Country, type: :model do
-    subject { FactoryBot.create(:countries) }
+    subject { FactoryBot.create(:country) }
     it "is not valid without a name" do
       subject.name = nil
       expect(subject).to_not be_valid

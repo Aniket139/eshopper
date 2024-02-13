@@ -1,7 +1,7 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :products, class: 'Product' do
+  factory :product, class: 'Product' do
     name { Faker::Name.name[0..10] }
     description {Faker::Name.name[0..20]}
     mrp  { Faker::Number.decimal(l_digits: 4, r_digits: 2) }

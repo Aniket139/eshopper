@@ -1,7 +1,7 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :order_products, class: 'OrderProduct' do
+  factory :order_product, class: 'OrderProduct' do
     customer
     product
     order

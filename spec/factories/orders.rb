@@ -1,7 +1,7 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :orders, class: 'Order' do
+  factory :order, class: 'Order' do
     customer
     street { Faker::Address.street_address } # Random street address
     pincode { Faker::Address.zip_code } # Random pincode

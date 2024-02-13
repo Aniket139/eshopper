@@ -8,7 +8,7 @@ class ProductTest < ActiveSupport::TestCase
     let(:category) { FactoryBot.create(:categories) } 
     let(:brand) { FactoryBot.create(:brands) } 
     let(:business) { FactoryBot.create(:businesses) } 
-    subject { FactoryBot.create(:products, category: category, brand: brand, business: business) }
+    subject { FactoryBot.create(:product, category: category, brand: brand, business: business) }
     it "is not valid without a name" do
       subject.name = nil
       expect(subject).to_not be_valid

@@ -5,7 +5,7 @@ require 'rails_helper'
 # :nodoc
 class BusinessTest < ActiveSupport::TestCase
   RSpec.describe Business, type: :model do
-    subject { FactoryBot.create(:businesses) }
+    subject { FactoryBot.create(:business) }
     it "is not valid without a name" do
       subject.name = nil
       expect(subject).to_not be_valid

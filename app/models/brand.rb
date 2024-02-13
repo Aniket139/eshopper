@@ -2,6 +2,8 @@
 
 # :nodoc
 class Brand < ApplicationRecord
-  has_many :products, dependent: :destroy
   belongs_to :business
+  has_many :products, dependent: :destroy
+  
+  validates :name, :description, presence: true
 end

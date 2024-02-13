@@ -5,18 +5,16 @@ require 'rails_helper'
 # :nodoc
 class CustomerTest < ActiveSupport::TestCase
   RSpec.describe Customer, type: :model do
-    let(:country) { FactoryBot.create(:countries) } 
-    let(:state) { FactoryBot.create(:states) } 
-    let(:city) { FactoryBot.create(:cities) }
-    let(:business) { FactoryBot.create(:businesses) }
-    subject { FactoryBot.create(:customers, country: country, state: state, city: city ) }
+    let(:country) { FactoryBot.create(:country) } 
+    let(:state) { FactoryBot.create(:state, country: country) } 
+    let(:city) { FactoryBot.create(:city, state: state) }
+    let(:business) { FactoryBot.create(:business, city: city, country: country, state: state) } 
+    subject { FactoryBot.create(:customer, country: country, state: state, city: city, business: business ) }
     it "is valid with valid attributes" do
       expect(subject).to be_valid
     end
     it "is not valid without a full name" do
-      subject.first_name = nil
-      subject.middle_name = nil
-      subject.last_name = nil
+      subject.email = nil
       expect(subject).to_not be_valid
     end
     it "is not valid without a last_name" do
