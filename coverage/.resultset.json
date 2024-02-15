@@ -1,7 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/home/aniket/eshopper/app/models/customer.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/customer.rb": {
         "lines": [
           null,
           null,
@@ -19,9 +19,9 @@
           1,
           1,
           null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
           null,
           1,
           0,
@@ -29,7 +29,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/application_record.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -47,7 +47,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/customer_cache.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/customer_cache.rb": {
         "lines": [
           null,
           null,
@@ -73,7 +73,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/controllers/application_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -83,18 +83,18 @@
           null,
           1,
           null,
-          0,
-          0,
-          0,
+          4,
+          4,
+          4,
           null,
-          0,
-          0,
+          4,
+          4,
           null,
           null,
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/application_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -103,7 +103,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/autocomplete_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/autocomplete_helper.rb": {
         "lines": [
           null,
           null,
@@ -112,7 +112,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/cart_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/cart_helper.rb": {
         "lines": [
           null,
           null,
@@ -121,7 +121,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/carts_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/carts_helper.rb": {
         "lines": [
           null,
           null,
@@ -130,7 +130,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/customer_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/customer_helper.rb": {
         "lines": [
           null,
           null,
@@ -139,7 +139,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/data_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/data_helper.rb": {
         "lines": [
           null,
           null,
@@ -159,7 +159,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/home_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/home_helper.rb": {
         "lines": [
           null,
           null,
@@ -168,7 +168,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/orders_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/orders_helper.rb": {
         "lines": [
           null,
           null,
@@ -177,7 +177,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/helpers/product_helper.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/helpers/product_helper.rb": {
         "lines": [
           null,
           null,
@@ -186,7 +186,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/admin_user.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/admin_user.rb": {
         "lines": [
           null,
           null,
@@ -199,41 +199,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/admin/admin_users.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/brands.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/admin/admin_users.rb": {
         "lines": [
           null,
           null,
@@ -249,72 +215,14 @@
           0,
           0,
           0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/models/brand.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/businesses.rb": {
-        "lines": [
           null,
           null,
           1,
           1,
           1,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
           null,
           1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -325,25 +233,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/business.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/categories.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/admin/brands.rb": {
         "lines": [
           null,
           null,
@@ -378,11 +268,12 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/category.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/brand.rb": {
         "lines": [
           null,
           null,
           null,
+          1,
           1,
           1,
           null,
@@ -390,14 +281,13 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/admin/cities.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/admin/businesses.rb": {
         "lines": [
           null,
           null,
           1,
           1,
           1,
-          null,
           1,
           0,
           0,
@@ -405,36 +295,13 @@
           0,
           0,
           0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
           0,
           0,
           0,
-          null,
           0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/models/city.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/countries.rb": {
-        "lines": [
+          0,
+          0,
+          0,
           null,
           null,
           1,
@@ -447,12 +314,8 @@
           0,
           0,
           0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
+          0,
+          0,
           0,
           0,
           0,
@@ -462,7 +325,7 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/country.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/business.rb": {
         "lines": [
           null,
           null,
@@ -470,48 +333,17 @@
           1,
           1,
           1,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/dashboard.rb": {
-        "lines": [
-          null,
-          null,
-          1,
           1,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          4,
           null,
           null
         ]
       },
-      "/home/aniket/eshopper/app/admin/holidays.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/admin/categories.rb": {
         "lines": [
           null,
           null,
@@ -526,11 +358,16 @@
           0,
           0,
           0,
+          0,
+          0,
           null,
           null,
           1,
+          1,
+          1,
           null,
           1,
+          0,
           0,
           0,
           0,
@@ -541,195 +378,19 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/holiday.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/orders.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/models/order.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/category.rb": {
         "lines": [
           null,
           null,
           null,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           1,
           null
         ]
       },
-      "/home/aniket/eshopper/app/admin/products.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/models/product.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aniket/eshopper/app/admin/states.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/admin/cities.rb": {
         "lines": [
           null,
           null,
@@ -760,7 +421,346 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/state.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/city.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/countries.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/country.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/dashboard.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/holidays.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/holiday.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/orders.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/order.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/products.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/product.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/admin/states.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/state.rb": {
         "lines": [
           null,
           null,
@@ -773,19 +773,43 @@
           null
         ]
       },
-      "/home/aniket/eshopper/app/models/order_product.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/customer_controller.rb": {
         "lines": [
           null,
           null,
           null,
           1,
           1,
+          null,
           1,
           1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
           null
         ]
       },
-      "/home/aniket/eshopper/app/channels/application_cable/channel.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -798,7 +822,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/channels/application_cable/connection.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -811,46 +835,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/authentication/confirmations_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniket/eshopper/app/controllers/authentication/omniauth_callbacks_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/confirmations_controller.rb": {
         "lines": [
           null,
           null,
@@ -889,7 +874,46 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/authentication/passwords_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/omniauth_callbacks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/passwords_controller.rb": {
         "lines": [
           null,
           null,
@@ -932,7 +956,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/authentication/registrations_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -972,7 +996,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/authentication/sessions_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -998,7 +1022,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/authentication/unlocks_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/authentication/unlocks_controller.rb": {
         "lines": [
           null,
           null,
@@ -1037,7 +1061,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/autocomplete_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/autocomplete_controller.rb": {
         "lines": [
           null,
           null,
@@ -1059,7 +1083,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/carts_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/carts_controller.rb": {
         "lines": [
           null,
           null,
@@ -1120,45 +1144,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/customer_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniket/eshopper/app/controllers/home_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/home_controller.rb": {
         "lines": [
           null,
           null,
@@ -1181,7 +1167,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/orders_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/orders_controller.rb": {
         "lines": [
           null,
           null,
@@ -1291,7 +1277,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/controllers/products_controller.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/controllers/products_controller.rb": {
         "lines": [
           null,
           null,
@@ -1336,7 +1322,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/jobs/application_job.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
@@ -1352,7 +1338,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/jobs/customer_refresh_cache_job.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/jobs/customer_refresh_cache_job.rb": {
         "lines": [
           null,
           null,
@@ -1370,7 +1356,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/mailers/application_mailer.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -1383,57 +1369,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/mailers/customers_mailer.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniket/eshopper/app/mailers/holidays_mailer.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniket/eshopper/app/mailers/orders_mailer.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/mailers/customers_mailer.rb": {
         "lines": [
           null,
           null,
@@ -1452,12 +1388,62 @@
           0,
           0,
           0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
           0
         ],
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/models/cart.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/mailers/holidays_mailer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/sapl/workspace/rails/eshopper/app/mailers/orders_mailer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/sapl/workspace/rails/eshopper/app/models/cart.rb": {
         "lines": [
           null,
           null,
@@ -1478,7 +1464,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/models/concerns/regenerate_cache_concern.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/concerns/regenerate_cache_concern.rb": {
         "lines": [
           null,
           null,
@@ -1499,7 +1485,21 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/sidekiq/celebrate_dob_job.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/models/order_product.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/sapl/workspace/rails/eshopper/app/sidekiq/celebrate_dob_job.rb": {
         "lines": [
           null,
           null,
@@ -1522,7 +1522,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/sidekiq/fill_customers_all_data_job.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/sidekiq/fill_customers_all_data_job.rb": {
         "lines": [
           null,
           null,
@@ -1542,7 +1542,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/sidekiq/holidays_job.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/sidekiq/holidays_job.rb": {
         "lines": [
           null,
           null,
@@ -1567,7 +1567,7 @@
         "branches": {
         }
       },
-      "/home/aniket/eshopper/app/views/devise/customers_mailer/field_blank.html.haml.rb": {
+      "/home/sapl/workspace/rails/eshopper/app/views/devise/customers_mailer/field_blank.html.haml.rb": {
         "lines": [
           0,
           0,
@@ -1579,6 +1579,6 @@
         }
       }
     },
-    "timestamp": 1707914825
+    "timestamp": 1707991525
   }
 }

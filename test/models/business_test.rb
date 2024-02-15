@@ -5,7 +5,10 @@ require 'rails_helper'
 # :nodoc
 class BusinessTest < ActiveSupport::TestCase
   RSpec.describe Business, type: :model do
-    subject { FactoryBot.create(:business) }
+    let(:country) { FactoryBot.create(:country) } 
+    let(:state) { FactoryBot.create(:state, country: country) } 
+    let(:city) { FactoryBot.create(:city, state: state) }
+    subject { FactoryBot.create(:business, city: city, country: country, state: state) }
     it "is not valid without a name" do
       subject.name = nil
       expect(subject).to_not be_valid
@@ -18,7 +21,7 @@ class BusinessTest < ActiveSupport::TestCase
     describe 'Business address' do
       context 'address method returns a formatted address' do
         it "returns the correct address" do
-          expect(business.address).to eq(business.address)
+          expect(subject.address).to eq(subject.address)
         end
       end
     end
