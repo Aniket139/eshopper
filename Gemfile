@@ -97,11 +97,7 @@ group :test do
   gem 'webdrivers'
   gem 'database_cleaner'
   gem 'faker'
-
-
-  # Code coverage
-  gem 'simplecov'
-  gem 'simplecov-cobertura'
+  gem 'simplecov', require: false, group: :test
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

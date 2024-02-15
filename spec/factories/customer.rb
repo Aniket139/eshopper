@@ -14,8 +14,9 @@ FactoryBot.define do
     state
     country
     business
-    password { Faker::Internet.password }
-    conform_password { Faker::Internet.password }
+    password = Faker::Internet.password
+    password { password }
+    conform_password { password }
     dob { Faker::Date.birthday(min_age: 18, max_age: 65) }
   end
 end

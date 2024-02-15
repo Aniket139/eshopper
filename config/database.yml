@@ -5,17 +5,17 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: <%= Rails.application.credentials.dig(:database, :adapter) %>
-  encoding: <%= Rails.application.credentials.dig(:database, :encoding) %>
-  collation: <%= Rails.application.credentials.dig(:database, :collation) %>
-  pool: <%= Rails.application.credentials.dig(:database, :pool) %>
-  username: <%= Rails.application.credentials.dig(:database, :username) %>
-  password: <%= Rails.application.credentials.dig(:database, :password) %>
-  host: <%= Rails.application.credentials.dig(:database, :host) %>
+  adapter: mysql2
+  encoding: utf8mb4
+  collation: utf8mb4_bin
+  pool: 5
+  username: root
+  password: root
+  host: localhost
 
 development:
   <<: *default
-  database: <%= Rails.application.credentials.dig(:database, :database) %>
+  database: eshopper-dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

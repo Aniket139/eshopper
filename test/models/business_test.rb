@@ -14,5 +14,13 @@ class BusinessTest < ActiveSupport::TestCase
     it "check name" do
       expect(subject.name).to eq(Business.last.name)
     end
+
+    describe 'Business address' do
+      context 'address method returns a formatted address' do
+        it "returns the correct address" do
+          expect(business.address).to eq(business.address)
+        end
+      end
+    end
   end
 end
