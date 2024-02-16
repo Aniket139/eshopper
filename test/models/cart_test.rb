@@ -19,5 +19,22 @@ class CartTest < ActiveSupport::TestCase
     it { should belong_to(:product) }
 
     it { should validate_uniqueness_of(:product_id).with_message('Product already added to cart') }
+
+    describe '#cover_image' do
+      context 'when the product has a cover image' do
+        it 'returns the cover image' do
+          cover_image = product
+          expect(subject.cover_image).to eq(cover_image)
+        end
+      end
+
+      context 'when the product does not have a cover image' do
+        it 'returns the first image' do
+          image1 = FactoryBot.create(:image, product: product)
+          image2 = FactoryBot.create(:image, product: product)
+          expect(cart.cover_image).to eq(image1)
+        end
+      end
+    end
   end
 end

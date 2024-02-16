@@ -24,7 +24,7 @@ class CustomerTest < ActiveSupport::TestCase
     it "is not valid with an invalid email format" do
       subject.email = "invalid_email"
       customers = Customer.all
-      expect(subject.email).to eq(customers.)
+      expect(subject.email).to eq(customers.email)
     end
     it "is not valid without a password" do
       subject.password = nil

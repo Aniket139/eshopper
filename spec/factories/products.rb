@@ -8,7 +8,7 @@ FactoryBot.define do
     discount_type { 'Flat discount'}
     discount_value { %w[Fixed Percentage][rand(0..1)] }
     price { Faker::Number.decimal(l_digits: 3, r_digits: 2) }
-    # image { Faker::Image.image(width: 640, height: 480) }
+    image { Faker::LoremFlickr.image(size: "640x480") }
     category
     brand
     business

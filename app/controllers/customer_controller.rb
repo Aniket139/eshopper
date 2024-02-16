@@ -2,8 +2,8 @@
 
 # :nodoc
 class CustomerController < ApplicationController
-  def index; end
-
+  before_action :authenticate_customer!
+  
   def show
     @customer = current_customer
   end
