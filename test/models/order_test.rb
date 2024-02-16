@@ -16,7 +16,6 @@ class OrderTest < ActiveSupport::TestCase
       subject.pincode = nil
       subject.landmark = nil
       subject.mobile = nil
-      subject.payment_method = nil
       expect(subject).to_not be_valid
     end
   end

@@ -98,6 +98,8 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'simplecov', require: false, group: :test
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

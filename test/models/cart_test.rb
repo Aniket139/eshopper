@@ -14,5 +14,10 @@ class CartTest < ActiveSupport::TestCase
     let(:brand) { FactoryBot.create(:brand, business: business) } 
     let(:product) { FactoryBot.create(:product, category: category, brand: brand, business: business) } 
     subject { FactoryBot.create(:cart, customer: customer, product: product) }
+
+    it { should belong_to(:customer) }
+    it { should belong_to(:product) }
+
+    it { should validate_uniqueness_of(:product_id).with_message('Product already added to cart') }
   end
 end

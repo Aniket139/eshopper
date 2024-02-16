@@ -12,12 +12,12 @@ class CustomerControllerTest < ActionDispatch::IntegrationTest
     
     describe 'GET #show' do
       it 'assigns the requested customer to @customer' do
-        get :show, params: { id: @customer.id }
+        get :show, params: { id:  customer.id }
         expect(assigns(:customer)).to eq(customer)
       end
 
       it 'renders the show template' do
-        get :show, params: { id: customer.id }
+        get :show, params: { id:  customer.id }
         expect(response).to render_template(:show)
       end
     end

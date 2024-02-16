@@ -10,7 +10,7 @@ FactoryBot.define do
     state
     country
     mobile { Faker::PhoneNumber.cell_phone } # Random mobile number
-    payment_method { %w[CreditCard CashOnDelivery][rand(0..3)] } # Random payment method
+    payment_method { %w[CreditCard CashOnDelivery][rand(0..2)] } # Random payment method
     cancel_by { Faker::Name.name } # Random canceled
     cancel_reason { Faker::Lorem.sentence } # Random cancellation reason
     delivery_notes { Faker::Lorem.paragraph } # Random delivery notes

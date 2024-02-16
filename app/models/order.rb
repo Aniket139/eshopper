@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :destroy
   has_many :products, through: :order_products
 
-  validates :street, :pincode, :landmark, :mobile, :payment_method, presence: true
+  validates :street, :pincode, :landmark, :mobile, presence: true
 
   enum status: {
     order_confirmed: 'Order Confirmed',
