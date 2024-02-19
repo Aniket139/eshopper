@@ -1,0 +1,14 @@
+nr:
+  layout:
+    header:
+      # middle
+      account: "Regnskap"
+      cart: "Handlevogn"
+      order: "Rekkefølge"
+      logout: "Logg ut"
+      login: "Logg Inn"
+      #bottom
+      home: "Hjem"
+      product: "Produkt"
+      contact: "Kontakt"
+    footer:

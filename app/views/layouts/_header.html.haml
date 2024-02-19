@@ -66,28 +66,28 @@
                 - if current_customer
                   = link_to customer_path(id: current_customer.id), class: ('active' if current_page?(current_customer)) do
                     %i.fa.fa-user
-                    Account
+                    = t('layout.header.account')
               %li
                 - if current_customer
                   = link_to carts_path(id: current_customer.id), class: ('active' if current_page?(carts_path)) do
                     %i.fa.fa-shopping-cart
-                    Cart
+                    = t('layout.header.cart')
                     - if current_customer.carts.present? 
                       %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger= current_customer.redis_cache.dig('cart_counts')
               %li
                 - if current_customer
                   = link_to orders_path(id: current_customer.id), class: ('active' if current_page?(orders_path)) do
                     %i.fa.fa-crosshairs
-                    Order
+                    = t('layout.header.order')
               %li
                 - if current_customer.present?
                   %a{href: destroy_customer_session_path, 'data-method': 'delete'}
                     %i.fa.fa-power-off
-                    Logout
+                    = t('layout.header.logout')
                 - else
                   = link_to new_customer_session_path do
                     %i.fa.fa-lock
-                    Login
+                    = t('layout.header.login')
   / /header-middle
   .header-bottom
     / header-bottom
@@ -103,11 +103,14 @@
           .mainmenu.pull-left
             %ul.nav.navbar-nav.collapse.navbar-collapse
               %li
-                = link_to 'Home', root_path, class: ('active' if current_page?(root_path))
+                = link_to root_path, class: ('active' if current_page?(root_path)) do
+                  = t('layout.header.home')
               %li
-                = link_to 'Products', products_path, class: ('active' if current_page?(products_path))
+                = link_to products_path, class: ('active' if current_page?(products_path)) do
+                  = t('layout.header.product')
               %li
-                %a{href: "contact-us.html"} Contact
+                %a{href: "contact-us.html"}
+                  = t('layout.header.contact')
         .col-sm-3
           #search-product.search_box.pull-right
             = text_field_tag :name, params[:name], placeholder: "Search", type: "text", id: "search-input"

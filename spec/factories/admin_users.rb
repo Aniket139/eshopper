@@ -5,6 +5,5 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password = "password"
     password { password }
-    conform_password { password }
   end
 end
