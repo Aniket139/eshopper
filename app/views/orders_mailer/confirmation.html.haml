@@ -48,5 +48,5 @@
         = "#{@order.customer.city.name}, #{@order.customer.state.name}, #{@order.customer.pincode}"
         %br
         = @order.customer.country.name
-- content_for :css_file do
-  = stylesheet_link_tag 'order/order_confirmation', 'data-turbolinks-track': 'reload' 
+-# - content_for :css_file do
+-#   = stylesheet_link_tag 'order/order_confirmation', 'data-turbolinks-track': 'reload' 
