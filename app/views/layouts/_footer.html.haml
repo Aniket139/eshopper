@@ -8,9 +8,7 @@
             %h2
               %span> e
               \-shopper
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed
-              do eiusmod tempor
+            %p= t('layout.footer.info-eshopper')
         .col-sm-7
           .col-sm-3
             .video-gallery.text-center
@@ -57,78 +55,75 @@
       .row
         .col-sm-2
           .single-widget
-            %h2 Service
+            %h2= t('layout.footer.service')
             %ul.nav.nav-pills.nav-stacked
               %li
-                %a{href: "#"} Online Help
+                %a{href: "#"}= t('layout.footer.online-help')
               %li
-                %a{href: "#"} Contact Us
+                %a{href: "#"}= t('layout.footer.contact-us')
               %li
-                %a{href: "#"} Order Status
+                %a{href: "#"}= t('layout.footer.order-status')
               %li
-                %a{href: "#"} Change Location
+                %a{href: "#"}= t('layout.footer.change-location') 
               %li
-                %a{href: "#"} FAQ’s
+                %a{href: "#"}= t('layout.footer.faq')
         .col-sm-2
           .single-widget
             %h2 Quock Shop
             %ul.nav.nav-pills.nav-stacked
               %li
-                %a{href: "#"} T-Shirt
+                %a{href: "#"}= t('layout.footer.t-shirt') 
               %li
-                %a{href: "#"} Mens
+                %a{href: "#"}= t('layout.footer.mens')
               %li
-                %a{href: "#"} Womens
+                %a{href: "#"}= t('layout.footer.womens')
               %li
-                %a{href: "#"} Gift Cards
+                %a{href: "#"}= t('layout.footer.gift-cards') 
               %li
-                %a{href: "#"} Shoes
+                %a{href: "#"}= t('layout.footer.shoes') 
         .col-sm-2
           .single-widget
             %h2 Policies
             %ul.nav.nav-pills.nav-stacked
               %li
-                %a{href: "#"} Terms of Use
+                %a{href: "#"}= t('layout.footer.terms-of-use')
               %li
-                %a{href: "#"} Privecy Policy
+                %a{href: "#"}= t('layout.footer.privecy-policy')
               %li
-                %a{href: "#"} Refund Policy
+                %a{href: "#"}= t('layout.footer.refund-policy') 
               %li
-                %a{href: "#"} Billing System
+                %a{href: "#"}= t('layout.footer.billing-system')
               %li
-                %a{href: "#"} Ticket System
+                %a{href: "#"}= t('layout.footer.ticket-system') 
         .col-sm-2
           .single-widget
             %h2 About Shopper
             %ul.nav.nav-pills.nav-stacked
               %li
-                %a{href: "#"} Company Information
+                %a{href: "#"}= t('layout.footer.company-information') 
               %li
-                %a{href: "#"} Careers
+                %a{href: "#"}= t('layout.footer.careers')
               %li
-                %a{href: "#"} Store Location
+                %a{href: "#"}= t('layout.footer.store-location')
               %li
-                %a{href: "#"} Affillate Program
+                %a{href: "#"}= t('layout.footer.affillate-program')
               %li
-                %a{href: "#"} Copyright
+                %a{href: "#"}= t('layout.footer.copyright')
         .col-sm-3.col-sm-offset-1
           .single-widget
             %h2 About Shopper
             %form.searchform{action: "#"}
-              %input{placeholder: "Your email address", type: "text"}/
+              -# %input{placeholder:= t('layout.footer.placeholder'), type: "text"}
               %button.btn.btn-default{type: "submit"}
                 %i.fa.fa-arrow-circle-o-right
-              %p
-                Get the most recent updates from
-                = succeed "our" do
-                  %br/
+              %p= t('layout.footer.recent-update')
   .footer-bottom
     .container
       .row
         %p.pull-left
           Copyright © 2013 E-SHOPPER Inc. All rights reserved.
         %p.pull-right
-          Designed by
+          = t('layout.footer.designed-by')
           %span
             %a{href: "http://www.themeum.com", target: "_blank"} Themeum
 / /Footer

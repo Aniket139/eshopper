@@ -4,28 +4,28 @@
       .single-products
         .productinfo.text-center
           = image_tag url_for(product.cover_image), size: "250x300"
-          %h2 ₹#{product.price}
+          %h2= t('product.product-data.price', price: product.price)
           %p #{product.name}
           %button.btn.btn-default.add-to-cart{"data-product-id" => "#{product.id}", "data-remote" => "true", type: "button"}
             %i.fa.fa-shopping-cart
-            Add to cart
+            = t('product.product-data.add-to-cart')
         .product-overlay
           .overlay-content
-            %h2 ₹#{product.price}
+            %h2= t('product.product-data.price', price: product.price)
             %p #{product.name}
             %button.btn.btn-default.add-to-cart{"data-product-id" => "#{product.id}", "data-remote" => "true", type: "button"}
               %i.fa.fa-shopping-cart
-              Add to cart
+              = t('product.product-data.add-to-cart')
       .choose
         %ul.nav.nav-pills.nav-justified
           %li
             = link_to product_path(product), class: "add-to-wishlist" do
               = content_tag :i, "", class: "fa fa-eye"
-              show details
+              = t('product.product-data.show-details')
           %li
             = link_to checkout_path(product_id: product.id) do
               = content_tag :i, "", class: "fa fa-plus-square"
-              Buy
+              = t('product.product-data.buy')
 
 - content_for :js_code do
   :javascript

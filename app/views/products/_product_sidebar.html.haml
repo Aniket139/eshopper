@@ -1,7 +1,7 @@
 = form_for "", url: products_path, method: :get, id: "filter_form" do |f| 
   .left-sidebar
     / /category-products
-    %h2 Category
+    %h2= t('product.sidebar.category')
     #accordian.panel-group.category-products
       .panel.panel-default
         %ul.nav.nav-pills.nav-stacked
@@ -13,7 +13,7 @@
                   %input.form-check-input.category-filter{name: "category_id[]", type: "checkbox", "data-filter": ".#{category.id}", value: category.id, "data-url": "/products?category=#{category.id}", "data-turbolinks": "false"}
                   %label{for: ""}= category.name.titleize
     // brands_products
-    %h2 Brands
+    %h2= t('product.sidebar.brands')
     .brands-name
       %ul.nav.nav-pills.nav-stacked
         - @brands.each do |brand|
@@ -22,7 +22,7 @@
               = brand.name
     / price-range
     .price-range
-      %h2 Price Range
+      %h2= t('product.sidebar.price-range')
       .well.text-center
         %input#sl2.span2(data-slider-max="5000" data-slider-min="500" data-slider-step="5" data-slider-value="[1500,3500]" type="text" value="")
         %br

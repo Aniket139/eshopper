@@ -8,8 +8,8 @@
               = image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
             %figcaption.info.align-self-center
               %h4.product-title= order_product.product.name
-              Mrp :
-              %del= order_product.product.mrp
+              = t('order.cancel-order.mrp-label')
+              %del= t('order.cancel-order.mrp', mrp: order_product.product.mrp)
               %br
               = "Qty : #{order_product.quantity}"
               %br

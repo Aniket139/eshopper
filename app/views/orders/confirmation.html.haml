@@ -1,10 +1,9 @@
-
 %header
 %i
-%h1 Thank You For Your Order
+%h1= t('orders.confirmation.title')
 %center
   %main
-  %p Your order has been received and is now being processed. Your order details are shown below for your reference:
+  %p= t('orders.confirmation.details')
   %i.fa-regular.fa-circle-check
   %section.order-details
     %h2="Order ID: #{@order.id} (#{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")})"
@@ -12,34 +11,34 @@
       %table
         %thead
           %tr
-            %th Product
-            %th image
-            %th Quantity
-            %th Price
+            %th= t('orders.confirmation.th-product')
+            %th= t('orders.confirmation.th-image')
+            %th= t('orders.confirmation.th-quantity')
+            %th= t('orders.confirmation.th-price')
         %tbody
           %tr
             %td= order_product.product.name
             %td= image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
             %td= order_product.quantity
-            %td= order_product.product.price
+            %t= "#{t('orders.confirmation.currency')}#{order_product.product.price}"
         %br
         %table
-          %h3 Order Summary 
+          %h3= t('orders.confirmation.order-summary')
           %br
           %tr
-            %td{colspan: "2"} Subtotal:
+            %td{colspan: "2"}= t('orders.defaults.sub-total') #change :
             %td= "₹#{@order.sub_total}"
           %tr
-            %td{colspan: "2"} Shipping Cost:
+            %td{colspan: "2"}= t('orders.defaults.tax')
             %td= @shipping_cost = @order.sub_total > 1000 ? "free" : 50
           %tr
-            %td{colspan: "2"} Payment method:
+            %td{colspan: "2"}= t('orders.defaults.paymemt-method')
             %td= @order.payment_method
           %tr
-            %td{colspan: "2"} Total:
+            %td{colspan: "2"}= t('orders.defaults.total')
             %td= "₹#{@order.total}"
     %section.billing-address
-      %h2 Billing Address
+      %h2= t('orders.confirmation.billing-address')
       %address
         = "#{@order.customer.first_name} #{@order.customer.last_name}"
         %br

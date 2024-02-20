@@ -12,3 +12,160 @@ en:
       product: "Product"
       contact: "Contact"
     footer:
+      info-eshopper: "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed
+                      do eiusmod tempor"
+      # service                
+      service: "Service"
+      online-help: "Online Help"
+      contact-us: "Contact Us"
+      order-status: "Order Status"
+      change-location: "Change Location"
+      faq: " FAQ’s"
+      #Quock Shop
+      t-shirt: "T-Shirt"
+      mens: "Mens"
+      womens: "Womens"
+      gift-cards: "Gift Cards"
+      shoes: "Shoes"
+      #Policies
+      terms-of-use: "Terms of Use"
+      privecy-policy: "Privecy Policy"
+      refund-policy: "Refund Policy"
+      billing-system: "Billing System"
+      ticket-system: "Ticket System"
+      #About Shopper
+      company-information: "Company Information"
+      careers: "Careers"
+      store-location: "Store Location"
+      affillate-program: "Affillate Program"
+      copyright: "Copyright"
+      placeholder: "Your email address"
+      recent-update: "Get the most recent updates from"
+      designed-by: "Designed By"
+  home:
+    #slider-carousel
+    template-title1: "Free E-Commerce Template"
+    template-body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    template-botton: "Get it now"
+    template-title2: "100% Responsive Design"
+    template-title3: "Free Ecommerce Template"
+    #Features Items
+    features-items: "Features Items" 
+  product:
+    sidebar:   
+      category: "Category"  
+      brands: "Brands"
+      price-range: "Price Range"
+    product-data:
+      price: "$%{price}"
+      add-to-cart: "Add To Cart"
+      show-details: "Show Details"
+      buy: "Buy"
+    index:
+      features-items: "Features Items" 
+    show:
+      web-id: "Web ID"
+      mrp: "MRP -"
+      mrp-price: "$%{mrp}"
+      price: "$%{price}"
+      quantity: "Quantity:"
+      add-to-cart: "Add To Cart"
+      availability: "Availability:"
+      brand: "Brand :"
+  carts:
+    index:
+      home: "Home"
+      title: "Shopping Cart"
+      #thead
+      td-item: "Item"
+      td-description: "Description"
+      td-price: "Price"
+      td-quantity: "Quantity"
+      td-total: "Total"
+      #tbody
+      price: "$%{price}"
+      #total info
+      cart-sub-total: "Cart Sub Total"
+      tax: "Eco Tax"
+      shipping-cost: "Shipping Cost"
+      total: "Total"
+      #botton
+      check-out: "Check Out"
+  orders:
+    defaults:
+      td-item: "Item"
+      td-description: "Description"
+      td-price: "Price"
+      td-quantity: "Quantity"
+      td-total: "Total"
+
+      sub-total: "Sub Total"
+      tax: "Eco Tax"
+      shipping-cost: "Shipping Cost"
+      total: "Total"
+      paymemt-method: "Payment method:"
+    cancel-order:
+      mrp-label: "MRP :"
+      mrp: "$%{mrp}"
+      qty:
+      price:
+      btn-cancel: 
+    checkout:
+      home: "Home"
+      title: "Check out"
+      step1: "Step1"
+      new-user: "New User"
+      options: "Checkout options"
+      register-account: "Register Account"
+      guest-checkout: "Guest Checkout"
+      info: "Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest"
+      #bill to
+      bill-to: "Bill To"
+      #form
+      street:
+      landmark:
+      pincode:
+      mobile:
+      #review-payment
+      review-payment: "Review  Payment"
+      #tbody
+      price: "$%{price}"
+      total-price: "$%{cartprice}"
+      #total info
+      cost-value:
+      total-value:
+      #cart to checkout
+      cart-price: "$%{price}"
+      cart-total: "$%{carttotal}"
+    confirmation:
+      title: "Thank You For Your Order"
+      details: "Your order has been received and is now being processed. Your order details are shown below for your reference:"
+      #thead
+      th-product: "Product"
+      th-image: "Image"
+      th-quantity: "Quantity"
+      th-price: "Price"
+      #body
+      td-price:
+      #Order Summary
+      currency: "$" 
+      order-summary: "Order Summary" 
+      billing-address: "Billing Address"
+      
+
+
+
+      
+      
+
+
+
+
+    
+
+
+
+
+
+
+

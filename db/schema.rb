@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_31_111013) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_120109) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_111013) do
     t.integer "pincode"
     t.text "street"
     t.string "landmark"
+    t.string "language"
     t.index ["city_id"], name: "index_businesses_on_city_id"
     t.index ["country_id"], name: "index_businesses_on_country_id"
     t.index ["state_id"], name: "index_businesses_on_state_id"

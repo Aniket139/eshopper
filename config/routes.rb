@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :products, only: %i[index show]
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
+  put 'update_language', to: 'businesses#update_language'
   resources :orders do
     member do
       get 'cancel_information'
