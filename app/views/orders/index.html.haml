@@ -4,20 +4,20 @@
       .haeder
         .order-text
           %span.status= Order.statuses[order.status]
-          %span.order-id= "Order ID: #{order.id}"
+          %span.order-id= "#{t('orders.index.order-id')}#{order.id}"
         .card-right 
           - unless order.cancelled?
             = link_to order_path(order), class: "btn btn-success" do
-              Details  
+              = t('orders.index.details')
             = link_to cancel_information_order_path(order.id), class: "btn btn-danger" do
-              Cancel Order
+              = t('orders.index.cancel')
     .card-body
       .card-price
-        %b= "Ship to: #{order.customer.first_name} #{order.customer.last_name}"
+        %b= "#{t('orders.index.ship-to')}#{order.customer.first_name} #{order.customer.last_name}"
         %b
         %span= "₹#{order.total}"
       %p            
-      %b Address: 
+      %b= t('orders.index.address') 
       .card-address
         %span="#{order.customer.street}, #{order.customer.landmark},"
         %span= "#{order.customer.city.name}, #{order.customer.state.name}, #{order.customer.country.name}, #{order.customer.pincode}"

@@ -12,9 +12,10 @@ en:
       product: "Product"
       contact: "Contact"
     footer:
-      info-eshopper: "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed
-                      do eiusmod tempor"
-      # service                
+      info-eshopper:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed
+        do eiusmod tempor"
+      # service
       service: "Service"
       online-help: "Online Help"
       contact-us: "Contact Us"
@@ -50,10 +51,10 @@ en:
     template-title2: "100% Responsive Design"
     template-title3: "Free Ecommerce Template"
     #Features Items
-    features-items: "Features Items" 
+    features-items: "Features Items"
   product:
-    sidebar:   
-      category: "Category"  
+    sidebar:
+      category: "Category"
       brands: "Brands"
       price-range: "Price Range"
     product-data:
@@ -62,7 +63,7 @@ en:
       show-details: "Show Details"
       buy: "Buy"
     index:
-      features-items: "Features Items" 
+      features-items: "Features Items"
     show:
       web-id: "Web ID"
       mrp: "MRP -"
@@ -104,12 +105,13 @@ en:
       shipping-cost: "Shipping Cost"
       total: "Total"
       paymemt-method: "Payment method:"
+      currency: "$"
     cancel-order:
       mrp-label: "MRP :"
       mrp: "$%{mrp}"
       qty:
       price:
-      btn-cancel: 
+      btn-cancel:
     checkout:
       home: "Home"
       title: "Check out"
@@ -148,24 +150,76 @@ en:
       #body
       td-price:
       #Order Summary
-      currency: "$" 
-      order-summary: "Order Summary" 
+      order-summary: "Order Summary"
       billing-address: "Billing Address"
-      
+    index:
+      order-id: "Order Id :"
+      #button
+      details: "Details"
+      cancel: "Cancel Order"
+      #ship To
+      ship-to: "Ship to:"
+      address: "Address:"
+    show:
+      home:
+      detail:
+      view-detail:
+      order-id:
+      order-date:
+      order-total:
+      shipment:
+      estimate:
+      mrp:
+      qty:
+      price:
+      payment-info:
+      payment-methods:
+      shipping-address:
+      order-summary:
+      btn-back:
+  customer:
+    edit:
+      update: "Profile Update"
+    show:
+      edit-profile: "Edit Profile"
+  
 
-
-
-      
-      
-
-
-
-
-    
-
-
-
-
-
-
-
+  activerecord:
+    models:
+      customer:
+        one: Customer
+        other: Customers
+        first-name: "First Name"
+        pleceholder-firstname: "First Name"
+        middle-name: "Middle Name"
+        pleceholder-middlename: "Middle Name"
+        last-name: "Last Name"
+        pleceholder-lastname: "Last Name"
+        email: "Email"
+        pleceholder-email: "Email"
+        mobile: "Mobile"
+        pleceholder-mobile: "Mobile"
+        dob: "DOB"
+        pleceholder-dob: "Date of Birth"
+        street: "Street"
+        pleceholder-street: "street"
+        landmark: "Landmark"
+        pleceholder-lanmark: "Landmark"
+        pincode: "Pincode"
+        pleceholder-pincode: "Pincode"
+        city: "City"
+        state: "State"
+        country: "Country"
+        save-profile: "Save Profile"
+      order:
+        one: order
+        other: orders
+        pleceholder-street: "street"
+        pleceholder-lanmark: "Landmark"
+        pleceholder-pincode: "Pincode"
+        city: "City"
+        state: "State"
+        country: "Country"
+        pleceholder-mobile: "Mobile"
+        
+        
