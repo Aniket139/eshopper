@@ -13,6 +13,7 @@ gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'cocoon'
 gem 'devise'
+gem 'devise-i18n'
 gem 'doorkeeper'
 gem 'haml'
 gem 'jquery-rails'

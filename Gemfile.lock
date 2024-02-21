@@ -169,6 +169,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.12.0)
+      devise (>= 4.9.0)
     diff-lcs (1.5.1)
     docile (1.4.0)
     doorkeeper (5.6.8)
@@ -563,6 +565,7 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  devise-i18n
   doorkeeper
   erb2haml
   factory_bot_rails

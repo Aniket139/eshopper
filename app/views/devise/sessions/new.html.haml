@@ -4,16 +4,14 @@
       .col-sm
         .login-form
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            %h2 Login
+            %h2= t('devise.sessions.new.title')
             %br
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('devise.sessions.new.placeholder-email')
             %br
-            = f.password_field :password, autocomplete: "current-password", placeholder: "Password"
+            = f.password_field :password, autocomplete: "current-password", placeholder: t('devise.sessions.new.placeholder-password')
             %span
               - if devise_mapping.rememberable?
                 = f.check_box :remember_me, class: "checkbox"
                 = f.label :remember_me
-            = f.button "Login", type: "submit", class: "btn btn-default"
+            = f.button t('devise.sessions.btn-login'), type: "submit", class: "btn btn-default"
             = render "devise/shared/links"
-            -# - flash.each do |type, msg|
-            -#   %div{class: "alert alert-#{type}"}= msg 

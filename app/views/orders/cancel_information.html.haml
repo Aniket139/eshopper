@@ -8,17 +8,19 @@
               = image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
             %figcaption.info.align-self-center
               %h4.product-title= order_product.product.name
-              = t('order.cancel-order.mrp-label')
-              %del= t('order.cancel-order.mrp', mrp: order_product.product.mrp)
+              = t('orders.cancel-order.mrp-label')
+              %del= t('orders.cancel-order.mrp', mrp: order_product.product.mrp)
               %br
               = "Qty : #{order_product.quantity}"
               %br
-              = "Price : ₹#{order_product.product.price}"
+              = "#{t('orders.cancel-order.price')} : #{t('orders.defaults.currency')}#{order_product.product.price}"
   = form_with model: @order, url: cancel_order_path do |form|
     %article.card
     %br
       = form.label :cancel_reason
       = form.select :cancel_reason, options_for_select([['Order Created by Mistake', 'reason_1'], ['item(s) Would Not Arrive on Time', 'reason_2'], ['Need to change Shipping Address', 'reason_3'],['Need to change Billing Address', 'reason_4'], ['Need to change Payment method', 'reason_5'], ['Other', 'reason_6']]), { prompt: 'Please select a reason' }, {class: 'btn btn-secondary dropdown-toggle'}
-    = form.submit "Cancel Order", class: "btn btn-danger"
+    %br
+    %br 
+    = form.submit t('activerecord.models.order.cancel'), class: "btn btn-danger"
 - content_for :css_file do
   = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload'  

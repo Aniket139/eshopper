@@ -22,7 +22,7 @@
         %span="#{order.customer.street}, #{order.customer.landmark},"
         %span= "#{order.customer.city.name}, #{order.customer.state.name}, #{order.customer.country.name}, #{order.customer.pincode}"
       %p 
-      %b Date  Time: 
+      %b= t('orders.index.date-time')
       = order.created_at.strftime("%d-%m-%Y (%I:%M %p)")
 
 - content_for :css_file do

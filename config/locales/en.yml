@@ -109,9 +109,7 @@ en:
     cancel-order:
       mrp-label: "MRP :"
       mrp: "$%{mrp}"
-      qty:
-      price:
-      btn-cancel:
+      price: "Price"
     checkout:
       home: "Home"
       title: "Check out"
@@ -123,11 +121,6 @@ en:
       info: "Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest"
       #bill to
       bill-to: "Bill To"
-      #form
-      street:
-      landmark:
-      pincode:
-      mobile:
       #review-payment
       review-payment: "Review  Payment"
       #tbody
@@ -139,6 +132,7 @@ en:
       #cart to checkout
       cart-price: "$%{price}"
       cart-total: "$%{carttotal}"
+      #payment method
     confirmation:
       title: "Thank You For Your Order"
       details: "Your order has been received and is now being processed. Your order details are shown below for your reference:"
@@ -158,26 +152,28 @@ en:
       details: "Details"
       cancel: "Cancel Order"
       #ship To
-      ship-to: "Ship to:"
-      address: "Address:"
+      ship-to: "Ship to :"
+      address: "Address :"
+      date-time: "Date Time :"
     show:
-      home:
-      detail:
-      view-detail:
-      order-id:
-      order-date:
-      order-total:
-      shipment:
-      estimate:
-      mrp:
-      qty:
-      price:
-      payment-info:
-      payment-methods:
-      shipping-address:
-      order-summary:
-      btn-back:
-  customer:
+      home: "Home"
+      detail: "Order details"
+      view-detail: "View order details"
+      order-id: "Order ID:"
+      order-date: "Order date:"
+      order-total: "Order Total"
+      shipment: "Shipment details"
+      estimate: "Delivery Estimate:"
+      mrp: "Mrp :"
+      qty: "Qty :"
+      price: "$%{price}"
+      payment-info: "Payment information"
+      payment-methods: "Payment Methods:"
+      shipping-address: "Shipping Address "
+      order-summary: "Order Summary"
+      btn-back: "Back to orders"
+      product-price: "Product price"
+  customers:
     edit:
       update: "Profile Update"
     show:
@@ -217,9 +213,113 @@ en:
         pleceholder-street: "street"
         pleceholder-lanmark: "Landmark"
         pleceholder-pincode: "Pincode"
-        city: "City"
-        state: "State"
-        country: "Country"
         pleceholder-mobile: "Mobile"
-        
-        
+        submit: "Submit"
+        bank-account: "Bank Account"
+        cash-on-delivery: "Cash on Delivery"
+        creditordebit-card: "Credit or debit card"
+        cancel: "Cancel Order"
+    
+  customers_mailer:
+    confirmation_instructions:
+      subject: "Confirmation instructions"
+    field_blank:
+      subject: 'Please input blank field'
+    dob_offer:
+      subject: 'Happy Birthday offer'
+  holidays_mailer:
+    send_offers:
+      subject: "Holidays offers"
+  orders_mailer:
+    confirmation:
+      subject: 'Order Confirmation'
+    cancel:
+      subject: 'Order cancelled'
+  
+  devise:
+    comfirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email: "Email"
+        action: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome"
+        details: "You can confirm your account email through the link below:"
+        link: "Confirm my account"
+      email_changed:
+        hello: "Hello"
+        detail1: "We're contacting you to notify you that your email is being changed to "
+        detail2: "We're contacting you to notify you that your email has been changed to"
+      password_change:
+        hello: "Hello"
+        info: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        hello: "Hello"
+        info: "Someone has requested a link to change your password. You can do this through the link below."
+        link: "Change my password"
+        info2: "If you didn't request this, please ignore this email."
+        info3: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: "Hello"
+        info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        link: "Unlock my account"
+        info2: "Click the link below to unlock your account:"
+    sessions:
+      new:
+        title: "Login"
+        placeholder-email: "Email"
+        placeholder-password: "Password"
+        remember-me: "Remember Me"
+        btn-login: "Login"
+    password:
+      edit:
+        title: "Change your password"
+        new-password: "New password"
+        confirm: "Confirm new password"
+        action: "Change my password"
+      new:
+        title: "Forgot your password?"
+        email: "Email"
+        action: "Send me reset password instructions"
+    registrations:
+      edit:
+        title: "Edit"
+        email: "Email"
+        info: "Currently waiting confirmation for:"
+        password: "Password"
+        password-nify: "leave blank if you don't want to change it"
+        password-length: "characters minimum"
+        confimation-pass: "Password Confirmation"
+        current-pass: "we need your current password to confirm your changes"
+        action: "Update"
+        cancel-title: "Cancel my account"
+        unhappy: "Unhappy?"
+        link: "Back"
+      new:
+        title: "Sign up"
+        placeholder-email: "Email"
+        placeholder-password: "New Password"
+        placeholder-confirm: "Confirm Password"
+        country: "Country"
+        state: "State"
+        city: "City"
+        btn-signup: "Signup"
+    shared:
+      link:
+        log-in: "Log in"
+        sign-up: "Sign up"
+        forgot: "Forgot your password?"
+        confirmations: "Didn't receive confirmation instructions?"
+        lockable: "Didn't receive unlock instructions?"
+        omniauthable: "Sign in with"
+    unlocks:
+      new:
+        title: "Resend unlock instructions"
+        email: "Email"
+        action: "Resend unlock instructions"
+
+
+  
+
+
