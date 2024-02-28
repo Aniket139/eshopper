@@ -2448,3 +2448,6 @@ textarea {
   border-bottom: 1px solid #0000001f ;
 }
 
+#language_select{
+  width: 100px;
+}

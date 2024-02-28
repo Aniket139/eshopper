@@ -4,6 +4,7 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+  use_doorkeeper
   devise_for :customers, path: 'customer', path_names: {
     sign_in: 'login', sign_out: 'logout', sign_up: 'signup'
   }, controllers: {
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :products, only: %i[index show]
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
+  put 'update_language', to: 'businesses#update_language'
   resources :orders do
     member do
       get 'cancel_information'

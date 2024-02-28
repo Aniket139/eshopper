@@ -15,76 +15,76 @@
     .col-md-5.border-dark.fw-bold
       .p-3.py-5
         .d-flex.justify-content-between.align-items-center.mb-3
-          %h2.text-center Profile Update
+          %h2.text-center= t('customers.edit.update')
           %br
           %br
         = form_with model: @customer do |form|
           .row.mt-3
             .col-md-4
-              = form.label :first_name, class: 'labels'
-              = form.text_field :first_name, class: 'form-control', placeholder: 'First name'
+              = form.label :first_name,t('activerecord.models.customer.first-name'), class: 'labels'
+              = form.text_field :first_name, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-firstname')
               - @customer.errors.full_messages_for(:first_name).each do |message|
                 .text-danger= message
             .col-md-4
-              = form.label :middle_name, class: 'labels'
-              = form.text_field :middle_name, class: 'form-control', placeholder: 'Middle name'
+              = form.label :middle_name,t('activerecord.models.customer.middle-name'), class: 'labels'
+              = form.text_field :middle_name, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-middlename')
               - @customer.errors.full_messages_for(:middle_name).each do |message|
                 .text-danger= message
             .col-md-4
-              = form.label :last_name, class: 'labels'
-              = form.text_field :last_name, class: 'form-control', placeholder: 'last name'
+              = form.label :last_name,t('activerecord.models.customer.last-name'), class: 'labels'
+              = form.text_field :last_name, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-lastname')
               - @customer.errors.full_messages_for(:last_name).each do |message|
                 .text-danger= message
           .row.mt-3
             .col-md-12
-              = form.label :email, class: 'labels'
-              = form.text_field :email, class: 'form-control', placeholder: 'Email'
+              = form.label :email,t('activerecord.models.customer.email'), class: 'labels'
+              = form.text_field :email, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-email')
               - @customer.errors.full_messages_for(:email).each do |message|
                 .text-danger= message
             .col-md-12
-              = form.label :mobile, class: 'labels'
-              = form.text_field :mobile, class: 'form-control', placeholder: 'Mobile'
+              = form.label :mobile,t('activerecord.models.customer.mobile'), class: 'labels'
+              = form.text_field :mobile, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-mobile')
               - @customer.errors.full_messages_for(:mobile).each do |message|
                 .text-danger= message
             .col-md-12
-              = form.label :dob, class: 'labels'
+              = form.label :dob,t('activerecord.models.customer.dob'), class: 'labels'
               %br
-              = form.date_select :dob, placeholder: 'Date of Birth', class: 'form-dob', start_year: 1975, end_year: 2024
+              = form.date_select :dob, placeholder: t('activerecord.models.customer.pleceholder-dob'), class: 'form-dob', start_year: 1975, end_year: 2024
               - @customer.errors.full_messages_for(:dob).each do |message|
                 .text-danger= message
             .col-md-12
-              = form.label :street, class: 'labels'
-              = form.text_field :street, class: 'form-control', placeholder: 'Street'
+              = form.label :street,t('activerecord.models.customer.street'), class: 'labels'
+              = form.text_field :street, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-street')
               - @customer.errors.full_messages_for(:street).each do |message|
                 .text-danger= message
             .col-md-12
-              = form.label :landmark, class: 'labels'
-              = form.text_field :landmark, class: 'form-control', placeholder: 'Landmark'
+              = form.label :landmark,t('activerecord.models.customer.landmark'), class: 'labels'
+              = form.text_field :landmark, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-lanmark')
               - @customer.errors.full_messages_for(:landmark).each do |message|
                 .text-danger= message
             .col-md-12
-              = form.label :pincode, class: 'labels'
-              = form.text_field :pincode, class: 'form-control', placeholder: 'Pincode'
+              = form.label :pincode,t('activerecord.models.customer.pincode'), class: 'labels'
+              = form.text_field :pincode, class: 'form-control', placeholder: t('activerecord.models.customer.pleceholder-pincode')
               - @customer.errors.full_messages_for(:pincode).each do |message|
                 .text-danger= message
           .row.mt-3
             .col-md-6
-              = form.label :city_id, class: 'labels'
+              = form.label :city_id,t('activerecord.models.customer.city'), class: 'labels'
               = form.select :city_id, options_for_select(city, @city&.name), { prompt: '- Select City -' }, class: 'form-control'
               - @customer.errors.full_messages_for(:city_id).each do |message|
                 .text-danger= message
             .col-md-6
-              = form.label :state_id, class: 'labels'
+              = form.label :state_id,t('activerecord.models.customer.state'), class: 'labels'
               = form.select :state_id, options_for_select(state, @state&.name), { prompt: '- Select State -' }, class: 'form-control'
               - @customer.errors.full_messages_for(:state_id).each do |message|
                 .text-danger= message
             .col-md-6
-              = form.label :country_id, class: 'labels'
+              = form.label :country_id,t('activerecord.models.customer.country'), class: 'labels'
               = form.select :country_id, options_for_select(country_name, @country&.name), { prompt: '- Select Country -' }, class: 'form-control'
               - @customer.errors.full_messages_for(:country_id).each do |message|
                 .text-danger= message
           .mt-5.text-center
-            = form.submit 'Save Profile', class: 'btn btn-primary profile-button'
+            = form.submit t('activerecord.models.customer.save-profile'), class: 'btn btn-primary profile-button'
 
 - content_for :css_file do
   = stylesheet_link_tag 'profile/edit_profile', 'data-turbolinks-track': 'reload'

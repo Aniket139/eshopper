@@ -3,6 +3,7 @@
 # :nodoc
 class ApplicationController < ActionController::Base
   before_action :set_business
+  before_action :set_locale
 
   def set_business
     # reset_session
@@ -13,5 +14,11 @@ class ApplicationController < ActionController::Base
     if cookies[:business].blank?
       cookies[:business] = { value: "address", expires: 1.minutes.from_now }
     end 
+  end
+  
+  private
+
+  def set_locale
+    I18n.locale = Business.first.language || I18n.default_locale
   end
 end

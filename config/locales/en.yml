@@ -1,31 +1,325 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  layout:
+    header:
+      # middle
+      account: "Account"
+      cart: "Cart"
+      order: "Order"
+      logout: "Logout"
+      login: "Login"
+      #bottom
+      home: "Home"
+      product: "Product"
+      contact: "Contact"
+    footer:
+      info-eshopper:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed
+        do eiusmod tempor"
+      # service
+      service: "Service"
+      online-help: "Online Help"
+      contact-us: "Contact Us"
+      order-status: "Order Status"
+      change-location: "Change Location"
+      faq: " FAQ’s"
+      #Quock Shop
+      t-shirt: "T-Shirt"
+      mens: "Mens"
+      womens: "Womens"
+      gift-cards: "Gift Cards"
+      shoes: "Shoes"
+      #Policies
+      terms-of-use: "Terms of Use"
+      privecy-policy: "Privecy Policy"
+      refund-policy: "Refund Policy"
+      billing-system: "Billing System"
+      ticket-system: "Ticket System"
+      #About Shopper
+      company-information: "Company Information"
+      careers: "Careers"
+      store-location: "Store Location"
+      affillate-program: "Affillate Program"
+      copyright: "Copyright"
+      placeholder: "Your email address"
+      recent-update: "Get the most recent updates from"
+      designed-by: "Designed By"
+  home:
+    #slider-carousel
+    template-title1: "Free E-Commerce Template"
+    template-body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    template-botton: "Get it now"
+    template-title2: "100% Responsive Design"
+    template-title3: "Free Ecommerce Template"
+    #Features Items
+    features-items: "Features Items"
+  product:
+    sidebar:
+      category: "Category"
+      brands: "Brands"
+      price-range: "Price Range"
+    product-data:
+      price: "$%{price}"
+      add-to-cart: "Add To Cart"
+      show-details: "Show Details"
+      buy: "Buy"
+    index:
+      features-items: "Features Items"
+    show:
+      web-id: "Web ID"
+      mrp: "MRP -"
+      mrp-price: "$%{mrp}"
+      price: "$%{price}"
+      quantity: "Quantity:"
+      add-to-cart: "Add To Cart"
+      availability: "Availability:"
+      brand: "Brand :"
+  carts:
+    index:
+      home: "Home"
+      title: "Shopping Cart"
+      #thead
+      td-item: "Item"
+      td-description: "Description"
+      td-price: "Price"
+      td-quantity: "Quantity"
+      td-total: "Total"
+      #tbody
+      price: "$%{price}"
+      #total info
+      cart-sub-total: "Cart Sub Total"
+      tax: "Eco Tax"
+      shipping-cost: "Shipping Cost"
+      total: "Total"
+      #botton
+      check-out: "Check Out"
+  orders:
+    defaults:
+      td-item: "Item"
+      td-description: "Description"
+      td-price: "Price"
+      td-quantity: "Quantity"
+      td-total: "Total"
+
+      sub-total: "Sub Total"
+      tax: "Eco Tax"
+      shipping-cost: "Shipping Cost"
+      total: "Total"
+      paymemt-method: "Payment method:"
+      currency: "$"
+    cancel-order:
+      mrp-label: "MRP :"
+      mrp: "$%{mrp}"
+      price: "Price"
+    checkout:
+      home: "Home"
+      title: "Check out"
+      step1: "Step1"
+      new-user: "New User"
+      options: "Checkout options"
+      register-account: "Register Account"
+      guest-checkout: "Guest Checkout"
+      info: "Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest"
+      #bill to
+      bill-to: "Bill To"
+      #review-payment
+      review-payment: "Review  Payment"
+      #tbody
+      price: "$%{price}"
+      total-price: "$%{cartprice}"
+      #total info
+      cost-value:
+      total-value:
+      #cart to checkout
+      cart-price: "$%{price}"
+      cart-total: "$%{carttotal}"
+      #payment method
+    confirmation:
+      title: "Thank You For Your Order"
+      details: "Your order has been received and is now being processed. Your order details are shown below for your reference:"
+      #thead
+      th-product: "Product"
+      th-image: "Image"
+      th-quantity: "Quantity"
+      th-price: "Price"
+      #body
+      td-price:
+      #Order Summary
+      order-summary: "Order Summary"
+      billing-address: "Billing Address"
+    index:
+      order-id: "Order Id :"
+      #button
+      details: "Details"
+      cancel: "Cancel Order"
+      #ship To
+      ship-to: "Ship to :"
+      address: "Address :"
+      date-time: "Date Time :"
+    show:
+      home: "Home"
+      detail: "Order details"
+      view-detail: "View order details"
+      order-id: "Order ID:"
+      order-date: "Order date:"
+      order-total: "Order Total"
+      shipment: "Shipment details"
+      estimate: "Delivery Estimate:"
+      mrp: "Mrp :"
+      qty: "Qty :"
+      price: "$%{price}"
+      payment-info: "Payment information"
+      payment-methods: "Payment Methods:"
+      shipping-address: "Shipping Address "
+      order-summary: "Order Summary"
+      btn-back: "Back to orders"
+      product-price: "Product price"
+  customers:
+    edit:
+      update: "Profile Update"
+    show:
+      edit-profile: "Edit Profile"
+  
+
+  activerecord:
+    models:
+      customer:
+        one: Customer
+        other: Customers
+        first-name: "First Name"
+        pleceholder-firstname: "First Name"
+        middle-name: "Middle Name"
+        pleceholder-middlename: "Middle Name"
+        last-name: "Last Name"
+        pleceholder-lastname: "Last Name"
+        email: "Email"
+        pleceholder-email: "Email"
+        mobile: "Mobile"
+        pleceholder-mobile: "Mobile"
+        dob: "DOB"
+        pleceholder-dob: "Date of Birth"
+        street: "Street"
+        pleceholder-street: "street"
+        landmark: "Landmark"
+        pleceholder-lanmark: "Landmark"
+        pincode: "Pincode"
+        pleceholder-pincode: "Pincode"
+        city: "City"
+        state: "State"
+        country: "Country"
+        save-profile: "Save Profile"
+      order:
+        one: order
+        other: orders
+        pleceholder-street: "street"
+        pleceholder-lanmark: "Landmark"
+        pleceholder-pincode: "Pincode"
+        pleceholder-mobile: "Mobile"
+        submit: "Submit"
+        bank-account: "Bank Account"
+        cash-on-delivery: "Cash on Delivery"
+        creditordebit-card: "Credit or debit card"
+        cancel: "Cancel Order"
+    
+  customers_mailer:
+    confirmation_instructions:
+      subject: "Confirmation instructions"
+    field_blank:
+      subject: 'Please input blank field'
+    dob_offer:
+      subject: 'Happy Birthday offer'
+  holidays_mailer:
+    send_offers:
+      subject: "Holidays offers"
+  orders_mailer:
+    confirmation:
+      subject: 'Order Confirmation'
+    cancel:
+      subject: 'Order cancelled'
+  
+  devise:
+    comfirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email: "Email"
+        action: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome"
+        details: "You can confirm your account email through the link below:"
+        link: "Confirm my account"
+      email_changed:
+        hello: "Hello"
+        detail1: "We're contacting you to notify you that your email is being changed to "
+        detail2: "We're contacting you to notify you that your email has been changed to"
+      password_change:
+        hello: "Hello"
+        info: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        hello: "Hello"
+        info: "Someone has requested a link to change your password. You can do this through the link below."
+        link: "Change my password"
+        info2: "If you didn't request this, please ignore this email."
+        info3: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: "Hello"
+        info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        link: "Unlock my account"
+        info2: "Click the link below to unlock your account:"
+    sessions:
+      new:
+        title: "Login"
+        placeholder-email: "Email"
+        placeholder-password: "Password"
+        remember-me: "Remember Me"
+        btn-login: "Login"
+    password:
+      edit:
+        title: "Change your password"
+        new-password: "New password"
+        confirm: "Confirm new password"
+        action: "Change my password"
+      new:
+        title: "Forgot your password?"
+        email: "Email"
+        action: "Send me reset password instructions"
+    registrations:
+      edit:
+        title: "Edit"
+        email: "Email"
+        info: "Currently waiting confirmation for:"
+        password: "Password"
+        password-nify: "leave blank if you don't want to change it"
+        password-length: "characters minimum"
+        confimation-pass: "Password Confirmation"
+        current-pass: "we need your current password to confirm your changes"
+        action: "Update"
+        cancel-title: "Cancel my account"
+        unhappy: "Unhappy?"
+        link: "Back"
+      new:
+        title: "Sign up"
+        placeholder-email: "Email"
+        placeholder-password: "New Password"
+        placeholder-confirm: "Confirm Password"
+        country: "Country"
+        state: "State"
+        city: "City"
+        btn-signup: "Signup"
+    shared:
+      link:
+        log-in: "Log in"
+        sign-up: "Sign up"
+        forgot: "Forgot your password?"
+        confirmations: "Didn't receive confirmation instructions?"
+        lockable: "Didn't receive unlock instructions?"
+        omniauthable: "Sign in with"
+    unlocks:
+      new:
+        title: "Resend unlock instructions"
+        email: "Email"
+        action: "Resend unlock instructions"
+
+
+  
+
+

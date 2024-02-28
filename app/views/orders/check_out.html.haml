@@ -3,38 +3,39 @@
     .breadcrumbs
       %ol.breadcrumb
         %li
-          = link_to 'Home', root_path
-        %li.active Check out
+          = link_to root_path do
+            = t('orders.checkout.home')
+        %li.active= t('orders.checkout.title')
     / /breadcrums
     .step-one
-      %h2.heading Step1
+      %h2.heading= t('orders.checkout.step1')
     .checkout-options
-      %h3 New User
-      %p Checkout options
+      %h3= t('orders.checkout.new-user')
+      %p= t('orders.checkout.options')
       %ul.nav
         %li
           %label
-            %input{type: "radio", name: "address", value: "Register Account"} Register Account
+            %input{type: "radio", name: "address", value: "Register Account"}= t('orders.checkout.register-account')
         %li
           %label
-            %input{type: "radio", name: "address", value: "Guest Checkout"}Guest Checkout
+            %input{type: "radio", name: "address", value: "Guest Checkout"}= t('orders.checkout.guest-checkout')
       = form_with model: @order, url: orders_path, method: :post do |form|
         = form.hidden_field :product_id, value: @product.id if @product.present? 
         = form.hidden_field :status, value: 'Order Confirmed'
         .register-req
-          %p Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest
+          %p= t('orders.checkout.info')
         .shopper-informations
           .row
             .col-sm-5.clearfix  
               .bill-to
-                %p Bill To
+                %p= t('orders.checkout.bill-to')
                 .form-one 
-                  = form.text_field :street, placeholder: 'Street', "data-street": current_customer.street, value: current_customer.street  
+                  = form.text_field :street, placeholder: t('activerecord.models.order.pleceholder-street'), "data-street": current_customer.street, value: current_customer.street  
                 %br
                 %br
-                  = form.text_field :landmark, placeholder: 'Landmark', "data-landmark": current_customer.landmark, value: current_customer.landmark 
+                  = form.text_field :landmark, placeholder: t('activerecord.models.order.pleceholder-lanmark'), "data-landmark": current_customer.landmark, value: current_customer.landmark 
                 %br
-                  = form.text_field :pincode,  placeholder: 'Zip / Postal Code *', "data-pincode": current_customer.pincode, value: current_customer.pincode 
+                  = form.text_field :pincode, placeholder: t('activerecord.models.order.pleceholder-pincode'), "data-pincode": current_customer.pincode, value: current_customer.pincode 
                 %br
                   = form.select :city_id, options_for_select(city, @city&.name), {}, {"data-city-id": current_customer.city_id, value: current_customer.city_id }
                 %br
@@ -42,19 +43,19 @@
                 %br
                   = form.select :country_id, options_for_select(country_name, @country&.name), {}, {"data-country-id": current_customer.country_id, value: current_customer.country_id} 
                 %br
-                  = form.text_field :mobile,  placeholder: 'Mobile', "data-Mobile": current_customer.mobile, value: current_customer.mobile
+                  = form.text_field :mobile,  placeholder: t('activerecord.models.order.pleceholder-mobile'), "data-Mobile": current_customer.mobile, value: current_customer.mobile
         .review-payment
-          %h2 Review  Payment
+          %h2= t('orders.checkout.review-payment')
           .table-responsive.cart_info
             - if @product.present?
               %table.table.table-condensed
                 %thead
                   %tr.cart_menu
-                    %td.image Item
-                    %td.description Description
-                    %td.price Price
-                    %td.quantity Quantity
-                    %td.total Total
+                    %td.image= t('orders.defaults.td-item')
+                    %td.description= t('orders.defaults.td-description')
+                    %td.price= t('orders.defaults.td-price')
+                    %td.quantity= t('orders.defaults.td-quantity')
+                    %td.total= t('orders.defaults.td-total')
                     %td.delete
                 %tbody
                   %tr
@@ -65,12 +66,12 @@
                       %h6
                         %a(href="")=@product.name
                     %td.cart_price
-                      %p= "₹#{@product.price}"
+                      %p= t('order.checkout.price', price: @product.price)
                     %td.cart_quantity
                       .cart_quantity_button
                         %input.cart_quantity_input{autocomplete: "off", name: "quantity", size: "2", type: "text", value: "1"}
                     %td.cart_total
-                      %p.cart_total_price= "₹#{@product.price * 1}"
+                      %p.cart_total_price= t('order.checkout.total-price', cartprice: @product.price * 1)
               %section#do_action
                 .container
                   .row
@@ -78,26 +79,26 @@
                       .total_area
                         %ul
                           %li
-                            Sub Total
-                            %span= "₹#{@product.price}"
+                            = t('orders.defaults.sub-total')
+                            %span= t('order.checkout.price', price: @product.price)
                           %li	
-                            Eco Tax
+                            = t('orders.defaults.tax')
                             %span= "₹#{@eco_tax = @product.price * 2 / 100}"
                           %li
-                            Shipping Cost
+                            = t('orders.defaults.shipping-cost')
                             %span= @shipping_cost = @product.price > 1000 ? "free" : 50
                           %li
-                            Total
+                            = t('orders.defaults.total')
                             %span= @total_price = @product.price + @eco_tax + @shipping_cost.to_i
             - else
               %table.table.table-condensed
                 %thead
                   %tr.cart_menu
-                    %td.image Item
-                    %td.description Description
-                    %td.price Price
-                    %td.quantity Quantity
-                    %td.total Total
+                    %td.image= t('orders.defaults.td-item')
+                    %td.description= t('orders.defaults.td-description')
+                    %td.price= t('orders.defaults.td-price')
+                    %td.quantity= t('orders.defaults.td-quantity')
+                    %td.total= t('orders.defaults.td-total')
                     %td.delete
                 %tbody
                   - current_customer.carts.each do |item|
@@ -109,12 +110,12 @@
                         %h6
                           %a(href="")=item.product.name
                       %td.cart_price
-                        %p= "₹#{item.product.price}"
+                        %p= t('orders.checkout.cart-price', price: item.product.price)
                       %td.cart_quantity
                         .cart_quantity_button
                           %p.cart_quantity_input= "#{item.quantity.to_i}"
                       %td.cart_total
-                        %p.cart_total_price= "₹#{item.product.price * item.quantity.to_i}"
+                        %p.cart_total_price= t('orders.checkout.cart-total', carttotal: item.product.price * item.quantity.to_i)
               %section#do_action
               .container
                 .row
@@ -122,29 +123,29 @@
                     .total_area
                       %ul
                         %li
-                          Sub Total
-                          %span= "₹#{@total_cart_price = current_customer.carts.sum { |item| item.product.price * item.quantity.to_i }}" 
+                          = t('orders.defaults.sub-total')
+                          %span= "#{t('orders.defaults.currency')}#{@total_cart_price = current_customer.carts.sum { |item| item.product.price * item.quantity.to_i }}"
                         %li
-                          Eco Tax
-                          %span= "₹#{@eco_tax = @total_cart_price * 2 / 100}"
+                          = t('orders.defaults.tax')
+                          %span= "#{t('orders.defaults.currency')}#{@eco_tax = @total_cart_price * 2 / 100}"
                         %li
-                          Shipping Cost
+                          = t('orders.defaults.shipping-cost')
                           %span= @shipping_cost = @total_cart_price > 1000 ? "free" : 50
                         %li
-                          Total
-                          %span= @total_price = @total_cart_price + @eco_tax + @shipping_cost.to_i
+                          = t('orders.defaults.total')
+                          %span="#{t('orders.defaults.currency')}#{@total_price = @total_cart_price + @eco_tax + @shipping_cost.to_i}"
           .payment-options
             %span
               = form.radio_button :payment_method, 'Bank Account'
-              = form.label :bank_account, 'Bank Account'
+              = form.label :bank_account, t('activerecord.models.order.bank-account')
               %span
                 = form.radio_button :payment_method, 'Cash on Delivery'
-                = form.label :cash_on_delivery, 'Cash on Delivery'
+                = form.label :cash_on_delivery, t('activerecord.models.order.cash-on-delivery')
                 %span
                   = form.radio_button :payment_method, 'Credit or debit card'
-                  = form.label :credit_or_debit_card, 'Credit or debit card'
+                  = form.label :credit_or_debit_card,  t('activerecord.models.order.creditordebit-card')
             %br
-              = form.submit "Submit", class: "btn btn-primary"
+              = form.submit t('activerecord.models.order.submit'), class: "btn btn-primary"
 - content_for :js_code do
   :javascript
     $(document).ready(function() {

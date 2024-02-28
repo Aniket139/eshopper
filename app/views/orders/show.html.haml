@@ -2,16 +2,17 @@
   %article.card
     %ol.breadcrumb
       %li
-        = link_to 'Home', root_path
-      %li.active Order details
-    %header.card-header View order details   
+        = link_to root_path do
+          = t('orders.show.home')
+      %li.active= t('orders.show.detail')
+    %header.card-header= t('orders.show.view-detail')
     .card-body
-      %h6="Order ID: #{@order.id}"
-      %h6="Order date: #{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")}"
-      %h6="Order total: ₹#{@order.total}"
+      %h6= "#{t('orders.show.order-id')}#{@order.id}"
+      %h6= "#{t('orders.show.order-date')}#{@order.created_at.strftime("%d-%m-%Y (%I:%M %p)")}"
+      %h6= "#{t('orders.show.order-total')}#{t('orders.defaults.currency')}#{@order.total}"
       %article.card
-        %header.card-header Shipment details 
-        %span.order-info Delivery Estimate:
+        %header.card-header= t('orders.show.shipment')
+        %span.order-info= t('orders.show.estimate')
         %span.delivery-estimate= @delivery_date
         %br
       - @order_details.each do |order_product| 
@@ -22,37 +23,40 @@
                 = image_tag url_for(order_product.product.cover_image), alt: "", size: "120x120"
               %figcaption.info.align-self-center
                 %h4.product-title= order_product.product.name
-                Mrp :
+                = t('orders.show.mrp')
                 %del= order_product.product.mrp
                 %br
-                = "Qty : #{order_product.quantity}"
+                = "#{t('orders.show.qty')}#{order_product.quantity}"
                 %br
-                = "Price : ₹#{order_product.product.price}"
+                = t('orders.show.price', price: order_product.price)
         %article.card
-          %header.card-header Payment information
-          %span.order-info Payment Methods:
+          %header.card-header= t('orders.show.payment-info')
+          %span.order-info= t('orders.show.payment-methods')
           %span.order-info= @order.payment_method
         %article.card
-          %header.card-header Shipping Address 
+          %header.card-header= t('orders.show.shipping-address')
           %span.order-info= "#{@order.customer.first_name} #{@order.customer.last_name}"
           %span.order-info="#{@order.customer.street}, #{@order.customer.landmark},"
           %span.order-info= "#{@order.customer.city.name}, #{@order.customer.state.name}, #{@order.customer.country.name}, #{@order.customer.pincode}"
         %article.card
-          %header.card-header Order Summary
-          %span.order-info= "Product price : ₹#{@order.sub_total}"
-          %span.order-info= "Qty : #{order_product.quantity}"
-          %span.order-info= "Tax : ₹#{@eco_tax = @order.sub_total * 2 / 100 }"
-          %span.order-info= "Shipping Cost : #{@shipping_cost = @order.sub_total > 1000 ? "free" : 50}"
-          %span.order-info= "Order Total : ₹#{@order.total}" 
+          %header.card-header= t('orders.show.order-summary')
+          %span.order-info= "#{t('orders.show.product-price')} : #{t('orders.defaults.currency')}#{@order.sub_total}"
+          %span.order-info= "#{t('orders.show.qty')}#{order_product.quantity}"
+          %span.order-info= "#{t('orders.defaults.tax')} : #{t('orders.defaults.currency')}#{@eco_tax = @order.sub_total * 2 / 100}"
+          %span.order-info= "#{t('orders.defaults.shipping-cost')} : #{@shipping_cost = @order.sub_total > 1000 ? "free" : 50}"
+          %span.order-info= "#{t('orders.show.order-total')} : #{t('orders.defaults.currency')}#{@order.total}"
         .track
           - Order.statuses.each do |key, value|
-            .step{class: Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
-              %span.icon
-                - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
-                  %i.fa.fa-check
-              %span.text= value
+            - unless key == 'cancelled'
+              .step{class: Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
+                %span.icon
+                  - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
+                    %i.fa.fa-check
+                %span.text= value
+        %br
+        %br      
         = link_to orders_path, class: "btn btn-warning" do
           %i.fa.fa-chevron-left
-          Back to orders
+          = t('orders.show.btn-back')
 - content_for :css_file do
   = stylesheet_link_tag 'order/order-details', 'data-turbolinks-track': 'reload'

@@ -1,0 +1,14 @@
+gu:
+  layout:
+    header:
+      # middle
+      account: "એકાઉન્ટ"
+      cart: "કાર્ટ"
+      order: "ઓર્ડર"
+      logout: "લૉગ આઉટ"
+      login: "પ્રવેશ કરો"
+      #bottom
+      home: "Home"
+      product: "Product"
+      contact: "Contact"
+    footer:

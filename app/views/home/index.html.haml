@@ -14,9 +14,9 @@
                 %h1
                   %span> E
                   \-SHOPPER
-                %h2 Free E-Commerce Template
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                %button.btn.btn-default.get{type: "button"} Get it now
+                %h2= t('home.template-title1')
+                %p= t('home.template-body')
+                %button.btn.btn-default.get{type: "button"}= t('home.template-botton')
               .col-sm-6
                 = image_tag("home/girl1.jpg", class: "girl img-responsive", alt: "")
                 = image_tag("home/pricing.png", class: "pricing", alt: "")
@@ -25,9 +25,9 @@
                 %h1
                   %span> E
                   \-SHOPPER
-                %h2 100% Responsive Design
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                %button.btn.btn-default.get{type: "button"} Get it now
+                %h2= t('home.template-title2')
+                %p= t('home.template-body')
+                %button.btn.btn-default.get{type: "button"}= t('home.template-botton')
               .col-sm-6
                 = image_tag("home/girl2.jpg", class: "girl img-responsive", alt: "")
                 = image_tag("home/pricing.png", class: "pricing", alt: "")
@@ -36,9 +36,9 @@
                 %h1
                   %span> E
                   \-SHOPPER
-                %h2 Free Ecommerce Template
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                %button.btn.btn-default.get{type: "button"} Get it now
+                %h2= t('home.template-title3')
+                %p= t('home.template-body')
+                %button.btn.btn-default.get{type: "button"}= t('home.template-botton')
               .col-sm-6
                 = image_tag("home/girl3.jpg", class: "girl img-responsive", alt: "")
                 = image_tag("home/pricing.png", class: "pricing", alt: "")
@@ -56,7 +56,7 @@
       // FEATURES ITEMS
       .col-sm-9.padding-right
         .features_items
-          %h2.title.text-center Features Items
+          %h2.title.text-center= t('home.features-items')
           #product-data
             = render partial: 'products/product_data', locals: { products: @products }
 - content_for :js_file do

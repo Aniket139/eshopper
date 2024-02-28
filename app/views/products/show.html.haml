@@ -33,20 +33,20 @@
               %strong
                 %p
                 %i MRP -
-                %del= @product.mrp
+                %del= t('product.show.mrp-price', mrp: @product.mrp)
                 -# %p{style: 'color: red'}= @product.discount_type
               %span
-                %span= "₹#{@product.price}"
-                %label Quantity:
+                %span= t('product.show.price', price: @product.price)
+                %label= t('product.show.quantity')
                 = text_field_tag(:quantity, 1)
                 = button_tag(class: "btn btn-fefault cart") do
                   %i.fa.fa-shopping-cart
-                  Add to cart
+                  = t('product.show.add-to-cart')
               %p
-              %b Availability:
+              %b= t('product.show.availability')
               =@product.availability
               %p
-              %b Brand:
+              %b= t('product.show.brand')
               =@product.brand.name
               = link_to(image_tag("product-details/share.png", class: "share img-responsive", alt: ""))
         /  /product-information

@@ -12,7 +12,7 @@ class Product < ApplicationRecord
 
   validate :validate_max_images
   validates :name, :description, :mrp, presence: true
-  validates :price, numericality: { greater_than: 0 }
+  # validates :price, numericality: { greater_than: 0 }
 
   def validate_max_images
     return unless images.count > 4

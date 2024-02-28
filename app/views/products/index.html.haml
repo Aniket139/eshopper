@@ -9,7 +9,7 @@
           = render 'product_sidebar' 
       .col-sm-9.padding-right
         .features_items
-          %h2.title.text-center Features Items
+          %h2.title.text-center= t('product.index.features-items')
           #product-data
             = render partial: 'product_data', locals: { products: @products }
 - content_for :js_file do

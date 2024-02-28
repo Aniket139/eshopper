@@ -1,0 +1,326 @@
+nr:
+  layout:
+    header:
+      # middle
+      account: "Regnskap"
+      cart: "Handlevogn"
+      order: "Rekkefølge"
+      logout: "Logg ut"
+      login: "Logg Inn"
+      #bottom
+      home: "Hjem"
+      product: "Produkt"
+      contact: "Kontakt"
+    footer:
+      info-eshopper:
+        "Lorem ipsum dolor sitte amet, consectetur adipisicing elit, sed
+        Do eiusmod tempor"
+      # service
+      service: "Tjeneste"
+      online-help: "Elektronisk hjelp"
+      contact-us: "Kontakt oss"
+      order-status: "Status for bestilling"
+      change-location: "Endre plassering"
+      faq: " Vanlige spørsmål"
+      #Quock Shop
+      t-shirt: "T-skjorte"
+      mens: "Menn"
+      womens: "Kvinner"
+      gift-cards: "Gavekort"
+      shoes: "Sko"
+      #Policies
+      terms-of-use: "Vilkår for bruk"
+      privecy-policy: "Retningslinjer for privitet"
+      refund-policy: "Retningslinjer for refusjon"
+      billing-system: "Fakturering System"
+      ticket-system: "Billettsystem"
+      #About Shopper
+      company-information: "Firma Informasjon"
+      careers: "Careers"
+      store-location: "Karriere"
+      affillate-program: "Affillate Program"
+      copyright: "Opphavsrett"
+      placeholder: "Din e-postadresse"
+      recent-update: "Få de nyeste oppdateringene fra"
+      designed-by: "Designet av"
+  home:
+    #slider-carousel
+    template-title1: "Gratis e-handelsmal"
+    template-body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    template-botton: "Få det nå"
+    template-title2: "100% responsiv design"
+    template-title3: "Gratis e-handelsmal"
+    #Features Items
+    features-items: "Funksjoner elementer"
+  product:
+    sidebar:
+      category: "Kategori"
+      brands: "Merker"
+      price-range: "Prisklasse"
+    product-data:
+      price: "kr%{price}"
+      add-to-cart: "Legg til i handlekurv"
+      show-details: "Vis detaljer"
+      buy: "Kjøpe"
+    index:
+      features-items: "Funksjoner elementer"
+    show:
+      web-id: "Web ID"
+      mrp: "MRP -"
+      mrp-price: "kr%{mrp}"
+      price: "kr%{price}"
+      quantity: "Kvantitet:"
+      add-to-cart: "Legg til i handlekurv"
+      availability: "Tilgjengelighet:"
+      brand: "Merke:"
+  carts:
+    index:
+      home: "Hjem"
+      title: "Handlekurv"
+      #thead
+      td-item: "Vare"
+      td-description: "Beskrivelse:"
+      td-price: "Pris"
+      td-quantity: "Kvantitet"
+      td-total: "Total"
+      #tbody
+      price: "kr%{price}"
+      #total info
+      cart-sub-total: "Handlekurv Sub Total"
+      tax: "Miljøavgift"
+      shipping-cost: "Fraktkostnad"
+      total: "Total"
+      #botton
+      check-out: "Sjekk ut"
+  orders:
+    defaults:
+      td-item: "Vare"
+      td-description: "Beskrivelse:"
+      td-price: "Price"
+      td-quantity: "Kvantitet"
+      td-total: "Total"
+
+      sub-total: "Delsum"
+      tax: "Miljøavgift"
+      shipping-cost: "Fraktkostnad"
+      total: "Total"
+      paymemt-method: "Betalingsmåte:"
+      currency: "kr"
+    cancel-order:
+      mrp-label: "MRP :"
+      mrp: "kr%{mrp}"
+      price: "Pris"
+    checkout:
+      home: "Hjem"
+      title: "Sjekk ut"
+      step1: "Trinn 1"
+      new-user: "Ny bruker"
+      options: "Alternativer for utsjekking"
+      register-account: "Registrer konto"
+      guest-checkout: "Utsjekking for gjester"
+      info: "Bruk Registrer deg og sjekk ut for enkelt å få tilgang til bestillingshistorikken din, eller bruk Checkout som gjest"
+      #bill to
+      bill-to: "Fakturere til"
+      #review-payment
+      review-payment: "Se gjennom betalingen"
+      #tbody
+      price: "kr%{price}"
+      total-price: "kr%{cartprice}"
+      #total info
+      cost-value:
+      total-value:
+      #cart to checkout
+      cart-price: "kr%{price}"
+      cart-total: "kr%{carttotal}"
+      #payment method
+    confirmation:
+      title: "Takk for bestillingen"
+      details: "Bestillingen din er mottatt og blir nå behandlet. Bestillingsdetaljene dine vises nedenfor for din referanse:"
+      #thead
+      th-product: "Produkt"
+      th-image: "Bilde"
+      th-quantity: "Kvantitet"
+      th-price: "Pris"
+      #body
+      td-price:
+      #Order Summary
+      order-summary: "Bestill sammendrag"
+      billing-address: "Faktureringsadresse"
+    index:
+      order-id: "Bestill ID :"
+      #button
+      details: "Detaljer"
+      cancel: "Annullere bestilling"
+      #ship To
+      ship-to: "Send til:"
+      address: "Adresse:"
+      date-time: "Dato klokkeslett:"
+    show:
+      home: "Hjem"
+      detail: "Bestill detaljer"
+      view-detail: "Se bestillingsdetaljer"
+      order-id: "Bestill ID:"
+      order-date: "Bestillingsdato:"
+      order-total: "Bestill total:"
+      shipment: "Detaljer om forsendelsen"
+      estimate: "Levering Estimat:"
+      mrp: "Mrp :"
+      qty: "Qty :"
+      price: "kr%{price}"
+      payment-info: "Betalingsinformasjon"
+      payment-methods: "Betalingsmetoder:"
+      shipping-address: "Leveringsadresse"
+      order-summary: "Bestill sammendrag"
+      btn-back: "Tilbake til bestillinger"
+      product-price: "Produkt pris"
+  customer:
+    edit:
+      update: "Oppdatering av profil"
+    show:
+      edit-profile: "Rediger profil"
+  
+
+  activerecord:
+    models:
+      customer:
+        one: Customer
+        other: Customers
+        first-name: "Fornavn"
+        pleceholder-firstname: "Fornavn"
+        middle-name: "Mellomnavn"
+        pleceholder-middlename: "Mellomnavn"
+        last-name: "Etternavn"
+        pleceholder-lastname: "Etternavn"
+        email: "E-post"
+        pleceholder-email: "E-post"
+        mobile: "Mobil"
+        pleceholder-mobile: "Mobil"
+        dob: "DOB"
+        pleceholder-dob: "Fødselsdato"
+        street: "Gate"
+        pleceholder-street: "Gate"
+        landmark: "Landemerke"
+        pleceholder-lanmark: "Landemerke"
+        pincode: "PIN-kode"
+        pleceholder-pincode: "PIN-kode"
+        city: "By"
+        state: "Tilstand"
+        country: "Land"
+        save-profile: "Lagre profil"
+      order:
+        one: order
+        other: orders
+        pleceholder-street: "gate"
+        pleceholder-lanmark: "Landemerke"
+        pleceholder-pincode: "PIN-kode"
+        pleceholder-mobile: "Mobil"
+        submit: "Forelegge"
+        bank-account: "Bankkonto"
+        cash-on-delivery: "Kontant ved levering"
+        creditordebit-card: "Kreditt- eller debetkort"
+        cancel: "Annullere bestilling"
+  customers_mailer:
+    confirmation_instructions:
+      subject: "Confirmation instructions"
+    field_blank:
+      subject: 'Please input blank field'
+    dob_offer:
+      subject: 'Happy Birthday offer'
+  holidays_mailer:
+    send_offers:
+      subject: "Holidays offers"
+  orders_mailer:
+    confirmation:
+      subject: 'Order Confirmation'
+    cancel:
+      subject: 'Order cancelled'
+  
+  devise:
+    comfirmations:
+      new:
+        title: "Sende bekreftelsesinstruksjoner på nytt"
+        email: "E-post"
+        action: "Sende bekreftelsesinstruksjoner på nytt"
+    mailer:
+      confirmation_instructions:
+        welcome: "Velkommen"
+        details: "Du kan bekrefte e-postadressen for kontoen din via lenken nedenfor:"
+        link: "Bekreft kontoen min"
+      email_changed:
+        hello: "Hei"
+        detail1: "Vi kontakter deg for å varsle deg om at e-postadressen din blir endret til "
+        detail2: "Vi kontakter deg for å varsle deg om at e-postadressen din er endret til"
+      password_change:
+        hello: "Hei"
+        info: "Vi kontakter deg for å varsle deg om at passordet ditt er endret."
+      reset_password_instructions:
+        hello: "Hei"
+        info: "Noen har bedt om en kobling for å endre passordet ditt. Du kan gjøre dette via lenken nedenfor."
+        link: "Endre passordet mitt"
+        info2: "Hvis du ikke ba om dette, kan du ignorere denne e-posten."
+        info3: "Passordet ditt endres ikke før du åpner lenken ovenfor og oppretter en ny."
+      unlock_instructions:
+        hello: "Hei"
+        info: "Kontoen din har blitt låst på grunn av et stort antall mislykkede påloggingsforsøk."
+        link: "Lås opp kontoen min"
+        info2: "Klikk på koblingen nedenfor for å låse opp kontoen din:"
+    sessions:
+      new:
+        title: "Pålogging"
+        placeholder-email: "E-post"
+        placeholder-password: "Passord"
+        remember-me: "Husk meg"
+        btn-login: "Pålogging"
+    password:
+      edit:
+        title: "Endre passordet ditt"
+        new-password: "Nytt passord"
+        confirm: "Bekreft nytt passord"
+        action: "Endre passordet mitt"
+      new:
+        title: "Har du glemt passordet?"
+        email: "E-post"
+        action: "Send meg instruksjoner for tilbakestilling av passord"
+    registrations:
+      edit:
+        title: "Redigere"
+        email: "E-post"
+        info: "Venter på bekreftelse for:"
+        password: "Passord"
+        password-nify: "La tomt stå tomt hvis du ikke vil endre det"
+        password-length: "minimum tegn"
+        confimation-pass: "Bekreftelse av passord"
+        current-pass: "Vi trenger ditt nåværende passord for å bekrefte endringene"
+        action: "Oppdatering"
+        cancel-title: "Avslutt kontoen min"
+        unhappy: "Ulykkelig?"
+        link: "Tilbake"
+      new:
+        title: "Melde seg på"
+        placeholder-email: "E-post"
+        placeholder-password: "Nytt passord"
+        placeholder-confirm: "Bekreft passord"
+        country: "Land"
+        state: "Tilstand"
+        city: "By"
+        btn-signup: "Påmelding"
+    shared:
+      link:
+        log-in: "Logg på"
+        sign-up: "Melde seg på"
+        forgot: "Har du glemt passordet?"
+        confirmations: "Fikk ikke bekreftelsesinstruksjoner?"
+        lockable: "Mottok ikke opplåsingsinstruksjoner?"
+        omniauthable: "Logg på med"
+    unlocks:
+      new:
+        title: "Send opplåsingsinstruksjoner på nytt"
+        email: "E-post"
+        action: "Send opplåsingsinstruksjoner på nytt"
+
+
+  
+
+
+
+

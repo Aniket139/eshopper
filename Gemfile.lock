@@ -169,10 +169,14 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.12.0)
+      devise (>= 4.9.0)
     diff-lcs (1.5.1)
     docile (1.4.0)
-    doorkeeper (5.6.8)
+    doorkeeper (5.2.1)
       railties (>= 5)
+    doorkeeper-jwt (0.3.0)
+      jwt (~> 2.1.0, >= 2.1.0)
     drb (2.2.0)
       ruby2_keywords
     erb2haml (0.1.5)
@@ -189,6 +193,8 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.3)
       i18n (>= 1.8.11, < 2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.16.3)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
@@ -235,6 +241,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.7.1)
+    jwt (2.1.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -563,10 +570,13 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
-  doorkeeper
+  devise-i18n
+  doorkeeper (= 5.2.1)
+  doorkeeper-jwt (= 0.3.0)
   erb2haml
   factory_bot_rails
   faker
+  fast_jsonapi
   font-awesome-rails
   font-awesome-sass
   haml

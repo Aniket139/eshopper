@@ -3,17 +3,18 @@
     .breadcrumbs
       %ol.breadcrumb
         %li
-          = link_to 'Home', root_path
-        %li.active Shopping Cart
+          = link_to root_path do
+            = t('carts.index.home')
+        %li.active= t('carts.index.title')
     .table-responsive.cart_info
       %table.table.table-condensed
         %thead
           %tr.cart_menu
-            %td.image Item
-            %td.description Description
-            %td.price Price
-            %td.quantity Quantity
-            %td.total Total
+            %td.image= t('carts.index.td-item')
+            %td.description= t('carts.index.td-description')
+            %td.price= t('carts.index.td-price')
+            %td.quantity= t('carts.index.td-quantity')
+            %td.total= t('carts.index.td-total')
             %td.delete
         %tbody
           -@carts.each do |item|
@@ -25,7 +26,7 @@
                 %h6
                   %a(href="")=item.product.name
               %td.cart_price
-                %p= "₹#{item.product.price}"
+                %p= t('carts.index.price', price: item.product.price)
               %td.cart_quantity
                 .cart_quantity_button
                   %a.cart_quantity_up{"data-cart-id" => "#{item.id}"}+
@@ -43,18 +44,18 @@
             .total_area
               %ul
                 %li
-                  Cart Sub Total
+                  = t('carts.index.cart-sub-total')
                   %span= "₹#{@total_cart_price}"
                 %li
-                  Eco Tax
+                  = t('carts.index.tax')
                   %span= "₹#{@eco_tax}"
                 %li
-                  Shipping Cost
+                  = t('carts.index.shipping-cost')
                   %span= @shipping_cost
                 %li
-                  Total
+                  = t('carts.index.total')
                   %span="₹#{@total_price}"
-              %a.btn.btn-default.check_out{href: "orders/check_out"} Check Out         
+              %a.btn.btn-default.check_out{href: "orders/check_out"}= t('carts.index.check-out')      
 - content_for :js_code do
   :javascript
     $(document).ready(function() {
