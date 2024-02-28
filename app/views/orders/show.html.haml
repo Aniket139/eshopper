@@ -47,11 +47,12 @@
           %span.order-info= "#{t('orders.show.order-total')} : #{t('orders.defaults.currency')}#{@order.total}"
         .track
           - Order.statuses.each do |key, value|
-            .step{class: Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
-              %span.icon
-                - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
-                  %i.fa.fa-check
-              %span.text= value
+            - unless key == 'cancelled'
+              .step{class: Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status) ? 'active' : '' }
+                %span.icon
+                  - if Order.statuses.keys.index(key) <= Order.statuses.keys.index(@order.status)
+                    %i.fa.fa-check
+                %span.text= value
         %br
         %br      
         = link_to orders_path, class: "btn btn-warning" do

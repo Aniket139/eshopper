@@ -24,6 +24,7 @@
       %p 
       %b= t('orders.index.date-time')
       = order.created_at.strftime("%d-%m-%Y (%I:%M %p)")
-
+  %br
+  %br
 - content_for :css_file do
   = stylesheet_link_tag 'order/order', 'data-turbolinks-track': 'reload'

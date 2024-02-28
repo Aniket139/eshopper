@@ -4,30 +4,36 @@
     %h2= t('product.sidebar.category')
     #accordian.panel-group.category-products
       .panel.panel-default
-        %ul.nav.nav-pills.nav-stacked
-          -# = link_to 'All', 
+        %ul.nav.nav-pills.nav-stacked 
+          %li
+            %li
+              = link_to 'All'
           - @categories.each do |category|
             .panel-heading
               .panel-title 
-                %li
-                  %input.form-check-input.category-filter{name: "category_id[]", type: "checkbox", "data-filter": ".#{category.id}", value: category.id, "data-url": "/products?category=#{category.id}", "data-turbolinks": "false"}
-                  %label{for: ""}= category.name.titleize
+                - if category.active
+                  %li
+                    %input.form-check-input.category-filter{name: "category_id[]", type: "checkbox", "data-filter": ".#{category.id}", value: category.id, "data-url": "/products?category=#{category.id}", "data-turbolinks": "false",  class: category.active ? "active-filter" : ""}
+                    %label{for: ""}= category.name.titleize
     // brands_products
     %h2= t('product.sidebar.brands')
     .brands-name
       %ul.nav.nav-pills.nav-stacked
+        %li 
+          = link_to 'All'
         - @brands.each do |brand|
           - if brand.active
-            %li.brand-filter{data: {"brand-id": brand.id}, class: brand.active ? "active-filter" : ""}
-              = brand.name
+            %li
+              %input.form-check-input.brand-filter{name: "brand_id[]", type: "checkbox", "data-filter": ".#{brand.id}", value: brand.id, "data-url": "/products?brand=#{brand.id}", "data-turbolinks": "false",  class: brand.active ? "active-filter" : ""}
+                = brand.name
     / price-range
     .price-range
       %h2= t('product.sidebar.price-range')
       .well.text-center
-        %input#sl2.span2(data-slider-max="5000" data-slider-min="500" data-slider-step="5" data-slider-value="[1500,3500]" type="text" value="")
+        %input#sl2.span2(data-slider-max="#{Product.maximum(:price)}" data-slider-min="#{Product.minimum(:price)}" data-slider-step="4" data-slider-value="[800,1000]" type="text" value="")
         %br
-        %b.pull-left ₹ 500
-        %b.pull-right ₹ 5000
+        %b.pull-left="₹ #{Product.minimum(:price)}"
+        %b.pull-right="₹ #{Product.maximum(:price)}"
       / /price-range
     / /shipping
     .shipping.text-center

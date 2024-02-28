@@ -43,19 +43,10 @@
           .btn-group.pull-right
             .btn-group
               %select#language_select
-                %option{value: nil} language
-                %option{value: "en"} English
-                %option{value: "gu"} Gujarati
-                %option{value: "nr"} Norway
-            .btn-group
-              %button.btn.btn-default.dropdown-toggle.usa{"data-toggle" => "dropdown", type: "button"}
-                DOLLAR
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{href: "#"} Canadian Dollar
-                %li
-                  %a{href: "#"} Pound
+                %option{value: "en"} language
+                %option{value: "en", data_language: "English"} English
+                %option{value: "gu", data_language: "Gujarati"} Gujarati
+                %option{value: "nr", data_language: "Norwegian"} Norwegian
         .col-sm-8
           .shop-menu.pull-right
             %ul.nav.navbar-nav
@@ -111,25 +102,22 @@
         .col-sm-3
           #search-product.search_box.pull-right
             = text_field_tag :name, params[:name], placeholder: "Search", type: "text", id: "search-input"
--# - content_for :js_code do
--#   :javascript
--#     $(document).on("change", "#search-input", function() {
--#       var searchProduct = $(this).val();
--#       .log("hello");
-
--#       $.aconsolejax({
--#         type: 'GET',
--#         url: "/products.js",
--#         data: { name: searchProduct },
--#         success: function(response) {
--#         }
--#       });
--#     });
 - content_for :js_code do
   :javascript
+    $(document).on("change", "#search-input", function() {
+      var searchProduct = $(this).val();
+
+      $.ajax({
+        type: 'GET',
+        url: "/products.js",
+        data: { name: searchProduct },
+        success: function(response) {
+        }
+      });
+    });
+    
     $(document).on("change", "#language_select", function() {
       var language = $(this).val();
-      console.log(language);
 
       $.ajax({
         url: '/update_language',
