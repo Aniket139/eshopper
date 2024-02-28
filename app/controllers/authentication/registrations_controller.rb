@@ -3,8 +3,6 @@
 module Authentication
   # :nodoc
   class RegistrationsController < Devise::RegistrationsController
-    def index; end
-
     def create
       @customer = Customer.create(sign_up_params)
       if @customer.persisted?

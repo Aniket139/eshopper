@@ -13,6 +13,10 @@ class Customer < ApplicationRecord
   belongs_to :business
   has_many :carts, dependent: :destroy
   has_many :orders, dependent: :destroy
+  
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, presence: true, confirmation: true
+  validates :conform_password, presence: true
 
   def create_refresh_cache_job
     CustomerRefreshCacheJob.perform_now(id)

@@ -153,6 +153,12 @@ GEM
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.6)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.4)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -163,6 +169,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.1)
+    docile (1.4.0)
     doorkeeper (5.6.8)
       railties (>= 5)
     drb (2.2.0)
@@ -174,6 +182,13 @@ GEM
     et-orbi (1.2.7)
       tzinfo
     execjs (2.9.1)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
+    faker (3.2.3)
+      i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
@@ -319,6 +334,10 @@ GEM
       activesupport (= 7.1.2)
       bundler (>= 1.15.0)
       railties (= 7.1.2)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -369,6 +388,23 @@ GEM
       nokogiri
       roo (>= 2.0.0, < 3)
       spreadsheet (> 0.9.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.13.0)
     rubocop (1.58.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -429,6 +465,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     sidekiq (6.5.12)
       connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
@@ -437,6 +475,12 @@ GEM
       fugit (~> 1.8)
       globalid (>= 1.0.1)
       sidekiq (>= 6)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sinatra (3.1.0)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -516,10 +560,13 @@ DEPENDENCIES
   capybara
   cocoon
   country_select (~> 4.0)
+  database_cleaner
   debug
   devise
   doorkeeper
   erb2haml
+  factory_bot_rails
+  faker
   font-awesome-rails
   font-awesome-sass
   haml
@@ -534,19 +581,23 @@ DEPENDENCIES
   pagy
   puma (~> 5.0)
   rails (~> 7.1.2)
+  rails-controller-testing
   redis
   resque
   resque-scheduler
   roo (~> 2.8.0)
   roo-xls
+  rspec-rails
   rubocop
   rubocop-performance
   rubocop-rails
   rubocop-rails_config
   sass-rails (>= 6)
   selenium-webdriver
+  shoulda-matchers (~> 4.0)
   sidekiq (~> 6.5.9)
   sidekiq-cron
+  simplecov
   sshkit-sudo
   trix-rails
   turbolinks (~> 5.2.0)

@@ -29,7 +29,7 @@
               %span
               %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'City'}
             = f.select :city_id, options_for_select(city, @city&.name), { required: true }, class: 'form-control', style: 'width:40%'
-            = f.hidden_field :business_id, value: "#{@business.id}"
+            = f.hidden_field :business_id, value: "#{Business.first.id}"
             = f.button "Signup", type: "submit"
           = render "devise/shared/links"
 - content_for :js_file do

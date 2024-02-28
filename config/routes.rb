@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :carts
-  resources :customer
+  resources :customers
   resources :products, only: %i[index show]
   get '/orders/check_out', to: 'orders#check_out', as: 'checkout'
   resources :orders do
