@@ -43,10 +43,9 @@
           .btn-group.pull-right
             .btn-group
               %select#language_select
-                %option{value: "en"} language
-                %option{value: "en", data_language: "English"} English
-                %option{value: "gu", data_language: "Gujarati"} Gujarati
-                %option{value: "nr", data_language: "Norwegian"} Norwegian
+                %option{value: "en", selected: @business.language == 'en', data_language: "English"} English
+                %option{value: "gu", data_language: "Gujarati", selected: @business.language == 'gu'} Gujarati
+                %option{value: "nr", data_language: "Norwegian", selected: @business.language == 'nr'} Norwegian
         .col-sm-8
           .shop-menu.pull-right
             %ul.nav.navbar-nav

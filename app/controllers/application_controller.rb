@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_business
-    # reset_session
+    reset_session
     @business = Business.first if session[:business_address].blank?
     if @business.present?
       session[:business_address] = @business.address
