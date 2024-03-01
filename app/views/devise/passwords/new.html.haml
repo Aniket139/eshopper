@@ -1,0 +1,18 @@
+.container
+  .row
+    .forgot-password
+      .formwrap
+        %h2= t('devise.password.new.title')
+        %p Enter your email and we'll send your a link to reset your password
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"
+          .error-message
+            = render "devise/shared/error_messages", resource: resource
+          .actions
+            = f.button t('devise.password.new.action'), type: "submit"
+          %span 
+            back to   
+            = render "devise/shared/links"
+
+- content_for :css_file do
+  = stylesheet_link_tag 'devise/login', 'data-turbolinks-track': 'reload'

@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
-  create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -25,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -36,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -48,13 +51,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_variant_records", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -66,7 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "brands", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "brands", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.bigint "business_id", null: false
@@ -76,7 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["business_id"], name: "index_brands_on_business_id"
   end
 
-  create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "businesses", force: :cascade do |t|
     t.string "name", limit: 20
     t.bigint "city_id", null: false
     t.bigint "state_id", null: false
@@ -94,7 +97,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["state_id"], name: "index_businesses_on_state_id"
   end
 
-  create_table "carts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "carts", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "product_id", null: false
     t.integer "quantity", default: 1
@@ -104,9 +107,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["product_id"], name: "index_carts_on_product_id"
   end
 
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name", limit: 20
-    t.text "description", size: :tiny
+    t.text "description"
     t.bigint "business_id", null: false
     t.boolean "active", default: true
     t.datetime "created_at", null: false
@@ -114,7 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["business_id"], name: "index_categories_on_business_id"
   end
 
-  create_table "cities", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.string "name", limit: 20
     t.boolean "active", default: true
@@ -123,20 +126,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
-  create_table "countries", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "countries", force: :cascade do |t|
     t.string "name", limit: 20
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "customers", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.string "first_name", limit: 50
     t.string "middle_name", limit: 50
     t.string "last_name", limit: 50
     t.string "email", limit: 50
     t.string "mobile", limit: 25
-    t.text "street", size: :tiny
+    t.text "street"
     t.string "landmark", limit: 50
     t.integer "pincode"
     t.bigint "city_id", null: false
@@ -164,7 +167,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["state_id"], name: "index_customers_on_state_id"
   end
 
-  create_table "holidays", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "holidays", force: :cascade do |t|
     t.date "date"
     t.string "name"
     t.boolean "active", default: true
@@ -172,7 +175,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "oauth_access_grants", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "oauth_access_grants", force: :cascade do |t|
     t.bigint "resource_owner_id", null: false
     t.bigint "application_id", null: false
     t.string "token", null: false
@@ -186,7 +189,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
-  create_table "oauth_access_tokens", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "oauth_access_tokens", force: :cascade do |t|
     t.bigint "resource_owner_id"
     t.bigint "application_id", null: false
     t.string "token", null: false
@@ -202,7 +205,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true
   end
 
-  create_table "oauth_applications", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "oauth_applications", force: :cascade do |t|
     t.string "name", null: false
     t.string "uid", null: false
     t.string "secret", null: false
@@ -214,7 +217,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
-  create_table "order_products", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "order_products", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "product_id", null: false
     t.bigint "order_id", null: false
@@ -230,9 +233,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
-  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
     t.bigint "customer_id", null: false
-    t.text "street", size: :tiny
+    t.text "street"
     t.integer "pincode"
     t.string "landmark"
     t.bigint "city_id", null: false
@@ -247,17 +250,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.string "cancel_reason"
     t.string "delivery_notes"
     t.string "payment_details"
-    t.decimal "sub_total", precision: 10
+    t.decimal "sub_total"
     t.string "discount_type"
-    t.decimal "discount_value", precision: 10
-    t.decimal "total", precision: 10
+    t.decimal "discount_value"
+    t.decimal "total"
     t.index ["city_id"], name: "index_orders_on_city_id"
     t.index ["country_id"], name: "index_orders_on_country_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["state_id"], name: "index_orders_on_state_id"
   end
 
-  create_table "products", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "mrp"
@@ -277,7 +280,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "states", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "states", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.string "name", limit: 20
     t.boolean "active", default: true
@@ -286,6 +289,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_133349) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "brands", "businesses"
   add_foreign_key "businesses", "cities"
