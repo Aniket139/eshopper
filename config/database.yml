@@ -13,6 +13,14 @@ default: &default
   password: root
   host: localhost
 
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   host: localhost
+#   username: root
+#   password: root 
+
 development:
   <<: *default
   database: eshopper-dev
@@ -27,3 +35,5 @@ test:
 production:
   <<: *default
   database: eshopper-prod
+
+

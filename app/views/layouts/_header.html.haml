@@ -10,11 +10,11 @@
               %li
                 %a{href: "#"}
                   %i.fa.fa-phone
-                  +2 95 01 88 821
+                  = Business.first.mobile
               %li
                 %a{href: "#"}
                   %i.fa.fa-envelope
-                  info@domain.com
+                  = Business.first.email
         .col-sm-6
           .social-icons.pull-right
             %ul.nav.navbar-nav
@@ -36,7 +36,7 @@
   .header-dome  
     .container
       .row
-        .col-sm-4
+        .col-sm-4.header-werap
           .logo.pull-left
             %a{href: "index.html"}
               = image_tag "home/logo"

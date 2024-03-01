@@ -1,0 +1,16 @@
+.container
+  .row
+    .forgot-password.form-confirmation
+      .formwrap
+        %h2= t('devise.comfirmations.new.title')
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email"
+          .error-message
+            = render "devise/shared/error_messages", resource: resource
+          .actions
+            = f.button t('devise.comfirmations.new.action'),type: "submit"
+          %span 
+            back to
+            = render "devise/shared/links"
+- content_for :css_file do
+  = stylesheet_link_tag 'devise/login', 'data-turbolinks-track': 'reload'

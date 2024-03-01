@@ -11,26 +11,27 @@
             = f.password_field :password, autocomplete: "new-password", placeholder: t('devise.registrations.new.placeholder-password')
             -# = error_messages_for(f.object, :password)
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t('devise.registrations.new.placeholder-confirm')
-
-            = f.label :country_id, class: 'col-form-label required' do
-              = t('devise.registrations.new.country')
-              %span
-              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'Country'}
-            = f.select :country_id, options_for_select(country_name, @country&.name), { required: true }, class: 'form-control', style: 'width:40%'
-
-            = f.label :state_id, class: 'col-form-label required' do
-              = t('devise.registrations.new.state')
-              %span
-              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'State'}
-            = f.select :state_id, options_for_select(state, @state&.name), { required: true }, class: 'form-control', style: 'width:40%'
-
-            = f.label :city_id, class: 'col-form-label required' do
-              = t('devise.registrations.new.city')
-              %span
-              %i.fa.fa-question-circle-o{'data-toggle': 'tooltip', title: 'City'}
-            = f.select :city_id, options_for_select(city, @city&.name), { required: true }, class: 'form-control', style: 'width:40%'
-            = f.hidden_field :business_id, value: "#{Business.first.id}"
+            .main-drop
+              .drop-down
+                = f.label :country_id, class: 'col-form-label required' do
+                  = t('devise.registrations.new.country')   
+                = f.select :country_id, options_for_select(country_name, @country&.name), { required: true }, class: 'form-control', style: 'width:40%'
+              .drop-down
+                = f.label :state_id, class: 'col-form-label required' do
+                  = t('devise.registrations.new.state')
+                  %span
+                = f.select :state_id, options_for_select(state, @state&.name), { required: true }, class: 'form-control', style: 'width:40%'
+              .drop-down
+                = f.label :city_id, class: 'col-form-label required' do
+                  = t('devise.registrations.new.city')
+                  %span
+                = f.select :city_id, options_for_select(city, @city&.name), { required: true }, class: 'form-control', style: 'width:40%'
+                = f.hidden_field :business_id, value: "#{Business.first.id}"
             = f.button t('devise.registrations.new.btn-signup'), type: "submit"
-          = render "devise/shared/links"
+            %span
+              Already have an account?
+              = render "devise/shared/links"
 - content_for :js_file do
   = javascript_include_tag 'sign_up/dropdown', 'data-turbolinks-track': 'reload'
+- content_for :css_file do
+  = stylesheet_link_tag 'devise/login', 'data-turbolinks-track': 'reload'

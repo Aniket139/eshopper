@@ -279,9 +279,9 @@ en:
         confirm: "Confirm new password"
         action: "Change my password"
       new:
-        title: "Forgot your password?"
+        title: "Forgot password"
         email: "Email"
-        action: "Send me reset password instructions"
+        action: "Send Rest Password"
     registrations:
       edit:
         title: "Edit"
@@ -307,8 +307,8 @@ en:
         btn-signup: "Signup"
     shared:
       link:
-        log-in: "Log in"
-        sign-up: "Sign up"
+        log-in: "Login"
+        sign-up: "Signup"
         forgot: "Forgot your password?"
         confirmations: "Didn't receive confirmation instructions?"
         lockable: "Didn't receive unlock instructions?"

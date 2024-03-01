@@ -21,6 +21,8 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'mysql2'
+gem 'pg'
+
 gem 'pagy'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
