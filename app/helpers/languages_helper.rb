@@ -3,6 +3,6 @@
 # :nodoc
 module LanguagesHelper
   def language_name
-    Language.pluck(:name, value)
+    Language.pluck(:name, :value)
   end
 end
