@@ -10,11 +10,11 @@
               %li
                 %a{href: "#"}
                   %i.fa.fa-phone
-                  = Business.first.mobile
+                  -# = Business.first.mobile
               %li
                 %a{href: "#"}
                   %i.fa.fa-envelope
-                  = Business.first.email
+                  -# = Business.first.email
         .col-sm-6
           .social-icons.pull-right
             %ul.nav.navbar-nav
@@ -42,7 +42,7 @@
               = image_tag "home/logo"
           .btn-group.pull-right
             .btn-group
-              -# = select_tag 'language', options_for_select(language_name, selected: @business.language), id: "language_select"
+              = select_tag 'language', options_for_select(languages_name, selected: Business.first.language), id: "language_select"
               -# %select#language_select
               -#   %option{value: "en", selected: @business.language == 'en', data_language: "English"} English
               -#   %option{value: "gu", data_language: "Gujarati", selected: @business.language == 'gu'} Gujarati

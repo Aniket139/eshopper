@@ -2,7 +2,7 @@
 
 # :nodoc
 module LanguagesHelper
-  def language_name
+  def languages_name
     Language.pluck(:name, :value)
   end
 end
