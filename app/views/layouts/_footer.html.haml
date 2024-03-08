@@ -52,7 +52,7 @@
             -#   = image_tag 'home/map.png' 
             -#   %p= Rails.cache.fetch('business_address') 
             = image_tag "home/map.png"
-            -# %p= Business.first.redis_cache["business_address"]
+            %p= Business.first.redis_cache["business_address"]
   .footer-widget
     .container
       .row
