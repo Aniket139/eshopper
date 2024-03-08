@@ -2,6 +2,7 @@
 
 # :nodoc
 class Business < ApplicationRecord
+  include BusinessCache
   belongs_to :city
   belongs_to :state
   belongs_to :country
