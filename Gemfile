@@ -21,6 +21,8 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'mysql2'
+
+#postgreSql
 gem 'pg'
 
 gem 'pagy'
