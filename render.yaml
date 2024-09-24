@@ -1,0 +1,14 @@
+# Exported from Render on 2024-09-24T16:08:43Z
+services:
+- type: web
+  name: eshopper
+  runtime: static
+  repo: https://github.com/Aniket139/eshopper
+  envVars:
+  - key: RAILS_MASTER_KEY
+    sync: false
+  - key: WEB_CONCURRENCY
+    sync: false
+  buildCommand: bundle install && rake assets:precompile
+  staticPublishPath: public
+version: "1"
